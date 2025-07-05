@@ -30,19 +30,19 @@ export function FeaturedCarousel() {
   const slides: CarouselSlide[] = [
     {
       id: 1,
-      image: "/placeholder.svg?height=600&width=1200",
+      image: "/images/b1.jpg",
       link: "/menu",
       alt: "New Tandoori Momos - Featured Menu Item",
     },
     {
       id: 2,
-      image: "/placeholder.svg?height=600&width=1200",
+      image: "/images/b2.jpg",
       link: "/order-online",
       alt: "Bubble Tea Festival - Special Offer",
     },
     {
       id: 3,
-      image: "/placeholder.svg?height=600&width=1200",
+      image: "/images/b3.jpg",
       link: "/franchise",
       alt: "Franchise Opportunity - Join Momo Kato",
     },
