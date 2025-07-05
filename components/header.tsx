@@ -1,55 +1,80 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-16 items-center justify-between px-4 py-10 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="relative">
-            <div className="font-baloo text-3xl font-extrabold text-orange-600">Momo Kato</div>
-            <div className="absolute -top-1 -right-1 bg-teal-400 text-white text-xs px-1 rounded-full transform rotate-12">
-              QSR
-            </div>
-          </div>
+          <img
+            src="/images/header.svg"
+            alt="Logo"
+            className="w-full h-10 max-w-[120px] md:max-w-[160px] lg:max-w-[180px]"
+          />
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
-          <Link href="/" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Home
           </Link>
-          <Link href="/menu" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/menu"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Menu
           </Link>
-          <Link href="/franchise" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/franchise"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Franchise
           </Link>
-          <Link href="/find-us" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/find-us"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Find Us
           </Link>
-          <Link href="/about" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/about"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             About
           </Link>
-          <Link href="/contact" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/contact"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Contact
           </Link>
-          <Link href="/order-online" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/order-online"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Order Online
           </Link>
-          <Link href="/work-with-us" className="font-medium text-lg text-black hover:text-orange-600 transition-colors">
+          <Link
+            href="/work-with-us"
+            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+          >
             Work With Us
           </Link>
         </nav>
         <div className="hidden md:flex">
           <Link href="/order-online">
-            <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full">Order Now</Button>
+            <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full">
+              Order Now
+            </Button>
           </Link>
         </div>
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -129,5 +154,5 @@ export function Header() {
         </Sheet>
       </div>
     </header>
-  )
+  );
 }

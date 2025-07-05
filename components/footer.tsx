@@ -18,7 +18,13 @@ export function Footer() {
       <div className="relative z-10 container px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="font-baloo text-3xl font-extrabold text-orange-600">Momo Kato</div>
+            <div className="font-baloo text-3xl font-extrabold text-orange-600">
+              <img
+                src="/images/footer.svg"
+                alt="Logo"
+                className="w-full max-w-[120px] md:max-w-[160px] lg:max-w-[180px]"
+              />
+            </div>
             <p className="text-gray-400">
               Born in Patna, Loved Everywhere. Quality momos and bubble tea served with a smile!
             </p>

@@ -19,12 +19,12 @@ export function HeroSection() {
           >
             <MotionDiv
               variants={slideInLeft}
-              className="bubble-speech max-w-[150px] md:max-w-[200px] transform -rotate-3"
+              className="max-w-[150px] md:max-w-[200px] transform -rotate-3"
             >
               <img
-                src="/placeholder.svg?height=80&width=150"
+                src="/images/uis/sec2.svg?height=180&width=250"
                 alt="Momos for every mood sticker"
-                className="w-full h-auto max-w-[120px] md:max-w-[160px] lg:max-w-[180px]"
+                className="w-full h-auto max-w-[220px] md:max-w-[260px] lg:max-w-[280px]"
               />
             </MotionDiv>
 
