@@ -82,7 +82,7 @@ export function HeroSection() {
                 <img
                   alt="Momo in bamboo steamer"
                   className="mx-auto object-cover w-full max-w-[400px] md:max-w-[500px]"
-                  src="/placeholder.svg?height=600&width=500"
+                  src="/images/22.jpg"
                   width={500}
                   height={600}
                 />
