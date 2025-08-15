@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Tag, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Tag, X } from "lucide-react";
 
 export function OfferStrip() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     // Auto-scroll effect
     const interval = setInterval(() => {
-      const element = document.getElementById("offer-text")
+      const element = document.getElementById("offer-text");
       if (element) {
-        element.classList.add("animate-scroll")
+        element.classList.add("animate-scroll");
         setTimeout(() => {
-          element.classList.remove("animate-scroll")
-        }, 500)
+          element.classList.remove("animate-scroll");
+        }, 500);
       }
-    }, 3000)
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
-  if (!isVisible) return null
+  if (!isVisible) return null;
 
   return (
     <div className="w-full bg-yellow-400 py-3 relative">
@@ -41,5 +41,5 @@ export function OfferStrip() {
         </button>
       </div>
     </div>
-  )
+  );
 }

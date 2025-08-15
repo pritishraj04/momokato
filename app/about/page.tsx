@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
   return (
@@ -8,34 +8,45 @@ export default function AboutPage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Our Story</div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">BORN IN PATNA, LOVED EVERYWHERE</h1>
+            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
+              Our Story
+            </div>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              BORN IN PATNA, LOVED EVERYWHERE
+            </h1>
             <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
-              The journey of Momo Kato from a small food stall to a growing QSR brand.
+              The journey of Momo Kato from a small food stall to a growing QSR
+              brand.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 bg-white">
+      <section className="w-full py-12 md:py-24 bg-white overflow-hidden">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold tracking-tighter mb-6">Our Beginning</h2>
+              <h2 className="text-3xl font-bold tracking-tighter mb-6">
+                Our Beginning
+              </h2>
               <div className="space-y-4 text-gray-500">
                 <p>
-                  Momo Kato started as a small food stall in Patna in 2022, founded by two college friends with a
-                  passion for authentic momos and bubble tea. What began as a weekend hobby quickly turned into a local
-                  sensation.
+                  Momo Kato started as a small food stall in Patna in 2022,
+                  founded by two college friends with a passion for authentic
+                  momos and bubble tea. What began as a weekend hobby quickly
+                  turned into a local sensation.
                 </p>
                 <p>
-                  Our founders, Rahul and Priya, spent months perfecting their recipes, sourcing the freshest
-                  ingredients, and creating a unique dining experience that would set Momo Kato apart from other food
-                  outlets.
+                  Our founders, Rahul and Priya, spent months perfecting their
+                  recipes, sourcing the freshest ingredients, and creating a
+                  unique dining experience that would set Momo Kato apart from
+                  other food outlets.
                 </p>
                 <p>
-                  The name "Kato" comes from the Japanese word for "home," reflecting our commitment to creating a warm,
-                  welcoming atmosphere where customers can enjoy delicious food made with love and care.
+                  The name "Kato" comes from the Japanese word for "home,"
+                  reflecting our commitment to creating a warm, welcoming
+                  atmosphere where customers can enjoy delicious food made with
+                  love and care.
                 </p>
               </div>
             </div>
@@ -63,10 +74,12 @@ export default function AboutPage() {
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Our Mission
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">QUALITY, SPEED, FLAVOR</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              QUALITY, SPEED, FLAVOR
+            </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              We're committed to serving the freshest, most delicious momos and bubble tea with quick service and a
-              smile.
+              We're committed to serving the freshest, most delicious momos and
+              bubble tea with quick service and a smile.
             </p>
           </div>
 
@@ -77,7 +90,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">Quality</h3>
               <p className="text-gray-500 mt-2">
-                We use only the freshest ingredients and prepare our food daily to ensure the highest quality.
+                We use only the freshest ingredients and prepare our food daily
+                to ensure the highest quality.
               </p>
             </div>
 
@@ -87,7 +101,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">Speed</h3>
               <p className="text-gray-500 mt-2">
-                Quick service without compromising on quality - that's our promise to our customers.
+                Quick service without compromising on quality - that's our
+                promise to our customers.
               </p>
             </div>
 
@@ -97,7 +112,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">Flavor</h3>
               <p className="text-gray-500 mt-2">
-                Our unique recipes and special sauces create a flavor experience that keeps customers coming back.
+                Our unique recipes and special sauces create a flavor experience
+                that keeps customers coming back.
               </p>
             </div>
           </div>
@@ -110,9 +126,12 @@ export default function AboutPage() {
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Our Growth
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">3-MONTH GROWTH HIGHLIGHT</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              3-MONTH GROWTH HIGHLIGHT
+            </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              From a single stall to multiple locations in just three months - our journey has been incredible!
+              From a single stall to multiple locations in just three months -
+              our journey has been incredible!
             </p>
           </div>
 
@@ -166,21 +185,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
+      <section className="w-full py-12 md:py-24 bg-orange-600 text-white overflow-hidden">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
                 Join Our Journey
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">BE PART OF OUR STORY</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                BE PART OF OUR STORY
+              </h2>
               <p className="max-w-[600px] text-white/90 md:text-xl/relaxed">
-                Whether as a customer, team member, or franchise partner - we invite you to be part of the Momo Kato
-                family.
+                Whether as a customer, team member, or franchise partner - we
+                invite you to be part of the Momo Kato family.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg">
-                  Join as Franchise Partner <ArrowRight className="ml-2 h-5 w-5" />
+                  Join as Franchise Partner{" "}
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
                   variant="outline"
@@ -200,7 +222,9 @@ export default function AboutPage() {
                   height={400}
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg">
-                  <div className="text-orange-600 font-bold text-xl">Join Us!</div>
+                  <div className="text-orange-600 font-bold text-xl">
+                    Join Us!
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,29 +232,38 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
 interface TimelineItemProps {
-  month: string
-  title: string
-  description: string
-  position: "left" | "right"
+  month: string;
+  title: string;
+  description: string;
+  position: "left" | "right";
 }
 
-function TimelineItem({ month, title, description, position }: TimelineItemProps) {
+function TimelineItem({
+  month,
+  title,
+  description,
+  position,
+}: TimelineItemProps) {
   return (
-    <div className={`relative flex items-center ${position === "right" ? "justify-start" : "justify-end"}`}>
+    <div
+      className={`relative flex items-center ${position === "right" ? "justify-start" : "justify-end"}`}
+    >
       <div
         className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-orange-600 border-4 border-orange-100`}
       ></div>
       <div className={`w-5/12 ${position === "right" ? "ml-8" : "mr-8"}`}>
         <div className="bg-white p-6 rounded-xl shadow-md">
-          <div className="text-sm font-medium text-orange-600 mb-2">{month}</div>
+          <div className="text-sm font-medium text-orange-600 mb-2">
+            {month}
+          </div>
           <h3 className="text-xl font-bold">{title}</h3>
           <p className="text-gray-500 mt-2">{description}</p>
         </div>
       </div>
     </div>
-  )
+  );
 }

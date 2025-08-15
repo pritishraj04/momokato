@@ -1,10 +1,10 @@
-import Link from "next/link"
-import { ArrowRight, ExternalLink, Truck, Clock, Award } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, ExternalLink, Truck, Clock, Award } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { DeliveryBanner } from "@/components/delivery-banner"
-import { QrCodeDisplay } from "@/components/qr-code-display"
-import { OfferStrip } from "@/components/offer-strip"
+import { Button } from "@/components/ui/button";
+import { DeliveryBanner } from "@/components/delivery-banner";
+import { QrCodeDisplay } from "@/components/qr-code-display";
+import { OfferStrip } from "@/components/offer-strip";
 
 export default function OrderOnlinePage() {
   return (
@@ -12,15 +12,26 @@ export default function OrderOnlinePage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Order Online</div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">CRAVING MOMOS? ORDER ONLINE IN A CLICK!</h1>
+            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
+              Order Online
+            </div>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              CRAVING MOMOS? ORDER ONLINE IN A CLICK!
+            </h1>
             <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
-              Now available on your favorite delivery apps. Quick delivery, hot momos, chilled bubble tea!
+              Now available on your favorite delivery apps. Quick delivery, hot
+              momos, chilled bubble tea!
             </p>
             <div className="relative mt-4">
               <div className="steam"></div>
-              <div className="steam" style={{ left: "40%", animationDelay: "0.5s" }}></div>
-              <div className="steam" style={{ left: "60%", animationDelay: "1s" }}></div>
+              <div
+                className="steam"
+                style={{ left: "40%", animationDelay: "0.5s" }}
+              ></div>
+              <div
+                className="steam"
+                style={{ left: "60%", animationDelay: "1s" }}
+              ></div>
             </div>
           </div>
         </div>
@@ -62,15 +73,26 @@ export default function OrderOnlinePage() {
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Scan & Order
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">SCAN QR CODE TO ORDER</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              SCAN QR CODE TO ORDER
+            </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              Quickly scan these QR codes to order directly from your favorite delivery apps.
+              Quickly scan these QR codes to order directly from your favorite
+              delivery apps.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <QrCodeDisplay platform="Swiggy" description="Scan to order from Swiggy" logoColor="text-orange-500" />
-            <QrCodeDisplay platform="Zomato" description="Scan to order from Zomato" logoColor="text-red-500" />
+            <QrCodeDisplay
+              platform="Swiggy"
+              description="Scan to order from Swiggy"
+              logoColor="text-orange-500"
+            />
+            <QrCodeDisplay
+              platform="Zomato"
+              description="Scan to order from Zomato"
+              logoColor="text-red-500"
+            />
           </div>
         </div>
       </section>
@@ -81,9 +103,12 @@ export default function OrderOnlinePage() {
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Why Choose Us
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">LOVED BY MOMO LOVERS</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              LOVED BY MOMO LOVERS
+            </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              Join thousands of satisfied customers who enjoy our delicious momos every day.
+              Join thousands of satisfied customers who enjoy our delicious
+              momos every day.
             </p>
           </div>
 
@@ -93,7 +118,9 @@ export default function OrderOnlinePage() {
                 <Award className="h-8 w-8 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold">Loved by 10,000+ customers</h3>
-              <p className="text-gray-500 mt-2">Join our growing family of satisfied momo lovers.</p>
+              <p className="text-gray-500 mt-2">
+                Join our growing family of satisfied momo lovers.
+              </p>
             </div>
 
             <div className="bg-orange-50 p-6 rounded-xl text-center">
@@ -101,7 +128,9 @@ export default function OrderOnlinePage() {
                 <Clock className="h-8 w-8 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold">Delivery in 30 mins</h3>
-              <p className="text-gray-500 mt-2">Quick delivery to satisfy your momo cravings.</p>
+              <p className="text-gray-500 mt-2">
+                Quick delivery to satisfy your momo cravings.
+              </p>
             </div>
 
             <div className="bg-orange-50 p-6 rounded-xl text-center">
@@ -109,7 +138,9 @@ export default function OrderOnlinePage() {
                 <ExternalLink className="h-8 w-8 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold">Only on Swiggy & Zomato</h3>
-              <p className="text-gray-500 mt-2">Order from your favorite delivery platforms.</p>
+              <p className="text-gray-500 mt-2">
+                Order from your favorite delivery platforms.
+              </p>
             </div>
           </div>
         </div>
@@ -119,13 +150,15 @@ export default function OrderOnlinePage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
-              <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Our Menu</div>
+              <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
+                Our Menu
+              </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 EXPLORE OUR DELICIOUS MENU
               </h2>
               <p className="max-w-[600px] text-white/90 md:text-xl/relaxed">
-                From classic steamed momos to crispy fried delights and refreshing bubble teas - we've got something for
-                everyone!
+                From classic steamed momos to crispy fried delights and
+                refreshing bubble teas - we've got something for everyone!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <Link href="/menu">
@@ -145,7 +178,9 @@ export default function OrderOnlinePage() {
                   height={400}
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg animate-float">
-                  <div className="text-orange-600 font-bold text-xl">Starting @ ₹80</div>
+                  <div className="text-orange-600 font-bold text-xl">
+                    Starting @ ₹80
+                  </div>
                   <div className="text-black text-sm">6 pcs</div>
                 </div>
               </div>
@@ -154,5 +189,5 @@ export default function OrderOnlinePage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Upload, Users, MapPin } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Upload, Users, MapPin } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function WorkWithUsPage() {
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // In a real application, you would handle the form submission here
-    setFormSubmitted(true)
-  }
+    setFormSubmitted(true);
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0];
     if (file) {
-      setSelectedFile(file)
+      setSelectedFile(file);
     }
-  }
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#1A1A1A]">
@@ -48,9 +48,11 @@ export default function WorkWithUsPage() {
           {/* Recruitment Caption */}
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-              Momo Kato, which is a growing QSR brand specializing in fresh momos and bubble tea, is always looking for
-              passionate and talented individuals to join our vibrant team. We believe in creating a fun, inclusive
-              workplace where creativity and dedication are celebrated.
+              Momo Kato, which is a growing QSR brand specializing in fresh
+              momos and bubble tea, is always looking for passionate and
+              talented individuals to join our vibrant team. We believe in
+              creating a fun, inclusive workplace where creativity and
+              dedication are celebrated.
             </p>
           </div>
         </div>
@@ -70,10 +72,12 @@ export default function WorkWithUsPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-600 mb-6">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Application Submitted!</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Application Submitted!
+              </h3>
               <p className="text-gray-300 mb-6 max-w-md mx-auto">
-                Thank you for your interest in joining the Momo Kato family. Our HR team will review your application
-                and get back to you soon.
+                Thank you for your interest in joining the Momo Kato family. Our
+                HR team will review your application and get back to you soon.
               </p>
               <Button
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold rounded-lg px-6 py-2 sm:px-8 sm:py-3"
@@ -85,7 +89,10 @@ export default function WorkWithUsPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-white text-xs sm:text-sm font-medium">
+                <Label
+                  htmlFor="name"
+                  className="text-white text-xs sm:text-sm font-medium"
+                >
                   Name *
                 </Label>
                 <Input
@@ -97,7 +104,10 @@ export default function WorkWithUsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="telephone" className="text-white text-xs sm:text-sm font-medium">
+                <Label
+                  htmlFor="telephone"
+                  className="text-white text-xs sm:text-sm font-medium"
+                >
                   Telephone *
                 </Label>
                 <Input
@@ -110,7 +120,10 @@ export default function WorkWithUsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white text-xs sm:text-sm font-medium">
+                <Label
+                  htmlFor="email"
+                  className="text-white text-xs sm:text-sm font-medium"
+                >
                   Email *
                 </Label>
                 <Input
@@ -123,7 +136,10 @@ export default function WorkWithUsPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="cv" className="text-white text-xs sm:text-sm font-medium">
+                <Label
+                  htmlFor="cv"
+                  className="text-white text-xs sm:text-sm font-medium"
+                >
                   Upload CV *
                 </Label>
                 <div className="relative">
@@ -136,8 +152,12 @@ export default function WorkWithUsPage() {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   />
                   <div className="w-full bg-transparent border-2 border-gray-600 text-white rounded-lg py-2 px-3 sm:py-3 sm:px-4 flex items-center justify-between hover:border-orange-600 transition-colors">
-                    <span className={selectedFile ? "text-white" : "text-gray-400"}>
-                      {selectedFile ? selectedFile.name : "Choose file (PDF, DOC, DOCX)"}
+                    <span
+                      className={selectedFile ? "text-white" : "text-gray-400"}
+                    >
+                      {selectedFile
+                        ? selectedFile.name
+                        : "Choose file (PDF, DOC, DOCX)"}
                     </span>
                     <Upload className="h-5 w-5 text-gray-400" />
                   </div>
@@ -147,7 +167,7 @@ export default function WorkWithUsPage() {
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold rounded-lg px-6 py-2 sm:px-8 sm:py-3 mx-auto block transition-all duration-300"
+                  className="w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold rounded-lg px-6 py-2 sm:px-8 sm:py-3 mx-auto block transition-all duration-300 leading-none"
                 >
                   APPLY NOW
                 </Button>
@@ -156,11 +176,17 @@ export default function WorkWithUsPage() {
               <div className="text-center pt-2">
                 <p className="text-gray-400 text-[10px] sm:text-xs">
                   By clicking submit, you agree to our{" "}
-                  <Link href="/privacy" className="text-orange-600 hover:text-orange-500 underline">
+                  <Link
+                    href="/privacy"
+                    className="text-orange-600 hover:text-orange-500 underline"
+                  >
                     Privacy Policy
                   </Link>{" "}
                   and{" "}
-                  <Link href="/terms" className="text-orange-600 hover:text-orange-500 underline">
+                  <Link
+                    href="/terms"
+                    className="text-orange-600 hover:text-orange-500 underline"
+                  >
                     Terms of Use
                   </Link>
                   .
@@ -180,10 +206,13 @@ export default function WorkWithUsPage() {
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Franchise With Us</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                Franchise With Us
+              </h3>
               <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
-                Start your Momo Kato journey as a franchise partner. Join our growing family and build a successful
-                business with our proven model.
+                Start your Momo Kato journey as a franchise partner. Join our
+                growing family and build a successful business with our proven
+                model.
               </p>
               <Link href="/franchise">
                 <Button className="bg-transparent border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-lg px-4 py-1.5 sm:px-6 sm:py-2 text-sm sm:text-base transition-all duration-300">
@@ -197,10 +226,12 @@ export default function WorkWithUsPage() {
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Find Us</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                Find Us
+              </h3>
               <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
-                Discover our outlets across Bihar and beyond. Visit us to experience the authentic taste of fresh momos
-                and bubble tea.
+                Discover our outlets across Bihar and beyond. Visit us to
+                experience the authentic taste of fresh momos and bubble tea.
               </p>
               <Link href="/find-us">
                 <Button className="bg-transparent border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white font-bold rounded-lg px-4 py-1.5 sm:px-6 sm:py-2 text-sm sm:text-base transition-all duration-300">
@@ -212,5 +243,5 @@ export default function WorkWithUsPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

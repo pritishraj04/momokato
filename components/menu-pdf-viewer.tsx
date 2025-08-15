@@ -1,42 +1,50 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { FileText } from "lucide-react"
+import { Download, Maximize } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { UniversalViewer } from "@/components/universal-viewer"
+import { Button } from "@/components/ui/button";
+import { useMenuViewer } from "@/components/menu-viewer-provider";
 
 export function MenuPdfViewer() {
-  const [isViewerOpen, setIsViewerOpen] = useState(false)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const { openViewer } = useMenuViewer();
 
-  const menuItems = [
-    {
-      type: "pdf" as const,
-      src: "/images/menu-preview.png", // Using image as fallback for PDF
-      title: "Momo Kato Full Menu",
-    },
-  ]
+  const menuImage = "/images/menu-preview.png";
 
-  const openViewer = () => {
-    setIsViewerOpen(true)
-  }
+  const handleViewMenu = () => {
+    openViewer(menuImage);
+  };
 
-  const closeViewer = () => {
-    setIsViewerOpen(false)
-  }
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = menuImage;
+    link.download = "momo-kato-menu.jpg";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    <>
+    <div className="flex items-center gap-6 flex-col md:flex-row">
+      {/* Primary Action Button */}
       <Button
-        ref={buttonRef}
-        onClick={openViewer}
-        className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-6 py-2"
+        onClick={handleViewMenu}
+        className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
-        <FileText className="mr-2 h-5 w-5" /> View Full Menu (PDF)
+        <Maximize className="mr-3 h-7 w-7" />
+        View Full Menu
       </Button>
 
-      <UniversalViewer items={menuItems} isOpen={isViewerOpen} onClose={closeViewer} />
-    </>
-  )
+      {/* Secondary Actions */}
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <Button
+          variant="outline"
+          onClick={handleDownload}
+          className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+        >
+          <Download className="mr-2 h-5 w-5" />
+          Download Menu
+        </Button>
+      </div>
+    </div>
+  );
 }

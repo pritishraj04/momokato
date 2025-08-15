@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { motion, type Variants, useInView } from "framer-motion"
-import { useRef } from "react"
-import { useAnimation } from "@/components/animation-provider"
+import type React from "react";
+import { motion, type Variants, useInView } from "framer-motion";
+import { useRef } from "react";
+import { useAnimation } from "@/components/animation-provider";
 
 // Common animation variants
 export const fadeInUp: Variants = {
@@ -27,7 +27,7 @@ export const fadeInUp: Variants = {
       ease: "easeIn",
     },
   },
-}
+};
 
 export const fadeIn: Variants = {
   initial: {
@@ -47,7 +47,7 @@ export const fadeIn: Variants = {
       ease: "easeIn",
     },
   },
-}
+};
 
 export const slideInLeft: Variants = {
   initial: {
@@ -70,7 +70,7 @@ export const slideInLeft: Variants = {
       ease: "easeIn",
     },
   },
-}
+};
 
 export const slideInRight: Variants = {
   initial: {
@@ -93,7 +93,7 @@ export const slideInRight: Variants = {
       ease: "easeIn",
     },
   },
-}
+};
 
 export const scaleIn: Variants = {
   initial: {
@@ -116,7 +116,7 @@ export const scaleIn: Variants = {
       ease: "easeIn",
     },
   },
-}
+};
 
 export const staggerContainer: Variants = {
   initial: {},
@@ -132,16 +132,16 @@ export const staggerContainer: Variants = {
       staggerDirection: -1,
     },
   },
-}
+};
 
 // Wrapper components with proper scroll-triggered animations
 interface MotionWrapperProps {
-  children: React.ReactNode
-  variants?: Variants
-  className?: string
-  delay?: number
-  duration?: number
-  style?: React.CSSProperties
+  children: React.ReactNode;
+  variants?: Variants;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  style?: React.CSSProperties;
 }
 
 export function MotionDiv({
@@ -152,7 +152,7 @@ export function MotionDiv({
   duration,
   style,
 }: MotionWrapperProps) {
-  const { reducedMotion } = useAnimation()
+  const { reducedMotion } = useAnimation();
 
   // If reduced motion is preferred, render without animation
   if (reducedMotion) {
@@ -160,7 +160,7 @@ export function MotionDiv({
       <div className={`${className} force-visible`} style={style}>
         {children}
       </div>
-    )
+    );
   }
 
   const customVariants = duration
@@ -169,7 +169,7 @@ export function MotionDiv({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             duration,
             delay,
           },
@@ -180,11 +180,11 @@ export function MotionDiv({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             delay,
           },
         },
-      }
+      };
 
   return (
     <motion.div
@@ -201,7 +201,7 @@ export function MotionDiv({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 export function MotionSection({
@@ -212,14 +212,14 @@ export function MotionSection({
   duration,
   style,
 }: MotionWrapperProps) {
-  const { reducedMotion } = useAnimation()
+  const { reducedMotion } = useAnimation();
 
   if (reducedMotion) {
     return (
       <section className={`${className} force-visible`} style={style}>
         {children}
       </section>
-    )
+    );
   }
 
   const customVariants = duration
@@ -228,7 +228,7 @@ export function MotionSection({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             duration,
             delay,
           },
@@ -239,11 +239,11 @@ export function MotionSection({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             delay,
           },
         },
-      }
+      };
 
   return (
     <motion.section
@@ -260,7 +260,7 @@ export function MotionSection({
     >
       {children}
     </motion.section>
-  )
+  );
 }
 
 // Enhanced Intersection Observer based animation trigger
@@ -275,24 +275,24 @@ export function MotionInView({
   triggerOnce = true,
   rootMargin = "0px 0px -50px 0px",
 }: MotionWrapperProps & {
-  threshold?: number
-  triggerOnce?: boolean
-  rootMargin?: string
+  threshold?: number;
+  triggerOnce?: boolean;
+  rootMargin?: string;
 }) {
-  const ref = useRef(null)
-  const { reducedMotion } = useAnimation()
+  const ref = useRef(null);
+  const { reducedMotion } = useAnimation();
   const isInView = useInView(ref, {
-    threshold,
+    amount: threshold,
     once: triggerOnce,
-    margin: rootMargin,
-  })
+    margin: rootMargin as any,
+  });
 
   if (reducedMotion) {
     return (
       <div ref={ref} className={`${className} force-visible`} style={style}>
         {children}
       </div>
-    )
+    );
   }
 
   const customVariants = duration
@@ -301,7 +301,7 @@ export function MotionInView({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             duration,
             delay,
           },
@@ -312,11 +312,11 @@ export function MotionInView({
         animate: {
           ...variants.animate,
           transition: {
-            ...variants.animate?.transition,
+            ...(variants.animate as any)?.transition,
             delay,
           },
         },
-      }
+      };
 
   return (
     <motion.div
@@ -334,7 +334,7 @@ export function MotionInView({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Enhanced stagger container with proper scroll triggering
@@ -347,28 +347,28 @@ export function MotionStagger({
   threshold = 0.1,
   triggerOnce = true,
 }: {
-  children: React.ReactNode
-  className?: string
-  delay?: number
-  staggerDelay?: number
-  style?: React.CSSProperties
-  threshold?: number
-  triggerOnce?: boolean
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  staggerDelay?: number;
+  style?: React.CSSProperties;
+  threshold?: number;
+  triggerOnce?: boolean;
 }) {
-  const ref = useRef(null)
-  const { reducedMotion } = useAnimation()
+  const ref = useRef(null);
+  const { reducedMotion } = useAnimation();
   const isInView = useInView(ref, {
-    threshold,
+    amount: threshold,
     once: triggerOnce,
-    margin: "0px 0px -50px 0px",
-  })
+    margin: "0px 0px -50px 0px" as any,
+  });
 
   if (reducedMotion) {
     return (
       <div ref={ref} className={`${className} force-visible`} style={style}>
         {children}
       </div>
-    )
+    );
   }
 
   const staggerVariants: Variants = {
@@ -379,7 +379,7 @@ export function MotionStagger({
         delayChildren: delay,
       },
     },
-  }
+  };
 
   return (
     <motion.div
@@ -396,7 +396,7 @@ export function MotionStagger({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // New component for scroll-triggered sections
@@ -408,27 +408,27 @@ export function ScrollTriggeredSection({
   threshold = 0.2,
   rootMargin = "0px 0px -100px 0px",
 }: {
-  children: React.ReactNode
-  variants?: Variants
-  className?: string
-  delay?: number
-  threshold?: number
-  rootMargin?: string
+  children: React.ReactNode;
+  variants?: Variants;
+  className?: string;
+  delay?: number;
+  threshold?: number;
+  rootMargin?: string;
 }) {
-  const ref = useRef(null)
-  const { reducedMotion } = useAnimation()
+  const ref = useRef(null);
+  const { reducedMotion } = useAnimation();
   const isInView = useInView(ref, {
-    threshold,
+    amount: threshold,
     once: true,
-    margin: rootMargin,
-  })
+    margin: rootMargin as any,
+  });
 
   if (reducedMotion) {
     return (
       <section ref={ref} className={`${className} force-visible`}>
         {children}
       </section>
-    )
+    );
   }
 
   const customVariants = {
@@ -436,11 +436,11 @@ export function ScrollTriggeredSection({
     animate: {
       ...variants.animate,
       transition: {
-        ...variants.animate?.transition,
+        ...(variants.animate as any)?.transition,
         delay,
       },
     },
-  }
+  };
 
   return (
     <motion.section
@@ -456,22 +456,22 @@ export function ScrollTriggeredSection({
     >
       {children}
     </motion.section>
-  )
+  );
 }
 
 // Hook for custom scroll-triggered animations
 export function useScrollAnimation(threshold = 0.1, triggerOnce = true) {
-  const ref = useRef(null)
-  const { reducedMotion } = useAnimation()
+  const ref = useRef(null);
+  const { reducedMotion } = useAnimation();
   const isInView = useInView(ref, {
-    threshold,
+    amount: threshold,
     once: triggerOnce,
-    margin: "0px 0px -50px 0px",
-  })
+    margin: "0px 0px -50px 0px" as any,
+  });
 
   return {
     ref,
     isInView: reducedMotion ? true : isInView,
     reducedMotion,
-  }
+  };
 }

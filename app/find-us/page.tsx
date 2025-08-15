@@ -1,8 +1,8 @@
-import { MapPin, Phone, Clock } from "lucide-react"
+import { MapPin, Phone, Clock } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function FindUsPage() {
   return (
@@ -10,10 +10,15 @@ export default function FindUsPage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">Our Locations</div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">FIND US NEAR YOU</h1>
+            <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
+              Our Locations
+            </div>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              FIND US NEAR YOU
+            </h1>
             <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
-              Visit one of our locations and experience the Momo Kato difference. We're growing fast!
+              Visit one of our locations and experience the Momo Kato
+              difference. We're growing fast!
             </p>
           </div>
         </div>
@@ -73,10 +78,13 @@ export default function FindUsPage() {
                   hours="11 AM - 11 PM"
                 />
                 <div className="md:col-span-2 bg-orange-50 p-6 rounded-xl border border-orange-100">
-                  <h3 className="text-xl font-bold text-orange-600">Coming Soon!</h3>
+                  <h3 className="text-xl font-bold text-orange-600">
+                    Coming Soon!
+                  </h3>
                   <p className="mt-2">
-                    We're expanding rapidly! New locations opening soon in Boring Road, Kankarbagh, and Rajendra Nagar.
-                    Stay tuned for updates!
+                    We're expanding rapidly! New locations opening soon in
+                    Boring Road, Kankarbagh, and Rajendra Nagar. Stay tuned for
+                    updates!
                   </p>
                 </div>
               </div>
@@ -89,10 +97,12 @@ export default function FindUsPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center max-w-4xl mx-auto">
             <div>
-              <h2 className="text-3xl font-bold tracking-tighter mb-6">Call to Order</h2>
+              <h2 className="text-3xl font-bold tracking-tighter mb-6">
+                Call to Order
+              </h2>
               <p className="text-gray-500 mb-6">
-                Scan the QR code or call us directly to place your order for pickup. We'll have your momos ready when
-                you arrive!
+                Scan the QR code or call us directly to place your order for
+                pickup. We'll have your momos ready when you arrive!
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -105,16 +115,21 @@ export default function FindUsPage() {
                 </div>
               </div>
               <div className="mt-6 flex gap-4">
-                <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.swiggy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full">
                     Order on Swiggy
                   </Button>
                 </a>
-                <a href="https://www.zomato.com" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    className="border-orange-600 text-orange-600 hover:bg-orange-50 font-bold rounded-full"
-                  >
+                <a
+                  href="https://www.zomato.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-full">
                     Order on Zomato
                   </Button>
                 </a>
@@ -136,14 +151,14 @@ export default function FindUsPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
 interface LocationCardProps {
-  name: string
-  address: string
-  phone: string
-  hours: string
+  name: string;
+  address: string;
+  phone: string;
+  hours: string;
 }
 
 function LocationCard({ name, address, phone, hours }: LocationCardProps) {
@@ -194,5 +209,5 @@ function LocationCard({ name, address, phone, hours }: LocationCardProps) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

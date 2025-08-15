@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export function Footer() {
   return (
@@ -26,7 +26,8 @@ export function Footer() {
               />
             </div>
             <p className="text-gray-400">
-              Born in Patna, Loved Everywhere. Quality momos and bubble tea served with a smile!
+              Born in Patna, Loved Everywhere. Quality momos and bubble tea
+              served with a smile!
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-white">
@@ -57,12 +58,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/franchise" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/franchise"
+                  className="text-gray-400 hover:text-white"
+                >
                   Franchise
                 </Link>
               </li>
               <li>
-                <Link href="/find-us" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/find-us"
+                  className="text-gray-400 hover:text-white"
+                >
                   Find Us
                 </Link>
               </li>
@@ -72,12 +79,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/contact"
+                  className="text-gray-400 hover:text-white"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/work-with-us" className="text-gray-400 hover:text-white">
+                <Link
+                  href="/work-with-us"
+                  className="text-gray-400 hover:text-white"
+                >
                   Work With Us
                 </Link>
               </li>
@@ -87,12 +100,20 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-4">Order Online</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="https://www.swiggy.com" target="_blank" className="text-gray-400 hover:text-white">
+                <Link
+                  href="https://www.swiggy.com"
+                  target="_blank"
+                  className="text-gray-400 hover:text-white"
+                >
                   Swiggy
                 </Link>
               </li>
               <li>
-                <Link href="https://www.zomato.com" target="_blank" className="text-gray-400 hover:text-white">
+                <Link
+                  href="https://www.zomato.com"
+                  target="_blank"
+                  className="text-gray-400 hover:text-white"
+                >
                   Zomato
                 </Link>
               </li>
@@ -109,17 +130,25 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400">© 2024 Momo Kato. All rights reserved.</p>
+          <p className="text-gray-400">
+            © 2024 Momo Kato. All rights reserved.
+          </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm">
+            <Link
+              href="/privacy"
+              className="text-gray-400 hover:text-white text-sm"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-white text-sm">
+            <Link
+              href="/terms"
+              className="text-gray-400 hover:text-white text-sm"
+            >
               Terms of Service
             </Link>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

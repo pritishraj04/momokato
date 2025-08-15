@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { useAnimation } from "@/components/animation-provider"
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useAnimation } from "@/components/animation-provider";
 
 export function WhatsAppButton() {
-  const { isMobile } = useAnimation()
-  const buttonRef = useRef<HTMLAnchorElement>(null)
-  const tooltipRef = useRef<HTMLDivElement>(null)
-  const pulseRef = useRef<HTMLDivElement>(null)
+  const { isMobile } = useAnimation();
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const pulseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Initial entrance animation
@@ -27,7 +27,7 @@ export function WhatsAppButton() {
         ease: "elastic.out(1, 0.5)",
         delay: 1.5,
       },
-    )
+    );
 
     // Create continuous pulse animation
     if (pulseRef.current) {
@@ -37,13 +37,13 @@ export function WhatsAppButton() {
         duration: 1.5,
         repeat: -1,
         ease: "power1.out",
-      })
+      });
     }
 
     // Hover animation setup
     if (buttonRef.current && tooltipRef.current) {
       // Create a timeline for the hover animation
-      const hoverTl = gsap.timeline({ paused: true })
+      const hoverTl = gsap.timeline({ paused: true });
 
       // Add animations to the timeline
       hoverTl.to(
@@ -55,7 +55,7 @@ export function WhatsAppButton() {
           ease: "back.out(1.7)",
         },
         0,
-      )
+      );
 
       hoverTl.to(
         tooltipRef.current,
@@ -66,15 +66,19 @@ export function WhatsAppButton() {
           ease: "power2.out",
         },
         0,
-      )
+      );
 
       // Set up event listeners
-      buttonRef.current.addEventListener("mouseenter", () => hoverTl.play())
-      buttonRef.current.addEventListener("mouseleave", () => hoverTl.reverse())
+      buttonRef.current.addEventListener("mouseenter", () => hoverTl.play());
+      buttonRef.current.addEventListener("mouseleave", () => hoverTl.reverse());
 
       // For touch devices
-      buttonRef.current.addEventListener("touchstart", () => hoverTl.play(), { passive: true })
-      buttonRef.current.addEventListener("touchend", () => hoverTl.reverse(), { passive: true })
+      buttonRef.current.addEventListener("touchstart", () => hoverTl.play(), {
+        passive: true,
+      });
+      buttonRef.current.addEventListener("touchend", () => hoverTl.reverse(), {
+        passive: true,
+      });
     }
 
     // Periodic attention animation
@@ -94,27 +98,27 @@ export function WhatsAppButton() {
               repeat: 3,
               yoyo: true,
               ease: "power1.inOut",
-            })
+            });
           },
-        })
+        });
       }
-    }
+    };
 
     // Run attention animation every 30 seconds
-    const attentionInterval = setInterval(attentionAnimation, 30000)
+    const attentionInterval = setInterval(attentionAnimation, 30000);
 
     return () => {
       // Clean up animations and intervals
-      clearInterval(attentionInterval)
+      clearInterval(attentionInterval);
 
       if (buttonRef.current) {
-        buttonRef.current.removeEventListener("mouseenter", () => {})
-        buttonRef.current.removeEventListener("mouseleave", () => {})
-        buttonRef.current.removeEventListener("touchstart", () => {})
-        buttonRef.current.removeEventListener("touchend", () => {})
+        buttonRef.current.removeEventListener("mouseenter", () => {});
+        buttonRef.current.removeEventListener("mouseleave", () => {});
+        buttonRef.current.removeEventListener("touchstart", () => {});
+        buttonRef.current.removeEventListener("touchend", () => {});
       }
-    }
-  }, [isMobile])
+    };
+  }, [isMobile]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -127,7 +131,10 @@ export function WhatsAppButton() {
         <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
       </div>
 
-      <div ref={pulseRef} className="absolute inset-0 bg-green-500 rounded-full opacity-50"></div>
+      <div
+        ref={pulseRef}
+        className="absolute inset-0 bg-green-500 rounded-full opacity-50"
+      ></div>
 
       <a
         ref={buttonRef}
@@ -153,5 +160,5 @@ export function WhatsAppButton() {
         </svg>
       </a>
     </div>
-  )
+  );
 }

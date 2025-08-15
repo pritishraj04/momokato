@@ -195,9 +195,8 @@
   }
 }
 
-/* Mobile-specific overrides - Minimal important overrides only */
+/* Mobile-specific overrides */
 @media (max-width: 768px) {
-  /* Essential typography overrides for better mobile readability */
   h1 {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -211,25 +210,61 @@
     line-height: 1.75rem;
   }
 
-  /* Prevent iOS zoom on input focus */
   input,
   textarea,
   select {
     font-size: 16px !important;
   }
 
-  /* Essential carousel adjustments */
   .featured-carousel {
     padding-bottom: 60%;
   }
 
-  /* Mobile marquee speed adjustments */
   .marquee-content {
     animation-duration: 20s;
   }
 
   .marquee-smooth {
     animation-duration: 25s;
+  }
+
+  /* Full Screen PDF Viewer Mobile Optimizations */
+  .pdf-viewer-fullscreen {
+    padding: 8px !important;
+  }
+
+  .pdf-viewer-close-btn {
+    top: 12px !important;
+    right: 12px !important;
+    padding: 12px !important;
+  }
+
+  .pdf-viewer-download-btn {
+    top: 12px !important;
+    left: 12px !important;
+    padding: 12px !important;
+  }
+
+  .pdf-viewer-nav-btn {
+    padding: 12px !important;
+  }
+
+  .pdf-viewer-zoom-controls {
+    bottom: 12px !important;
+    padding: 8px !important;
+  }
+
+  .pdf-viewer-shortcuts {
+    bottom: 12px !important;
+    left: 12px !important;
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+
+  .pdf-viewer-counter {
+    top: 12px !important;
+    font-size: 12px !important;
+    padding: 8px 12px !important;
   }
 }
 
@@ -308,16 +343,19 @@
 }
 
 .order-button {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
 }
 
 .order-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-button {
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .nav-button:hover {
@@ -332,8 +370,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Floating animation for badges */
@@ -349,6 +387,24 @@
   50% {
     transform: translateY(-10px);
   }
+}
+
+/* Floating bubble entrance animation */
+@keyframes float-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.animate-float-in {
+  animation:
+    float-in 0.6s ease-out forwards,
+    float 3s ease-in-out infinite 0.6s;
 }
 
 /* Smooth Marquee Animation - Fixed Implementation */
@@ -398,14 +454,190 @@
   }
 }
 
-/* Universal viewer styles */
-.viewer-overlay {
-  backdrop-filter: blur(2px);
+/* Full Screen PDF Viewer Styles */
+.pdf-viewer-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: #000;
+  overflow: hidden;
 }
 
-/* Smooth transitions for viewer controls */
-.viewer-controls {
-  transition: opacity 0.3s ease-in-out;
+.pdf-viewer-content-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+
+.pdf-viewer-close-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10001;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pdf-viewer-close-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.pdf-viewer-download-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 10001;
+  background: #f97316;
+  color: white;
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pdf-viewer-download-btn:hover {
+  background: #ea580c;
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.pdf-viewer-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10001;
+  background: #f97316;
+  color: white;
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pdf-viewer-nav-btn:hover:not(:disabled) {
+  background: #ea580c;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.pdf-viewer-nav-btn:disabled {
+  background: #6b7280;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pdf-viewer-zoom-controls {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 8px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-viewer-zoom-btn {
+  background: #f97316;
+  color: white;
+  border-radius: 50%;
+  padding: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pdf-viewer-zoom-btn:hover:not(:disabled) {
+  background: #ea580c;
+  transform: scale(1.05);
+}
+
+.pdf-viewer-zoom-btn:disabled {
+  background: #6b7280;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pdf-viewer-shortcuts {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-viewer-counter {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Full Screen PDF Viewer - Fixed Positioning */
+.pdf-viewer-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  background: #000 !important;
+  overflow: hidden !important;
+}
+
+.pdf-viewer-content {
+  position: relative !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure viewer is always on top */
+.pdf-viewer-overlay * {
+  position: relative;
+  z-index: auto;
+}
+
+/* Fixed control positioning relative to viewport */
+.pdf-viewer-control {
+  position: fixed !important;
+  z-index: 10001 !important;
+}
+
+/* Prevent body scroll when viewer is open */
+body.pdf-viewer-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* Loading animation */
@@ -474,7 +706,9 @@
 .scroll-trigger-element {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .scroll-trigger-element.in-view {
@@ -527,4 +761,92 @@ html {
 .intersection-observer-target {
   min-height: 1px;
   position: relative;
+}
+
+/* Prevent horizontal scroll issues */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure PDF viewer doesn't cause layout issues */
+.pdf-viewer-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Responsive improvements for full screen viewer */
+@media (max-width: 640px) {
+  .pdf-viewer-close-btn,
+  .pdf-viewer-download-btn {
+    padding: 12px;
+    top: 16px;
+  }
+
+  .pdf-viewer-close-btn {
+    right: 16px;
+  }
+
+  .pdf-viewer-download-btn {
+    left: 16px;
+  }
+
+  .pdf-viewer-nav-btn {
+    padding: 12px;
+  }
+
+  .pdf-viewer-zoom-controls {
+    bottom: 16px;
+    padding: 6px;
+  }
+
+  .pdf-viewer-zoom-btn {
+    padding: 10px;
+  }
+
+  .pdf-viewer-shortcuts {
+    bottom: 16px;
+    left: 16px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+
+  .pdf-viewer-counter {
+    top: 16px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Enhanced Button Styles */
+.btn-outline-orange {
+  @apply border-2 border-orange-600 bg-transparent text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-200;
+}
+
+.btn-outline-red {
+  @apply border-2 border-red-500 bg-transparent text-red-500 hover:bg-red-500 hover:text-white transition-all duration-200;
+}
+
+.btn-outline-white {
+  @apply border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-900 transition-all duration-200;
+}
+
+.btn-outline-teal {
+  @apply border-2 border-teal-500 bg-transparent text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-200;
+}
+
+/* Ensure proper contrast for all button states */
+button[variant="outline"],
+.btn-outline {
+  border-width: 2px !important;
+  background-color: transparent !important;
+}
+
+button[variant="outline"]:not(:hover),
+.btn-outline:not(:hover) {
+  background-color: transparent !important;
 }

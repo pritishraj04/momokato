@@ -1,13 +1,18 @@
-import { MapPin, Phone, Clock } from "lucide-react"
+import { MapPin, Phone, Clock } from "lucide-react";
 
 interface LocationCardProps {
-  name: string
-  address: string
-  phone: string
-  hours: string
+  name: string;
+  address: string;
+  phone: string;
+  hours: string;
 }
 
-export function LocationCard({ name, address, phone, hours }: LocationCardProps) {
+export function LocationCard({
+  name,
+  address,
+  phone,
+  hours,
+}: LocationCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 border border-gray-100 location-card-mobile">
       <h3 className="text-lg md:text-xl font-bold">{name}</h3>
@@ -30,7 +35,7 @@ export function LocationCard({ name, address, phone, hours }: LocationCardProps)
           href="https://www.swiggy.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-orange-100 text-orange-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full hover:bg-orange-200 transition-colors text-center text-sm md:text-base"
+          className="bg-orange-50 border-2 border-orange-200 text-orange-600 hover:bg-orange-600 hover:text-white hover:border-orange-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full transition-all duration-200 text-center text-sm md:text-base"
         >
           Order on Swiggy
         </a>
@@ -38,11 +43,11 @@ export function LocationCard({ name, address, phone, hours }: LocationCardProps)
           href="https://www.zomato.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-orange-100 text-orange-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full hover:bg-orange-200 transition-colors text-center text-sm md:text-base"
+          className="bg-red-50 border-2 border-red-200 text-red-600 hover:bg-red-600 hover:text-white hover:border-red-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full transition-all duration-200 text-center text-sm md:text-base"
         >
           Order on Zomato
         </a>
       </div>
     </div>
-  )
+  );
 }

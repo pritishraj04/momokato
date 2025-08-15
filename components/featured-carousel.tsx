@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect, useRef } from "react"
-import Link from "next/link"
-import { ArrowLeft, ArrowRight } from "lucide-react"
-import gsap from "gsap"
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import gsap from "gsap";
 
-import { useAnimation } from "@/components/animation-provider"
+import { useAnimation } from "@/components/animation-provider";
 
 interface CarouselSlide {
-  id: number
-  image: string
-  link: string
-  alt: string
+  id: number;
+  image: string;
+  link: string;
+  alt: string;
 }
 
 export function FeaturedCarousel() {
-  const { isMobile } = useAnimation()
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const slidesRef = useRef<(HTMLDivElement | null)[]>([])
-  const dotsRef = useRef<(HTMLButtonElement | null)[]>([])
-  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null)
-  const touchStartXRef = useRef<number | null>(null)
+  const { isMobile } = useAnimation();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
+  const dotsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartXRef = useRef<number | null>(null);
 
   // Sample carousel data - image only with links
   const slides: CarouselSlide[] = [
@@ -46,21 +46,21 @@ export function FeaturedCarousel() {
       link: "/franchise",
       alt: "Franchise Opportunity - Join Momo Kato",
     },
-  ]
+  ];
 
   // Initialize refs array
   useEffect(() => {
-    slidesRef.current = slidesRef.current.slice(0, slides.length)
-    dotsRef.current = dotsRef.current.slice(0, slides.length)
-  }, [slides.length])
+    slidesRef.current = slidesRef.current.slice(0, slides.length);
+    dotsRef.current = dotsRef.current.slice(0, slides.length);
+  }, [slides.length]);
 
   // Handle slide change
   const goToSlide = (index: number) => {
-    if (isAnimating || index === currentSlide) return
-    setIsAnimating(true)
+    if (isAnimating || index === currentSlide) return;
+    setIsAnimating(true);
 
-    const currentSlideEl = slidesRef.current[currentSlide]
-    const nextSlideEl = slidesRef.current[index]
+    const currentSlideEl = slidesRef.current[currentSlide];
+    const nextSlideEl = slidesRef.current[index];
 
     if (currentSlideEl && nextSlideEl) {
       // Animate out current slide
@@ -69,7 +69,7 @@ export function FeaturedCarousel() {
         x: index > currentSlide ? "-5%" : "5%",
         duration: 0.5,
         ease: "power2.inOut",
-      })
+      });
 
       // Animate in next slide
       gsap.fromTo(
@@ -84,10 +84,10 @@ export function FeaturedCarousel() {
           duration: 0.5,
           ease: "power2.inOut",
           onComplete: () => {
-            setIsAnimating(false)
+            setIsAnimating(false);
           },
         },
-      )
+      );
 
       // Update active dot
       if (dotsRef.current[currentSlide] && dotsRef.current[index]) {
@@ -95,97 +95,101 @@ export function FeaturedCarousel() {
           scale: 1,
           backgroundColor: "rgba(242, 101, 34, 0.3)",
           duration: 0.3,
-        })
+        });
 
         gsap.to(dotsRef.current[index], {
           scale: 1.2,
           backgroundColor: "rgba(242, 101, 34, 1)",
           duration: 0.3,
-        })
+        });
       }
     }
 
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   const nextSlide = () => {
-    if (isAnimating) return
-    const newIndex = (currentSlide + 1) % slides.length
-    goToSlide(newIndex)
-  }
+    if (isAnimating) return;
+    const newIndex = (currentSlide + 1) % slides.length;
+    goToSlide(newIndex);
+  };
 
   const prevSlide = () => {
-    if (isAnimating) return
-    const newIndex = (currentSlide - 1 + slides.length) % slides.length
-    goToSlide(newIndex)
-  }
+    if (isAnimating) return;
+    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+    goToSlide(newIndex);
+  };
 
   // Handle touch events for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartXRef.current = e.touches[0].clientX
-  }
+    touchStartXRef.current = e.touches[0].clientX;
+  };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartXRef.current === null) return
+    if (touchStartXRef.current === null) return;
 
-    const touchEndX = e.changedTouches[0].clientX
-    const diff = touchStartXRef.current - touchEndX
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartXRef.current - touchEndX;
 
     // Swipe threshold
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        nextSlide() // Swipe left
+        nextSlide(); // Swipe left
       } else {
-        prevSlide() // Swipe right
+        prevSlide(); // Swipe right
       }
     }
 
-    touchStartXRef.current = null
-  }
+    touchStartXRef.current = null;
+  };
 
   // Autoplay functionality
   useEffect(() => {
     const startAutoplay = () => {
       if (autoplayTimerRef.current) {
-        clearInterval(autoplayTimerRef.current)
+        clearInterval(autoplayTimerRef.current);
       }
 
       autoplayTimerRef.current = setInterval(() => {
-        nextSlide()
-      }, 5000) // Change slide every 5 seconds
-    }
+        nextSlide();
+      }, 5000); // Change slide every 5 seconds
+    };
 
-    startAutoplay()
+    startAutoplay();
 
     // Pause autoplay on hover
-    const carousel = carouselRef.current
+    const carousel = carouselRef.current;
     if (carousel) {
       carousel.addEventListener("mouseenter", () => {
         if (autoplayTimerRef.current) {
-          clearInterval(autoplayTimerRef.current)
-          autoplayTimerRef.current = null
+          clearInterval(autoplayTimerRef.current);
+          autoplayTimerRef.current = null;
         }
-      })
+      });
 
-      carousel.addEventListener("mouseleave", startAutoplay)
+      carousel.addEventListener("mouseleave", startAutoplay);
     }
 
     return () => {
       if (autoplayTimerRef.current) {
-        clearInterval(autoplayTimerRef.current)
+        clearInterval(autoplayTimerRef.current);
       }
 
       if (carousel) {
-        carousel.removeEventListener("mouseenter", () => {})
-        carousel.removeEventListener("mouseleave", startAutoplay)
+        carousel.removeEventListener("mouseenter", () => {});
+        carousel.removeEventListener("mouseleave", startAutoplay);
       }
-    }
-  }, [currentSlide, isAnimating])
+    };
+  }, [currentSlide, isAnimating]);
 
   // Initial animation for the first slide
   useEffect(() => {
     if (slidesRef.current[0]) {
-      gsap.fromTo(slidesRef.current[0], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
+      gsap.fromTo(
+        slidesRef.current[0],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      );
     }
 
     // Initialize active dot
@@ -194,9 +198,9 @@ export function FeaturedCarousel() {
         scale: 1.2,
         backgroundColor: "rgba(242, 101, 34, 1)",
         duration: 0.3,
-      })
+      });
     }
-  }, [])
+  }, []);
 
   return (
     <div
@@ -211,7 +215,9 @@ export function FeaturedCarousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            ref={(el) => (slidesRef.current[index] = el)}
+            ref={(el) => {
+              slidesRef.current[index] = el;
+            }}
             className={`absolute inset-0 ${index === 0 ? "opacity-100" : "opacity-0"}`}
             aria-hidden={index !== currentSlide}
           >
@@ -248,7 +254,9 @@ export function FeaturedCarousel() {
         {slides.map((_, index) => (
           <button
             key={index}
-            ref={(el) => (dotsRef.current[index] = el)}
+            ref={(el) => {
+              dotsRef.current[index] = el;
+            }}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-colors duration-300 ${
               index === currentSlide ? "bg-orange-600" : "bg-orange-600/30"
@@ -259,5 +267,5 @@ export function FeaturedCarousel() {
         ))}
       </div>
     </div>
-  )
+  );
 }

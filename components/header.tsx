@@ -20,57 +20,51 @@ export function Header() {
             className="w-full h-10 max-w-[120px] md:max-w-[160px] lg:max-w-[180px]"
           />
         </Link>
-        <nav className="hidden md:flex gap-6 items-center">
+        <nav className="hidden lg:flex gap-6 items-center">
           <Link
             href="/"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Home
           </Link>
           <Link
             href="/menu"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Menu
           </Link>
           <Link
             href="/franchise"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Franchise
           </Link>
           <Link
             href="/find-us"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Find Us
           </Link>
           <Link
             href="/about"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Contact
           </Link>
           <Link
-            href="/order-online"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
-          >
-            Order Online
-          </Link>
-          <Link
             href="/work-with-us"
-            className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
+            className="font-medium text-md text-black hover:text-orange-600 transition-colors"
           >
             Work With Us
           </Link>
         </nav>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <Link href="/order-online">
             <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full">
               Order Now
@@ -78,7 +72,7 @@ export function Header() {
           </Link>
         </div>
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="outline" size="icon" className="rounded-full">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
@@ -88,56 +82,49 @@ export function Header() {
             <div className="flex flex-col gap-6 mt-8">
               <Link
                 href="/"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/menu"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Menu
               </Link>
               <Link
                 href="/franchise"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Franchise
               </Link>
               <Link
                 href="/find-us"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Find Us
               </Link>
               <Link
                 href="/about"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link
-                href="/order-online"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Order Online
-              </Link>
-              <Link
                 href="/work-with-us"
-                className="font-medium text-2xl text-black hover:text-orange-600 transition-colors"
+                className="font-medium text-lg text-black hover:text-orange-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Work With Us

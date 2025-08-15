@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { ArrowRight, Check } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export function FranchiseTeaser() {
   return (
@@ -16,8 +16,8 @@ export function FranchiseTeaser() {
               WANNA OWN A STEAMY FRANCHISE?
             </h2>
             <p className="max-w-[600px] text-white/90 md:text-xl/relaxed">
-              Join the Momo Kato family and be part of our growing success story. Low investment, high returns, and full
-              support!
+              Join the Momo Kato family and be part of our growing success
+              story. Low investment, high returns, and full support!
             </p>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
@@ -48,7 +48,8 @@ export function FranchiseTeaser() {
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Link href="/franchise">
                 <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg">
-                  Start Your Momo Business <ArrowRight className="ml-2 h-5 w-5" />
+                  Start Your Momo Business{" "}
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -58,27 +59,35 @@ export function FranchiseTeaser() {
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div className="text-4xl font-bold">1</div>
                 <h3 className="text-xl font-bold mt-2">Apply</h3>
-                <p className="text-white/80 mt-2">Fill out our simple franchise application form</p>
+                <p className="text-white/80 mt-2">
+                  Fill out our simple franchise application form
+                </p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div className="text-4xl font-bold">2</div>
                 <h3 className="text-xl font-bold mt-2">Meet</h3>
-                <p className="text-white/80 mt-2">Discussion and location assessment</p>
+                <p className="text-white/80 mt-2">
+                  Discussion and location assessment
+                </p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div className="text-4xl font-bold">3</div>
                 <h3 className="text-xl font-bold mt-2">Train</h3>
-                <p className="text-white/80 mt-2">Complete our comprehensive training program</p>
+                <p className="text-white/80 mt-2">
+                  Complete our comprehensive training program
+                </p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div className="text-4xl font-bold">4</div>
                 <h3 className="text-xl font-bold mt-2">Launch</h3>
-                <p className="text-white/80 mt-2">Grand opening with marketing support</p>
+                <p className="text-white/80 mt-2">
+                  Grand opening with marketing support
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

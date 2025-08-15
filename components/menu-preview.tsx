@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function MenuPreview() {
   return (
@@ -22,18 +22,23 @@ export function MenuPreview() {
         </div>
         <CardContent className="p-4 md:p-6 card-content-mobile">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg md:text-xl font-bold">Steam Classic Momos</h3>
-            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">6 pcs</div>
+            <h3 className="text-lg md:text-xl font-bold">
+              Steam Classic Momos
+            </h3>
+            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">
+              6 pcs
+            </div>
           </div>
           <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">
-            Our signature steamed momos with a special filling of vegetables and spices.
+            Our signature steamed momos with a special filling of vegetables and
+            spices.
           </p>
           <div className="flex justify-between items-center">
             <div className="text-lg md:text-xl font-bold">₹80</div>
             <Link href="https://www.swiggy.com" target="_blank">
               <Button
                 variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-50 rounded-full btn-mobile order-button"
+                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
               >
                 Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
               </Button>
@@ -58,17 +63,20 @@ export function MenuPreview() {
         <CardContent className="p-4 md:p-6 card-content-mobile">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg md:text-xl font-bold">Fried Momo Platter</h3>
-            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">8 pcs</div>
+            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">
+              8 pcs
+            </div>
           </div>
           <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">
-            Crispy fried momos served with our special dipping sauce and chutney.
+            Crispy fried momos served with our special dipping sauce and
+            chutney.
           </p>
           <div className="flex justify-between items-center">
             <div className="text-lg md:text-xl font-bold">₹120</div>
             <Link href="https://www.swiggy.com" target="_blank">
               <Button
                 variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-50 rounded-full btn-mobile order-button"
+                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
               >
                 Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
               </Button>
@@ -93,7 +101,9 @@ export function MenuPreview() {
         <CardContent className="p-4 md:p-6 card-content-mobile">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg md:text-xl font-bold">Taro Bubble Tea</h3>
-            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">500ml</div>
+            <div className="bg-black text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full">
+              500ml
+            </div>
           </div>
           <p className="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">
             Creamy taro flavored milk tea with chewy tapioca pearls and jelly.
@@ -103,7 +113,7 @@ export function MenuPreview() {
             <Link href="https://www.swiggy.com" target="_blank">
               <Button
                 variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-50 rounded-full btn-mobile order-button"
+                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
               >
                 Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
               </Button>
@@ -112,5 +122,5 @@ export function MenuPreview() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

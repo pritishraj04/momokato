@@ -1,10 +1,16 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { MotionDiv, MotionStagger, fadeInUp, slideInLeft, slideInRight } from "@/components/framer-motion-wrapper"
+import { Button } from "@/components/ui/button";
+import {
+  MotionDiv,
+  MotionStagger,
+  fadeInUp,
+  slideInLeft,
+  slideInRight,
+} from "@/components/framer-motion-wrapper";
 
 export function HeroSection() {
   return (
@@ -36,27 +42,38 @@ export function HeroSection() {
 
             <MotionDiv variants={fadeInUp} delay={0.4}>
               <p className="max-w-[600px] text-gray-500 text-sm md:text-xl">
-                Handcrafted with love, steamed to perfection. Our momos are made fresh daily with quality ingredients!
+                Handcrafted with love, steamed to perfection. Our momos are made
+                fresh daily with quality ingredients!
               </p>
             </MotionDiv>
 
-            <MotionDiv variants={fadeInUp} delay={0.5} className="flex gap-4 mt-2">
+            <MotionDiv
+              variants={fadeInUp}
+              delay={0.5}
+              className="flex gap-4 mt-2"
+            >
               <Link href="https://www.swiggy.com" target="_blank">
                 <Button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg">
-                  Order on Swiggy <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  Order on Swiggy{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </Link>
               <Link href="https://www.zomato.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="w-full sm:w-auto border-orange-600 text-orange-600 hover:bg-orange-50 font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg bg-transparent"
+                  className="w-full sm:w-auto border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg transition-all duration-200 bg-transparent"
                 >
-                  Order on Zomato <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  Order on Zomato{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </Link>
             </MotionDiv>
 
-            <MotionDiv variants={fadeInUp} delay={0.6} className="flex items-start sm:items-center gap-4 mt-3 md:mt-4">
+            <MotionDiv
+              variants={fadeInUp}
+              delay={0.6}
+              className="flex items-start sm:items-center gap-4 mt-3 md:mt-4"
+            >
               <div className="bg-orange-100 text-orange-600 font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
                 Starting @ ₹80 | 6 pcs
               </div>
@@ -91,7 +108,9 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white rounded-full p-3 md:p-4 shadow-lg">
-                <div className="text-orange-600 font-bold text-sm md:text-xl">Bubble Tea</div>
+                <div className="text-orange-600 font-bold text-sm md:text-xl">
+                  Bubble Tea
+                </div>
                 <div className="text-black text-xs md:text-sm">Try Now!</div>
               </div>
             </div>
@@ -103,5 +122,5 @@ export function HeroSection() {
         <div className="absolute -top-24 -right-24 w-64 h-64 bg-teal-100 rounded-full opacity-50 blur-3xl pointer-events-none"></div>
       </div>
     </section>
-  )
+  );
 }
