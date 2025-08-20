@@ -21,25 +21,25 @@ export function CustomerFavorites() {
 
   const items = [
     {
-      name: "PANEER TANDOORI MOMOS",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "TANDOORI MOMOS",
+      image: "/images/menu/Tandori Momo.jpg",
     },
     {
-      name: "CHICKEN FRIED MOMOS",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Panner Chilli",
+      image: "/images/menu/Paneer Chilli.jpg",
     },
     {
-      name: "CHEESE CORN MOMOS",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Mint Mojito",
+      image: "/images/menu/Mint Mojito.jpg",
     },
-    { name: "TARO BUBBLE TEA", image: "/placeholder.svg?height=300&width=300" },
+    { name: "Bannana Shake", image: "/images/menu/Banana Shake.jpg" },
     {
-      name: "VEG SCHEZWAN MOMOS",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Kala Khatta",
+      image: "/images/menu/Kala Khatta.jpg",
     },
     {
-      name: "CHICKEN AFGHANI MOMOS",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Oreo Shake",
+      image: "/images/menu/Oreo Shake.jpg",
     },
   ];
 

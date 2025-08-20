@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import gsap from "gsap";
@@ -220,16 +221,16 @@ export default function Home() {
                 <div className="absolute -top-4 -left-4 w-24 h-24 bg-teal-400 rounded-full flex items-center justify-center rotate-12 z-10">
                   <span className="font-bold text-white text-lg">NEW!</span>
                 </div>
-                <img
-                  alt="Bubble Tea"
+                <Image
+                  alt="Classic Boba Tea"
                   className="mx-auto rounded-xl object-cover"
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/menu/Boba/Classic Boba Tea.jpg"
                   width={300}
                   height={400}
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg">
                   <div className="text-orange-500 font-bold text-xl">
-                    Bubble Tea
+                    Classic Boba Tea
                   </div>
                   <div className="text-black text-sm">Try Now!</div>
                 </div>

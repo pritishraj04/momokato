@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -12,12 +13,12 @@ export function MenuPreview() {
           <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             BESTSELLER
           </div>
-          <img
+          <Image
             alt="Steam Classic Momos"
-            className="w-full h-36 md:h-48 object-cover"
-            src="/placeholder.svg?height=200&width=300"
+            className="w-full object-cover"
             width={300}
             height={200}
+            src="/images/menu/Banana Shake.jpg"
           />
         </div>
         <CardContent className="p-4 md:p-6 card-content-mobile">
@@ -52,10 +53,10 @@ export function MenuPreview() {
           <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             NEW
           </div>
-          <img
-            alt="Fried Momo Platter"
-            className="w-full h-36 md:h-48 object-cover"
-            src="/placeholder.svg?height=200&width=300"
+          <Image
+            alt="Tandoori Momo"
+            className="w-full object-cover"
+            src="/images/menu/Tandori Momo.jpg"
             width={300}
             height={200}
           />
@@ -90,10 +91,10 @@ export function MenuPreview() {
           <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             POPULAR
           </div>
-          <img
+          <Image
             alt="Bubble Tea"
-            className="w-full h-36 md:h-48 object-cover"
-            src="/placeholder.svg?height=200&width=300"
+            className="w-full object-cover"
+            src="/images/menu/Blue Curacao.jpg"
             width={300}
             height={200}
           />
