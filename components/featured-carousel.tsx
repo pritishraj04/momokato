@@ -230,7 +230,7 @@ export function FeaturedCarousel() {
             ref={(el) => {
               slidesRef.current[index] = el;
             }}
-            className={`absolute inset-0 ${index === 0 ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 ${index === 0 ? "opacity-100" : "opacity-0"} ${index === currentSlide ? "pointer-events-auto" : "pointer-events-none"}`}
             aria-hidden={index !== currentSlide}
           >
             <Link href={slide.link} className="block w-full h-full">

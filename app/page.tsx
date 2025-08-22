@@ -236,12 +236,12 @@ export default function Home() {
                   width={300}
                   height={400}
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg">
+                {/* <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg">
                   <div className="text-orange-500 font-bold text-xl">
                     Bubble Tea
                   </div>
                   <div className="text-black text-sm">Try Now!</div>
-                </div>
+                </div> */}
               </div>
             </MotionInView>
           </div>
