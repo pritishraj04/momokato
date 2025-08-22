@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
 import {
   MotionInView,
   MotionStagger,
@@ -17,9 +18,13 @@ export function SocialProof() {
           threshold={0.3}
           rootMargin="0px 0px -100px 0px"
         >
-          <div className="inline-block rounded-full bg-orange-100 px-2 py-1 md:px-3 md:py-1 text-xs md:text-sm font-medium text-orange-600">
-            Customer Love
-          </div>
+          <Image
+            width={100}
+            height={100}
+            src="/images/uis/customer-review.svg?height=180&width=250"
+            alt="Customer reviews illustration"
+            className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+          />
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tighter">
             WHAT PEOPLE SAY ABOUT US
           </h2>
