@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -213,9 +214,13 @@ export function CustomerFavorites() {
           threshold={0.3}
           rootMargin="0px 0px -100px 0px"
         >
-          <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
-            Hot Picks
-          </div>
+          <Image
+            width={150}
+            height={150}
+            src="/images/uis/favourites.svg?height=180&width=250"
+            alt="Momos for every mood sticker"
+            className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+          />
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             CUSTOMER FAVOURITES
           </h2>
@@ -268,7 +273,9 @@ export function CustomerFavorites() {
                           style={{ left: "60%" }}
                         ></div>
                       </div>
-                      <img
+                      <Image
+                        width={300}
+                        height={300}
                         src={item.image || "/placeholder.svg"}
                         alt={item.name}
                         className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"

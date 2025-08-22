@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -75,9 +76,13 @@ export default function Home() {
             className="flex flex-col items-center justify-center space-y-4 text-center"
             threshold={0.3}
           >
-            <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
-              Our Menu
-            </div>
+            <Image
+              width={100}
+              height={100}
+              src="/images/uis/steamy-delicious.svg?height=180&width=250"
+              alt="Steamy delicious momos illustration"
+              className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+            />
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               STEAMY DELICIOUS MOMOS
             </h2>
@@ -102,11 +107,11 @@ export default function Home() {
         </div>
       </ScrollTriggeredSection>
 
-      <div className="relative w-full">
+      {/* <div className="relative w-full">
         <div className="floating-bubble absolute top-10 left-1/4 bg-orange-100 text-orange-600 font-bold px-4 py-2 rounded-full transform rotate-12 z-10">
           Street Style Swag
         </div>
-      </div>
+      </div> */}
 
       <CustomerFavorites />
 
@@ -129,9 +134,13 @@ export default function Home() {
             className="flex flex-col items-center justify-center space-y-4 text-center"
             threshold={0.3}
           >
-            <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
-              Our Locations
-            </div>
+            <Image
+              width={100}
+              height={100}
+              src="/images/uis/location.svg?height=180&width=250"
+              alt="Find us near you illustration"
+              className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+            />
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               FIND US NEAR YOU
             </h2>

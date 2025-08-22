@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,9 @@ export function HeroSection() {
               variants={slideInLeft}
               className="max-w-[150px] md:max-w-[200px] transform -rotate-3"
             >
-              <img
+              <Image
+                width={150}
+                height={150}
                 src="/images/uis/sec2.svg?height=180&width=250"
                 alt="Momos for every mood sticker"
                 className="w-full h-auto max-w-[220px] md:max-w-[260px] lg:max-w-[280px]"
@@ -96,23 +99,23 @@ export function HeroSection() {
                 <div className="steam"></div>
                 <div className="steam" style={{ left: "40%" }}></div>
                 <div className="steam" style={{ left: "60%" }}></div>
-                <img
+                <Image
                   alt="Momo in bamboo steamer"
                   className="mx-auto object-cover w-full max-w-[400px] md:max-w-[500px]"
                   src="/images/22.jpg"
                   width={500}
                   height={600}
                 />
-                <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-orange-600 text-white font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+                {/* <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-orange-600 text-white font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
                   6 pcs
-                </div>
+                </div> */}
               </div>
-              <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white rounded-full p-3 md:p-4 shadow-lg">
+              {/* <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 bg-white rounded-full p-3 md:p-4 shadow-lg">
                 <div className="text-orange-600 font-bold text-sm md:text-xl">
                   Bubble Tea
                 </div>
                 <div className="text-black text-xs md:text-sm">Try Now!</div>
-              </div>
+              </div> */}
             </div>
           </MotionDiv>
         </div>
