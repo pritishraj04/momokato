@@ -223,7 +223,7 @@ export default function Home() {
                 <img
                   alt="Bubble Tea"
                   className="mx-auto rounded-xl object-cover"
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/p1.png"
                   width={300}
                   height={400}
                 />

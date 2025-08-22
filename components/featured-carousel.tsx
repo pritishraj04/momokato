@@ -36,13 +36,25 @@ export function FeaturedCarousel() {
     },
     {
       id: 2,
-      image: "/images/b2.jpg",
+      image: "/images/b5.jpg",
       link: "/order-online",
       alt: "Bubble Tea Festival - Special Offer",
     },
     {
       id: 3,
       image: "/images/b3.jpg",
+      link: "/order-online",
+      alt: "Franchise Opportunity - Join Momo Kato",
+    },
+    {
+      id: 4,
+      image: "/images/b2.jpg",
+      link: "/menu",
+      alt: "Franchise Opportunity - Join Momo Kato",
+    },
+    {
+      id: 5,
+      image: "/images/b4.jpg",
       link: "/franchise",
       alt: "Franchise Opportunity - Join Momo Kato",
     },
