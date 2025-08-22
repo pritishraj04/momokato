@@ -21,9 +21,9 @@ export function SocialProof() {
           <Image
             width={100}
             height={100}
-            src="/images/uis/customer-review.svg?height=180&width=250"
+            src="/images/uis/customerlove.svg?height=180&width=250"
             alt="Customer reviews illustration"
-            className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+            className="w-full h-auto max-w-[200px]"
           />
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tighter">
             WHAT PEOPLE SAY ABOUT US

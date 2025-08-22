@@ -217,7 +217,7 @@ export function CustomerFavorites() {
           <Image
             width={150}
             height={150}
-            src="/images/uis/favourites.svg?height=180&width=250"
+            src="/images/uis/hotpicks.svg?height=180&width=250"
             alt="Momos for every mood sticker"
             className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
           />

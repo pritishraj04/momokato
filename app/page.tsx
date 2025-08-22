@@ -79,9 +79,9 @@ export default function Home() {
             <Image
               width={100}
               height={100}
-              src="/images/uis/steamy-delicious.svg?height=180&width=250"
+              src="/images/uis/ourmenu.svg?height=180&width=250"
               alt="Steamy delicious momos illustration"
-              className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+              className="w-full h-auto max-w-[200px]"
             />
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               STEAMY DELICIOUS MOMOS
@@ -137,9 +137,9 @@ export default function Home() {
             <Image
               width={100}
               height={100}
-              src="/images/uis/location.svg?height=180&width=250"
+              src="/images/uis/ourlocation.svg?height=180&width=250"
               alt="Find us near you illustration"
-              className="w-full h-auto max-w-[150px] md:max-w-[150px] lg:max-w-[150px]"
+              className="w-full h-auto max-w-[210px]"
             />
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               FIND US NEAR YOU

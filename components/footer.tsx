@@ -7,11 +7,11 @@ export function Footer() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/placeholder.svg?height=600&width=1200"
+          src="/images/uis/footer.svg"
           alt="Footer background"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/40"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/40"></div> */}
       </div>
 
       {/* Content */}
