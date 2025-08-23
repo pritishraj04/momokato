@@ -1,9 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SwiggyButton } from "@/components/delivery-button";
 
 export function MenuPreview() {
   return (
@@ -36,14 +33,7 @@ export function MenuPreview() {
           </p>
           <div className="flex justify-between items-center">
             <div className="text-lg md:text-xl font-bold">₹80</div>
-            <Link href="https://www.swiggy.com" target="_blank">
-              <Button
-                variant="outline"
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
-              >
-                Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
-              </Button>
-            </Link>
+            <SwiggyButton className="btn-mobile order-button" />
           </div>
         </CardContent>
       </Card>
@@ -74,14 +64,7 @@ export function MenuPreview() {
           </p>
           <div className="flex justify-between items-center">
             <div className="text-lg md:text-xl font-bold">₹120</div>
-            <Link href="https://www.swiggy.com" target="_blank">
-              <Button
-                variant="outline"
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
-              >
-                Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
-              </Button>
-            </Link>
+            <SwiggyButton className="btn-mobile order-button" />
           </div>
         </CardContent>
       </Card>
@@ -111,14 +94,7 @@ export function MenuPreview() {
           </p>
           <div className="flex justify-between items-center">
             <div className="text-lg md:text-xl font-bold">₹150</div>
-            <Link href="https://www.swiggy.com" target="_blank">
-              <Button
-                variant="outline"
-                className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full btn-mobile order-button transition-all duration-200 bg-transparent"
-              >
-                Order Now <ArrowRight className="ml-1 h-3 w-3 md:h-4 md:w-4" />
-              </Button>
-            </Link>
+            <SwiggyButton className="btn-mobile order-button" />
           </div>
         </CardContent>
       </Card>

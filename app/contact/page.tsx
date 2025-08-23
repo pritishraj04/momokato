@@ -272,21 +272,137 @@ export default function ContactPage() {
               Our Locations
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              VISIT US IN PERSON
+              FIND US NEAR YOU
             </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              Come experience the Momo Kato difference at one of our locations.
+              Visit one of our locations and experience the Momo Kato
+              difference. We have interactive maps and directions to help you
+              find us easily!
             </p>
           </div>
 
-          <div className="aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden border shadow-md">
-            <img
-              alt="Map of Momo Kato locations"
-              className="w-full h-full object-cover"
-              src="/placeholder.svg?height=600&width=1000"
-              width={1000}
-              height={600}
-            />
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center max-w-4xl mx-auto">
+            <div className="flex flex-col justify-center space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900">
+                Multiple Locations Across Bihar
+              </h3>
+              <p className="text-gray-600 text-lg">
+                We're growing fast! Currently serving delicious momos at two
+                locations in Patna, with more coming soon across Bihar.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
+                  <div className="bg-orange-100 p-2 rounded-full">
+                    <MapPin className="h-5 w-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Patna Central</h4>
+                    <p className="text-gray-600 text-sm">
+                      123 Food Street, Patna, Bihar 800001
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
+                  <div className="bg-orange-100 p-2 rounded-full">
+                    <MapPin className="h-5 w-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Gandhi Maidan</h4>
+                    <p className="text-gray-600 text-sm">
+                      45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-orange-50 p-4 rounded-lg border border-orange-200">
+                  <div className="bg-orange-200 p-2 rounded-full">
+                    <Clock className="h-5 w-5 text-orange-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-orange-700">Coming Soon</h4>
+                    <p className="text-orange-600 text-sm">
+                      Boring Road, Kankarbagh, Rajendra Nagar & more!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <Link href="/find-us">
+                  <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg">
+                    View All Locations <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/find-us">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-full px-8 py-6 text-lg transition-all duration-200 bg-transparent"
+                  >
+                    Get Directions <MapPin className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <div className="relative">
+                <div className="bg-gradient-to-br from-orange-100 to-teal-100 rounded-2xl p-8 shadow-lg">
+                  <img
+                    alt="Interactive map showing Momo Kato locations"
+                    className="rounded-xl object-cover w-full max-w-[400px] h-[300px]"
+                    src="/placeholder.svg?height=300&width=400"
+                    width={400}
+                    height={300}
+                  />
+                  <div className="absolute -top-4 -right-4 bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-full transform rotate-12 z-10">
+                    Interactive Maps!
+                  </div>
+                  <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-4 shadow-lg">
+                    <div className="text-orange-600 font-bold text-lg">
+                      Find Us
+                    </div>
+                    <div className="text-black text-sm">Easy Directions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <MapPin className="h-6 w-6 text-orange-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">
+                2 Active Locations
+              </h4>
+              <p className="text-gray-600 text-sm">
+                Currently serving in Patna Central & Gandhi Maidan
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Clock className="h-6 w-6 text-teal-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Open Daily</h4>
+              <p className="text-gray-600 text-sm">
+                11 AM - 10 PM at both locations
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <ArrowRight className="h-6 w-6 text-green-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Expanding Soon</h4>
+              <p className="text-gray-600 text-sm">
+                3+ new locations coming across Bihar
+              </p>
+            </div>
           </div>
         </div>
       </section>

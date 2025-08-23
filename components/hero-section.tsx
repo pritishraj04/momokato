@@ -1,10 +1,6 @@
 "use client";
-
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
 import {
   MotionDiv,
   MotionStagger,
@@ -55,21 +51,11 @@ export function HeroSection() {
               delay={0.5}
               className="flex gap-4 mt-2"
             >
-              <Link href="https://www.swiggy.com" target="_blank">
-                <Button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg">
-                  Order on Swiggy{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Button>
-              </Link>
-              <Link href="https://www.zomato.com" target="_blank">
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg transition-all duration-200 bg-transparent"
-                >
-                  Order on Zomato{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Button>
-              </Link>
+              <SwiggyButton
+                variant="default"
+                className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg border-0"
+              />
+              <ZomatoButton className="w-full sm:w-auto font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg" />
             </MotionDiv>
 
             <MotionDiv

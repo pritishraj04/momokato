@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
 import {
   MotionInView,
   MotionStagger,
@@ -84,24 +83,8 @@ export function MenuCategory({ title, items }: MenuCategoryProps) {
 
               <MotionDiv variants={fadeInUp} delay={0.3}>
                 <div className="flex justify-center gap-2">
-                  <Link href="https://www.swiggy.com" target="_blank">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-full order-button transition-all duration-200 bg-transparent"
-                    >
-                      Order on Swiggy
-                    </Button>
-                  </Link>
-                  <Link href="https://www.zomato.com" target="_blank">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-full order-button transition-all duration-200 bg-transparent"
-                    >
-                      Order on Zomato
-                    </Button>
-                  </Link>
+                  <SwiggyButton size="sm" className="order-button" />
+                  <ZomatoButton size="sm" className="order-button" />
                 </div>
               </MotionDiv>
             </MotionDiv>

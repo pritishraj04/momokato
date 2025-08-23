@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
 import { MotionInView, fadeInUp } from "@/components/framer-motion-wrapper";
 
 export function CustomerFavorites() {
@@ -287,32 +288,14 @@ export function CustomerFavorites() {
                         {item.name}
                       </h3>
                       <div className="flex flex-col gap-2">
-                        <Link
-                          href="https://www.swiggy.com"
-                          target="_blank"
-                          className="w-full"
-                        >
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded-full w-full text-xs md:text-sm transition-all duration-200 bg-transparent"
-                          >
-                            Order on Swiggy
-                          </Button>
-                        </Link>
-                        <Link
-                          href="https://www.zomato.com"
-                          target="_blank"
-                          className="w-full"
-                        >
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded-full w-full text-xs md:text-sm transition-all duration-200 bg-transparent"
-                          >
-                            Order on Zomato
-                          </Button>
-                        </Link>
+                        <SwiggyButton
+                          size="sm"
+                          className="w-full text-xs md:text-sm"
+                        />
+                        <ZomatoButton
+                          size="sm"
+                          className="w-full text-xs md:text-sm"
+                        />
                       </div>
                     </div>
                   </div>

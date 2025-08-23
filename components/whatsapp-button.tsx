@@ -3,12 +3,15 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useAnimation } from "@/components/animation-provider";
+import { getContactInfo } from "@/lib/config";
 
 export function WhatsAppButton() {
   const { isMobile } = useAnimation();
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const pulseRef = useRef<HTMLDivElement>(null);
+
+  const { WHATSAPP } = getContactInfo();
 
   useEffect(() => {
     // Initial entrance animation
@@ -138,7 +141,7 @@ export function WhatsAppButton() {
 
       <a
         ref={buttonRef}
-        href="https://wa.me/919876543210"
+        href={`https://wa.me/${WHATSAPP}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"

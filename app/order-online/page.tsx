@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink, Truck, Clock, Award } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { DeliveryBanner } from "@/components/delivery-banner";
-import { QrCodeDisplay } from "@/components/qr-code-display";
+import { SwiggyQrScanner, ZomatoQrScanner } from "@/components/qr-scanner";
 import { OfferStrip } from "@/components/offer-strip";
 
 export default function OrderOnlinePage() {
@@ -77,22 +77,43 @@ export default function OrderOnlinePage() {
               SCAN QR CODE TO ORDER
             </h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
-              Quickly scan these QR codes to order directly from your favorite
-              delivery apps.
+              Skip the app downloads! Quickly scan these QR codes to order
+              directly from your favorite delivery apps.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <QrCodeDisplay
-              platform="Swiggy"
-              description="Scan to order from Swiggy"
-              logoColor="text-orange-500"
-            />
-            <QrCodeDisplay
-              platform="Zomato"
-              description="Scan to order from Zomato"
-              logoColor="text-red-500"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <SwiggyQrScanner />
+            <ZomatoQrScanner />
+          </div>
+
+          {/* QR Code Instructions */}
+          <div className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 max-w-2xl mx-auto">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
+                How to Use QR Codes
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+                <div className="text-center">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-orange-600 font-bold">1</span>
+                  </div>
+                  <p>Open your phone's camera app</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-orange-600 font-bold">2</span>
+                  </div>
+                  <p>Point camera at QR code</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span className="text-orange-600 font-bold">3</span>
+                  </div>
+                  <p>Tap notification to order</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

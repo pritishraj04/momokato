@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock } from "lucide-react";
+import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
 
 interface LocationCardProps {
   name: string;
@@ -31,22 +32,14 @@ export function LocationCard({
         </div>
       </div>
       <div className="mt-4 md:mt-6 flex flex-col sm:flex-row gap-2 md:gap-4">
-        <a
-          href="https://www.swiggy.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-orange-50 border-2 border-orange-200 text-orange-600 hover:bg-orange-600 hover:text-white hover:border-orange-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full transition-all duration-200 text-center text-sm md:text-base"
-        >
-          Order on Swiggy
-        </a>
-        <a
-          href="https://www.zomato.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-red-50 border-2 border-red-200 text-red-600 hover:bg-red-600 hover:text-white hover:border-red-600 font-medium px-3 py-2 md:px-4 md:py-2 rounded-full transition-all duration-200 text-center text-sm md:text-base"
-        >
-          Order on Zomato
-        </a>
+        <SwiggyButton
+          className="text-center text-sm md:text-base"
+          showIcon={false}
+        />
+        <ZomatoButton
+          className="text-center text-sm md:text-base"
+          showIcon={false}
+        />
       </div>
     </div>
   );
