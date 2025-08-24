@@ -209,7 +209,9 @@ export function FeaturedCarousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            ref={(el) => (slidesRef.current[index] = el)}
+            ref={(el) => {
+              slidesRef.current[index] = el;
+            }}
             className={`absolute inset-0 transition-all duration-500 ease-in-out ${index === 0 ? "opacity-100" : "opacity-0"} ${index === currentSlide ? "pointer-events-auto" : "pointer-events-none"}`}
             aria-hidden={index !== currentSlide}
           >
@@ -246,7 +248,9 @@ export function FeaturedCarousel() {
         {slides.map((_, index) => (
           <button
             key={index}
-            ref={(el) => (dotsRef.current[index] = el)}
+            ref={(el) => {
+              dotsRef.current[index] = el;
+            }}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-all duration-300 ${
               index === currentSlide ? "bg-orange-600" : "bg-orange-600/30"
