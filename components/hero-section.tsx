@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="container px-3 md:px-4 lg:px-6 relative">
         <div className="grid gap-4 md:gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="flex flex-col justify-center space-y-3 md:space-y-4 stagger-children">
-            <div className="bubble-speech max-w-[150px] md:max-w-[200px] transform -rotate-3 hover-scale">
+            <div className="max-w-[150px] md:max-w-[200px] transform -rotate-3 hover-scale">
               <Image
                 width={150}
                 height={150}
