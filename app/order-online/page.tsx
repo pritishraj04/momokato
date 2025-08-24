@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { DeliveryBanner } from "@/components/delivery-banner";
 import { SwiggyQrScanner, ZomatoQrScanner } from "@/components/qr-scanner";
 import { OfferStrip } from "@/components/offer-strip";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function OrderOnlinePage() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
               Order Online
             </div>
@@ -33,7 +34,7 @@ export default function OrderOnlinePage() {
                 style={{ left: "60%", animationDelay: "1s" }}
               ></div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -41,35 +42,39 @@ export default function OrderOnlinePage() {
 
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col gap-12">
-            <DeliveryBanner
-              platform="Swiggy"
-              description="Order from Swiggy and get piping hot momos at your doorstep. Quick delivery, hot momos, chilled bubble tea!"
-              bgColor="bg-gradient-to-r from-orange-500 to-orange-600"
-              textColor="text-white"
-              buttonColor="bg-white text-orange-600 hover:bg-orange-100"
-              buttonText="Order Now on Swiggy"
-              buttonLink="https://www.swiggy.com"
-              icon={<Truck className="h-8 w-8" />}
-            />
+          <div className="flex flex-col gap-12 stagger-children">
+            <ScrollAnimation delay={100}>
+              <DeliveryBanner
+                platform="Swiggy"
+                description="Order from Swiggy and get piping hot momos at your doorstep. Quick delivery, hot momos, chilled bubble tea!"
+                bgColor="bg-gradient-to-r from-orange-500 to-orange-600"
+                textColor="text-white"
+                buttonColor="bg-white text-orange-600 hover:bg-orange-100"
+                buttonText="Order Now on Swiggy"
+                buttonLink="https://www.swiggy.com"
+                icon={<Truck className="h-8 w-8" />}
+              />
+            </ScrollAnimation>
 
-            <DeliveryBanner
-              platform="Zomato"
-              description="Zomato delivers your favorite Kato treats with love. Fast delivery. No added MSG. All love."
-              bgColor="bg-gradient-to-r from-red-500 to-red-600"
-              textColor="text-white"
-              buttonColor="bg-white text-red-600 hover:bg-red-100"
-              buttonText="Order Now on Zomato"
-              buttonLink="https://www.zomato.com"
-              icon={<Truck className="h-8 w-8" />}
-            />
+            <ScrollAnimation delay={200}>
+              <DeliveryBanner
+                platform="Zomato"
+                description="Zomato delivers your favorite Kato treats with love. Fast delivery. No added MSG. All love."
+                bgColor="bg-gradient-to-r from-red-500 to-red-600"
+                textColor="text-white"
+                buttonColor="bg-white text-red-600 hover:bg-red-100"
+                buttonText="Order Now on Zomato"
+                buttonLink="https://www.zomato.com"
+                icon={<Truck className="h-8 w-8" />}
+              />
+            </ScrollAnimation>
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Scan & Order
             </div>
@@ -80,16 +85,20 @@ export default function OrderOnlinePage() {
               Skip the app downloads! Quickly scan these QR codes to order
               directly from your favorite delivery apps.
             </p>
-          </div>
+          </ScrollAnimation>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <SwiggyQrScanner />
-            <ZomatoQrScanner />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
+            <ScrollAnimation delay={100}>
+              <SwiggyQrScanner />
+            </ScrollAnimation>
+            <ScrollAnimation delay={200}>
+              <ZomatoQrScanner />
+            </ScrollAnimation>
           </div>
 
           {/* QR Code Instructions */}
-          <div className="mt-12 text-center">
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 max-w-2xl mx-auto">
+          <ScrollAnimation delay={300} className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 max-w-2xl mx-auto card-hover">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
                 How to Use QR Codes
               </h3>
@@ -114,13 +123,13 @@ export default function OrderOnlinePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Why Choose Us
             </div>
@@ -131,10 +140,13 @@ export default function OrderOnlinePage() {
               Join thousands of satisfied customers who enjoy our delicious
               momos every day.
             </p>
-          </div>
+          </ScrollAnimation>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-orange-50 p-6 rounded-xl text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto stagger-children">
+            <ScrollAnimation
+              delay={100}
+              className="bg-orange-50 p-6 rounded-xl text-center card-hover"
+            >
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-orange-600" />
               </div>
@@ -142,9 +154,12 @@ export default function OrderOnlinePage() {
               <p className="text-gray-500 mt-2">
                 Join our growing family of satisfied momo lovers.
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-orange-50 p-6 rounded-xl text-center">
+            <ScrollAnimation
+              delay={200}
+              className="bg-orange-50 p-6 rounded-xl text-center card-hover"
+            >
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-orange-600" />
               </div>
@@ -152,9 +167,12 @@ export default function OrderOnlinePage() {
               <p className="text-gray-500 mt-2">
                 Quick delivery to satisfy your momo cravings.
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-orange-50 p-6 rounded-xl text-center">
+            <ScrollAnimation
+              delay={300}
+              className="bg-orange-50 p-6 rounded-xl text-center card-hover"
+            >
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ExternalLink className="h-8 w-8 text-orange-600" />
               </div>
@@ -162,7 +180,7 @@ export default function OrderOnlinePage() {
               <p className="text-gray-500 mt-2">
                 Order from your favorite delivery platforms.
               </p>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -170,7 +188,10 @@ export default function OrderOnlinePage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="flex flex-col justify-center space-y-4">
+            <ScrollAnimation
+              animation="slide-left"
+              className="flex flex-col justify-center space-y-4"
+            >
               <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
                 Our Menu
               </div>
@@ -183,17 +204,21 @@ export default function OrderOnlinePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <Link href="/menu">
-                  <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg">
+                  <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg btn-animate">
                     View Full Menu <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>
-            </div>
-            <div className="flex items-center justify-center">
+            </ScrollAnimation>
+            <ScrollAnimation
+              animation="slide-right"
+              delay={200}
+              className="flex items-center justify-center"
+            >
               <div className="relative">
                 <img
                   alt="Menu Preview"
-                  className="rounded-xl object-cover"
+                  className="rounded-xl object-cover hover-lift"
                   src="/placeholder.svg?height=400&width=500"
                   width={500}
                   height={400}
@@ -205,7 +230,7 @@ export default function OrderOnlinePage() {
                   <div className="text-black text-sm">6 pcs</div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

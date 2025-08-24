@@ -1,9 +1,8 @@
-import { MapPin, Phone, Clock } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Phone, Clock } from "lucide-react";
 import { LocationMap } from "@/components/location-map";
-import { LocationListItem } from "@/components/location-list-item";
 import { SwiggyQrScanner, ZomatoQrScanner } from "@/components/qr-scanner";
 import { getBusinessInfo } from "@/lib/config";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function FindUsPage() {
   const businessInfo = getBusinessInfo();
@@ -41,7 +40,7 @@ export default function FindUsPage() {
       {/* Header Section */}
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
               Our Locations
             </div>
@@ -52,128 +51,60 @@ export default function FindUsPage() {
               Visit one of our locations and experience the Momo Kato
               difference. We're growing fast across Bihar!
             </p>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Main Content - Map View Only */}
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <Tabs defaultValue="map" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 h-auto mb-8">
-              <TabsTrigger value="map" className="py-3 text-lg font-semibold">
-                <MapPin className="mr-2 h-5 w-5" />
-                Map View
-              </TabsTrigger>
-              <TabsTrigger value="list" className="py-3 text-lg font-semibold">
-                <Phone className="mr-2 h-5 w-5" />
-                List View
-              </TabsTrigger>
-            </TabsList>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-8 stagger-children">
+            {locations.map((location, index) => (
+              <ScrollAnimation key={index} delay={index * 100}>
+                <LocationMap
+                  name={location.name}
+                  address={location.address}
+                  phone={location.phone}
+                  hours={location.hours}
+                  coordinates={location.coordinates}
+                  mapEmbedUrl={location.mapEmbedUrl}
+                />
+              </ScrollAnimation>
+            ))}
+          </div>
 
-            {/* Map View */}
-            <TabsContent value="map" className="mt-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
-                {locations.map((location, index) => (
-                  <LocationMap
-                    key={index}
-                    name={location.name}
-                    address={location.address}
-                    phone={location.phone}
-                    hours={location.hours}
-                    coordinates={location.coordinates}
-                    mapEmbedUrl={location.mapEmbedUrl}
-                  />
-                ))}
-              </div>
-
-              {/* Coming Soon Notice */}
-              <div className="bg-gradient-to-r from-orange-50 to-teal-50 border-2 border-orange-200 rounded-xl p-6 text-center">
-                <h3 className="text-xl font-bold text-orange-600 mb-2">
-                  Expanding Across Bihar!
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  We're rapidly expanding! New locations opening soon in
-                  Kankarbagh, Rajendra Nagar, and Danapur. Stay tuned for
-                  updates and be the first to experience Momo Kato in your
-                  neighborhood!
-                </p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
-                    Kankarbagh
-                  </span>
-                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
-                    Rajendra Nagar
-                  </span>
-                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
-                    Danapur
-                  </span>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* List View */}
-            <TabsContent value="list" className="mt-8">
-              <div className="space-y-6 mb-8">
-                {locations.map((location, index) => (
-                  <LocationListItem
-                    key={index}
-                    name={location.name}
-                    address={location.address}
-                    phone={location.phone}
-                    hours={location.hours}
-                    image={location.image}
-                    coordinates={location.coordinates}
-                  />
-                ))}
-              </div>
-
-              {/* Coming Soon Notice for List View */}
-              <div className="bg-gradient-to-r from-orange-50 to-teal-50 border-2 border-orange-200 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-orange-100 p-3 rounded-full flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-orange-600 mb-2">
-                      More Locations Coming Soon!
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      We're working hard to bring Momo Kato to more areas across
-                      Bihar. Here's what's in the pipeline:
-                    </p>
-                    <ul className="space-y-2 text-gray-600">
-                      <li className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-orange-500" />
-                        <span>
-                          <strong>Kankarbagh:</strong> Opening Q2 2024
-                        </span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-orange-500" />
-                        <span>
-                          <strong>Rajendra Nagar:</strong> Opening Q3 2024
-                        </span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-orange-500" />
-                        <span>
-                          <strong>Danapur:</strong> Opening Q4 2024
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
+          {/* Coming Soon Notice */}
+          <ScrollAnimation
+            delay={400}
+            className="bg-gradient-to-r from-orange-50 to-teal-50 border-2 border-orange-200 rounded-xl p-6 text-center card-hover"
+          >
+            <h3 className="text-xl font-bold text-orange-600 mb-2">
+              Expanding Across Bihar!
+            </h3>
+            <p className="text-gray-700 mb-4">
+              We're rapidly expanding! New locations opening soon in Kankarbagh,
+              Rajendra Nagar, and Danapur. Stay tuned for updates and be the
+              first to experience Momo Kato in your neighborhood!
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
+                Kankarbagh
+              </span>
+              <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
+                Rajendra Nagar
+              </span>
+              <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
+                Danapur
+              </span>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Scan to Order Section */}
       <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Scan & Order
             </div>
@@ -185,16 +116,20 @@ export default function FindUsPage() {
               favorite delivery apps and get your momos delivered hot to your
               doorstep.
             </p>
-          </div>
+          </ScrollAnimation>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <SwiggyQrScanner />
-            <ZomatoQrScanner />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
+            <ScrollAnimation delay={100}>
+              <SwiggyQrScanner />
+            </ScrollAnimation>
+            <ScrollAnimation delay={200}>
+              <ZomatoQrScanner />
+            </ScrollAnimation>
           </div>
 
           {/* Additional Info */}
-          <div className="mt-12 text-center">
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 max-w-2xl mx-auto">
+          <ScrollAnimation delay={300} className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 max-w-2xl mx-auto card-hover">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
                 How to Use QR Codes
               </h3>
@@ -219,7 +154,7 @@ export default function FindUsPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -227,41 +162,47 @@ export default function FindUsPage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center max-w-4xl mx-auto">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tighter mb-6">
-                Call to Order
-              </h2>
-              <p className="text-white/90 mb-6 text-lg">
-                Prefer to call? No problem! Call any of our locations directly
-                to place your order for pickup. We'll have your fresh momos
-                ready when you arrive!
-              </p>
-              <div className="space-y-4">
-                {businessInfo.LOCATIONS.map((location, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 bg-white/10 rounded-lg p-3"
-                  >
-                    <Phone className="h-5 w-5 text-white flex-shrink-0" />
-                    <div>
-                      <div className="font-bold">{location.name}</div>
-                      <a
-                        href={`tel:${location.phone}`}
-                        className="text-white/90 hover:text-white transition-colors"
-                      >
-                        {location.phone}
-                      </a>
+            <ScrollAnimation animation="slide-left">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <h2 className="text-3xl font-bold tracking-tighter mb-6">
+                  Call to Order
+                </h2>
+                <p className="text-white/90 mb-6 text-lg">
+                  Prefer to call? No problem! Call any of our locations directly
+                  to place your order for pickup. We'll have your fresh momos
+                  ready when you arrive!
+                </p>
+                <div className="space-y-4">
+                  {businessInfo.LOCATIONS.map((location, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 bg-white/10 rounded-lg p-3 card-hover"
+                    >
+                      <Phone className="h-5 w-5 text-white flex-shrink-0" />
+                      <div>
+                        <div className="font-bold">{location.name}</div>
+                        <a
+                          href={`tel:${location.phone}`}
+                          className="text-white/90 hover:text-white transition-colors"
+                        >
+                          {location.phone}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="mt-6 flex items-center gap-3 text-white/90">
+                  <Clock className="h-5 w-5" />
+                  <span>Open daily: 11 AM - 10 PM</span>
+                </div>
               </div>
-              <div className="mt-6 flex items-center gap-3 text-white/90">
-                <Clock className="h-5 w-5" />
-                <span>Open daily: 11 AM - 10 PM</span>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center">
+            </ScrollAnimation>
+            <ScrollAnimation
+              animation="slide-right"
+              delay={200}
+              className="flex justify-center"
+            >
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center card-hover">
                 <div className="bg-white p-4 rounded-xl shadow-md mb-4">
                   <img
                     alt="Call to order illustration"
@@ -276,7 +217,7 @@ export default function FindUsPage() {
                   Call ahead and skip the wait. Perfect for pickup orders!
                 </p>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

@@ -1,29 +1,14 @@
-"use client";
 import Image from "next/image";
 import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
-import {
-  MotionDiv,
-  MotionStagger,
-  fadeInUp,
-  slideInLeft,
-  slideInRight,
-} from "@/components/framer-motion-wrapper";
+import { SlideInRight } from "@/components/scroll-animation";
 
 export function HeroSection() {
   return (
     <section className="w-full py-8 md:py-12 lg:py-24 xl:py-32 bg-white overflow-hidden">
       <div className="container px-3 md:px-4 lg:px-6 relative">
         <div className="grid gap-4 md:gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-          <MotionStagger
-            delay={0.2}
-            staggerDelay={0.2}
-            className="flex flex-col justify-center space-y-3 md:space-y-4"
-            threshold={0.3}
-          >
-            <MotionDiv
-              variants={slideInLeft}
-              className="max-w-[150px] md:max-w-[200px] transform -rotate-3"
-            >
+          <div className="flex flex-col justify-center space-y-3 md:space-y-4 stagger-children">
+            <div className="bubble-speech max-w-[150px] md:max-w-[200px] transform -rotate-3 hover-scale">
               <Image
                 width={150}
                 height={150}
@@ -31,57 +16,44 @@ export function HeroSection() {
                 alt="Momos for every mood sticker"
                 className="w-full h-auto max-w-[220px] md:max-w-[260px] lg:max-w-[280px]"
               />
-            </MotionDiv>
+            </div>
 
-            <MotionDiv variants={fadeInUp} delay={0.3}>
-              <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-tighter">
-                FRESH MOMOS & BUBBLE TEA
-              </h1>
-            </MotionDiv>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-tighter">
+              FRESH MOMOS & BUBBLE TEA
+            </h1>
 
-            <MotionDiv variants={fadeInUp} delay={0.4}>
-              <p className="max-w-[600px] text-gray-500 text-sm md:text-xl">
-                Handcrafted with love, steamed to perfection. Our momos are made
-                fresh daily with quality ingredients!
-              </p>
-            </MotionDiv>
+            <p className="max-w-[600px] text-gray-500 text-sm md:text-xl">
+              Handcrafted with love, steamed to perfection. Our momos are made
+              fresh daily with quality ingredients!
+            </p>
 
-            <MotionDiv
-              variants={fadeInUp}
-              delay={0.5}
-              className="flex gap-4 mt-2"
-            >
+            <div className="flex gap-4 mt-2">
               <SwiggyButton
                 variant="default"
-                className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg border-0"
+                className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg border-0 btn-animate"
               />
-              <ZomatoButton className="w-full sm:w-auto font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg" />
-            </MotionDiv>
+              <ZomatoButton className="w-full sm:w-auto font-bold rounded-full px-6 py-4 md:px-8 md:py-6 text-sm md:text-lg btn-animate" />
+            </div>
 
-            <MotionDiv
-              variants={fadeInUp}
-              delay={0.6}
-              className="flex items-start sm:items-center gap-4 mt-3 md:mt-4"
-            >
-              <div className="bg-orange-100 text-orange-600 font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+            <div className="flex items-start sm:items-center gap-4 mt-3 md:mt-4">
+              <div className="bg-orange-100 text-orange-600 font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm animate-pulse">
                 Starting @ ₹80 | 6 pcs
               </div>
               <div className="bg-black text-white font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
                 2 Locations & Growing!
               </div>
-            </MotionDiv>
-          </MotionStagger>
+            </div>
+          </div>
 
-          <MotionDiv
-            variants={slideInRight}
-            delay={0.4}
+          <SlideInRight
+            delay={200}
             className="flex items-center justify-center lg:justify-end mt-6 lg:mt-0"
           >
             <div className="relative">
-              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-teal-400 text-white text-sm md:text-lg font-bold px-3 py-2 md:px-4 md:py-2 rounded-full transform rotate-12 z-10 sticker">
+              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-teal-400 text-white text-sm md:text-lg font-bold px-3 py-2 md:px-4 md:py-2 rounded-full transform rotate-12 z-10 sticker animate-bounce">
                 NEW!
               </div>
-              <div className="relative bg-gray-100 rounded-3xl overflow-hidden">
+              <div className="relative bg-gray-100 rounded-3xl overflow-hidden hover-lift">
                 <div className="steam"></div>
                 <div className="steam" style={{ left: "40%" }}></div>
                 <div className="steam" style={{ left: "60%" }}></div>
@@ -103,7 +75,7 @@ export function HeroSection() {
                 <div className="text-black text-xs md:text-sm">Try Now!</div>
               </div> */}
             </div>
-          </MotionDiv>
+          </SlideInRight>
         </div>
 
         {/* Background decorative elements */}

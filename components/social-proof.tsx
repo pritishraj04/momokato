@@ -1,23 +1,12 @@
 import { Star } from "lucide-react";
 import Image from "next/image";
-import {
-  MotionInView,
-  MotionStagger,
-  MotionDiv,
-  fadeInUp,
-  slideInLeft,
-} from "@/components/framer-motion-wrapper";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export function SocialProof() {
   return (
     <section className="w-full py-8 md:py-12 lg:py-24 bg-gray-50">
       <div className="container px-3 md:px-4 lg:px-6">
-        <MotionInView
-          variants={fadeInUp}
-          className="flex flex-col items-center justify-center space-y-3 md:space-y-4 text-center"
-          threshold={0.3}
-          rootMargin="0px 0px -100px 0px"
-        >
+        <ScrollAnimation className="flex flex-col items-center justify-center space-y-3 md:space-y-4 text-center">
           <Image
             width={100}
             height={100}
@@ -32,18 +21,10 @@ export function SocialProof() {
             Don't just take our word for it. Here's what our customers have to
             say about Momo Kato.
           </p>
-        </MotionInView>
+        </ScrollAnimation>
 
-        <MotionStagger
-          delay={0.4}
-          staggerDelay={0.2}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-12"
-          threshold={0.2}
-        >
-          <MotionDiv
-            variants={slideInLeft}
-            className="bg-white p-4 md:p-6 rounded-xl shadow-md"
-          >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-12 stagger-children">
+          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
             <div className="flex items-center gap-0.5 mb-3 md:mb-4">
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
@@ -65,12 +46,9 @@ export function SocialProof() {
                 <div className="text-xs md:text-sm text-gray-500">Patna</div>
               </div>
             </div>
-          </MotionDiv>
+          </div>
 
-          <MotionDiv
-            variants={slideInLeft}
-            className="bg-white p-4 md:p-6 rounded-xl shadow-md"
-          >
+          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
             <div className="flex items-center gap-0.5 mb-3 md:mb-4">
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
@@ -94,12 +72,9 @@ export function SocialProof() {
                 </div>
               </div>
             </div>
-          </MotionDiv>
+          </div>
 
-          <MotionDiv
-            variants={slideInLeft}
-            className="bg-white p-4 md:p-6 rounded-xl shadow-md"
-          >
+          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
             <div className="flex items-center gap-0.5 mb-3 md:mb-4">
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
               <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
@@ -123,8 +98,8 @@ export function SocialProof() {
                 </div>
               </div>
             </div>
-          </MotionDiv>
-        </MotionStagger>
+          </div>
+        </div>
       </div>
     </section>
   );

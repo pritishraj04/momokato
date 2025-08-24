@@ -9,7 +9,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
-import { MotionInView, fadeInUp } from "@/components/framer-motion-wrapper";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export function CustomerFavorites() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -207,14 +207,9 @@ export function CustomerFavorites() {
   }, [currentIndex, isDragging]);
 
   return (
-    <section className="w-full py-12 md:py-24 bg-gray-50">
+    <section className="w-full py-12 md:py-24 bg-white">
       <div className="container px-4 md:px-6">
-        <MotionInView
-          variants={fadeInUp}
-          className="flex flex-col items-center justify-center space-y-4 text-center mb-8"
-          threshold={0.3}
-          rootMargin="0px 0px -100px 0px"
-        >
+        <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
           <Image
             width={150}
             height={150}
@@ -228,7 +223,7 @@ export function CustomerFavorites() {
           <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed">
             Our most loved items that keep our customers coming back for more!
           </p>
-        </MotionInView>
+        </ScrollAnimation>
 
         <div className="relative">
           {/* Carousel Container */}
@@ -261,7 +256,7 @@ export function CustomerFavorites() {
                   className="flex-none group select-none"
                   style={{ width: `${slideWidth}px` }}
                 >
-                  <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 h-full card-hover">
                     <div className="relative h-48 md:h-64 overflow-hidden">
                       <div className="steam-container absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
                         <div className="steam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -290,11 +285,11 @@ export function CustomerFavorites() {
                       <div className="flex flex-col gap-2">
                         <SwiggyButton
                           size="sm"
-                          className="w-full text-xs md:text-sm"
+                          className="w-full text-xs md:text-sm btn-animate"
                         />
                         <ZomatoButton
                           size="sm"
-                          className="w-full text-xs md:text-sm"
+                          className="w-full text-xs md:text-sm btn-animate"
                         />
                       </div>
                     </div>
@@ -308,7 +303,7 @@ export function CustomerFavorites() {
           <button
             onClick={scrollLeft}
             disabled={isTransitioning}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg z-20 hidden md:flex items-center justify-center disabled:opacity-50 hover:bg-gray-50 transition-all duration-200 hover:shadow-xl disabled:cursor-not-allowed"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg z-20 hidden md:flex items-center justify-center disabled:opacity-50 hover:bg-gray-50 transition-all duration-200 hover:shadow-xl disabled:cursor-not-allowed hover-lift"
             aria-label="Previous slide"
           >
             <ArrowLeft className="h-6 w-6 text-orange-500" />
@@ -317,7 +312,7 @@ export function CustomerFavorites() {
           <button
             onClick={scrollRight}
             disabled={isTransitioning}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg z-20 hidden md:flex items-center justify-center disabled:opacity-50 hover:bg-gray-50 transition-all duration-200 hover:shadow-xl disabled:cursor-not-allowed"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg z-20 hidden md:flex items-center justify-center disabled:opacity-50 hover:bg-gray-50 transition-all duration-200 hover:shadow-xl disabled:cursor-not-allowed hover-lift"
             aria-label="Next slide"
           >
             <ArrowRight className="h-6 w-6 text-orange-500" />
@@ -353,19 +348,14 @@ export function CustomerFavorites() {
           </div>
         </div>
 
-        <MotionInView
-          variants={fadeInUp}
-          delay={0.5}
-          className="flex justify-center mt-8"
-          threshold={0.3}
-        >
+        <ScrollAnimation delay={500} className="flex justify-center mt-8">
           <Link href="/menu">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full px-6 md:px-8 py-3 transition-all duration-200 hover:shadow-lg transform hover:scale-105">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full px-6 md:px-8 py-3 transition-all duration-200 hover:shadow-lg transform hover:scale-105 btn-animate">
               View All Menu Items{" "}
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
           </Link>
-        </MotionInView>
+        </ScrollAnimation>
       </div>
     </section>
   );

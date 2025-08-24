@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { useAnimation } from "@/components/animation-provider";
+import { useEffect, useRef, useState } from "react";
 import { getContactInfo } from "@/lib/config";
 
 export function WhatsAppButton() {
-  const { isMobile } = useAnimation();
+  const [isMobile, setIsMobile] = useState(false);
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const pulseRef = useRef<HTMLDivElement>(null);
@@ -14,96 +12,38 @@ export function WhatsAppButton() {
   const { WHATSAPP } = getContactInfo();
 
   useEffect(() => {
-    // Initial entrance animation
-    gsap.fromTo(
-      buttonRef.current,
-      {
-        scale: 0,
-        opacity: 0,
-        rotation: -45,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-        rotation: 0,
-        duration: 0.7,
-        ease: "elastic.out(1, 0.5)",
-        delay: 1.5,
-      },
-    );
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    // Create continuous pulse animation
-    if (pulseRef.current) {
-      gsap.to(pulseRef.current, {
-        scale: 1.5,
-        opacity: 0,
-        duration: 1.5,
-        repeat: -1,
-        ease: "power1.out",
-      });
-    }
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
-    // Hover animation setup
-    if (buttonRef.current && tooltipRef.current) {
-      // Create a timeline for the hover animation
-      const hoverTl = gsap.timeline({ paused: true });
+    // Simple entrance animation using CSS
+    if (buttonRef.current) {
+      buttonRef.current.style.transform = "scale(0) rotate(-45deg)";
+      buttonRef.current.style.opacity = "0";
 
-      // Add animations to the timeline
-      hoverTl.to(
-        buttonRef.current,
-        {
-          scale: 1.1,
-          boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-          duration: 0.3,
-          ease: "back.out(1.7)",
-        },
-        0,
-      );
-
-      hoverTl.to(
-        tooltipRef.current,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        0,
-      );
-
-      // Set up event listeners
-      buttonRef.current.addEventListener("mouseenter", () => hoverTl.play());
-      buttonRef.current.addEventListener("mouseleave", () => hoverTl.reverse());
-
-      // For touch devices
-      buttonRef.current.addEventListener("touchstart", () => hoverTl.play(), {
-        passive: true,
-      });
-      buttonRef.current.addEventListener("touchend", () => hoverTl.reverse(), {
-        passive: true,
-      });
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.style.transition =
+            "all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55)";
+          buttonRef.current.style.transform = "scale(1) rotate(0deg)";
+          buttonRef.current.style.opacity = "1";
+        }
+      }, 1500);
     }
 
     // Periodic attention animation
     const attentionAnimation = () => {
       if (buttonRef.current) {
-        gsap.to(buttonRef.current, {
-          scale: 1.2,
-          duration: 0.3,
-          repeat: 1,
-          yoyo: true,
-          ease: "power1.inOut",
-          onComplete: () => {
-            // Slight rotation wiggle
-            gsap.to(buttonRef.current, {
-              rotation: 10,
-              duration: 0.2,
-              repeat: 3,
-              yoyo: true,
-              ease: "power1.inOut",
-            });
-          },
-        });
+        buttonRef.current.style.transform = "scale(1.2)";
+        setTimeout(() => {
+          if (buttonRef.current) {
+            buttonRef.current.style.transform = "scale(1)";
+          }
+        }, 300);
       }
     };
 
@@ -111,23 +51,16 @@ export function WhatsAppButton() {
     const attentionInterval = setInterval(attentionAnimation, 30000);
 
     return () => {
-      // Clean up animations and intervals
+      window.removeEventListener("resize", checkMobile);
       clearInterval(attentionInterval);
-
-      if (buttonRef.current) {
-        buttonRef.current.removeEventListener("mouseenter", () => {});
-        buttonRef.current.removeEventListener("mouseleave", () => {});
-        buttonRef.current.removeEventListener("touchstart", () => {});
-        buttonRef.current.removeEventListener("touchend", () => {});
-      }
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <div
         ref={tooltipRef}
-        className="absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-lg px-3 py-2 text-sm font-medium opacity-0 transform translate-x-10"
+        className="absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-lg px-3 py-2 text-sm font-medium opacity-0 transform translate-x-10 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
         style={{ minWidth: "120px" }}
       >
         Chat with us!
@@ -136,7 +69,7 @@ export function WhatsAppButton() {
 
       <div
         ref={pulseRef}
-        className="absolute inset-0 bg-green-500 rounded-full opacity-50"
+        className="absolute inset-0 bg-green-500 rounded-full opacity-50 animate-pulse"
       ></div>
 
       <a
@@ -144,7 +77,7 @@ export function WhatsAppButton() {
         href={`https://wa.me/${WHATSAPP}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="group flex items-center justify-center w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         aria-label="Chat on WhatsApp"
       >
         <svg

@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -31,7 +32,7 @@ export default function ContactPage() {
     <main className="flex min-h-screen flex-col items-center">
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
               Get In Touch
             </div>
@@ -42,19 +43,19 @@ export default function ContactPage() {
               Have questions? Want to know more about our franchise
               opportunities? Drop us a message!
             </p>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-            <div>
+            <ScrollAnimation animation="slide-left">
               <h2 className="text-3xl font-bold tracking-tighter mb-6">
                 Contact Information
               </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
+              <div className="space-y-6 stagger-children">
+                <ScrollAnimation delay={100} className="flex items-start gap-4">
                   <div className="bg-orange-100 p-3 rounded-full">
                     <MapPin className="h-6 w-6 text-orange-600" />
                   </div>
@@ -69,9 +70,9 @@ export default function ContactPage() {
                       </p>
                     </address>
                   </div>
-                </div>
+                </ScrollAnimation>
 
-                <div className="flex items-start gap-4">
+                <ScrollAnimation delay={200} className="flex items-start gap-4">
                   <div className="bg-orange-100 p-3 rounded-full">
                     <Phone className="h-6 w-6 text-orange-600" />
                   </div>
@@ -84,9 +85,9 @@ export default function ContactPage() {
                       +91 9876543211 (Gandhi Maidan)
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
 
-                <div className="flex items-start gap-4">
+                <ScrollAnimation delay={300} className="flex items-start gap-4">
                   <div className="bg-orange-100 p-3 rounded-full">
                     <Mail className="h-6 w-6 text-orange-600" />
                   </div>
@@ -97,9 +98,9 @@ export default function ContactPage() {
                       franchise@momokato.com (For franchise inquiries)
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
 
-                <div className="flex items-start gap-4">
+                <ScrollAnimation delay={400} className="flex items-start gap-4">
                   <div className="bg-orange-100 p-3 rounded-full">
                     <Clock className="h-6 w-6 text-orange-600" />
                   </div>
@@ -109,15 +110,15 @@ export default function ContactPage() {
                       Monday - Sunday: 11 AM - 10 PM
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
               </div>
 
-              <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
+              <ScrollAnimation delay={500}>
+                <h3 className="text-xl font-bold mb-4 mt-8">Connect With Us</h3>
                 <div className="flex gap-4">
                   <Link
                     href="#"
-                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors"
+                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors hover-lift"
                   >
                     <svg
                       className="h-6 w-6 text-orange-600"
@@ -130,7 +131,7 @@ export default function ContactPage() {
                   </Link>
                   <Link
                     href="#"
-                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors"
+                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors hover-lift"
                   >
                     <svg
                       className="h-6 w-6 text-orange-600"
@@ -143,7 +144,7 @@ export default function ContactPage() {
                   </Link>
                   <Link
                     href="#"
-                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors"
+                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors hover-lift"
                   >
                     <svg
                       className="h-6 w-6 text-orange-600"
@@ -156,7 +157,7 @@ export default function ContactPage() {
                   </Link>
                   <Link
                     href="#"
-                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors"
+                    className="bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition-colors hover-lift"
                   >
                     <svg
                       className="h-6 w-6 text-orange-600"
@@ -168,10 +169,10 @@ export default function ContactPage() {
                     </svg>
                   </Link>
                 </div>
-              </div>
-            </div>
+              </ScrollAnimation>
+            </ScrollAnimation>
 
-            <div>
+            <ScrollAnimation animation="slide-right" delay={200}>
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h2 className="text-3xl font-bold tracking-tighter mb-6">
                   Send Us a Message
@@ -187,7 +188,7 @@ export default function ContactPage() {
                       as possible.
                     </p>
                     <Button
-                      className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg"
+                      className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg btn-animate"
                       onClick={() => setFormSubmitted(false)}
                     >
                       Send Another Message
@@ -253,21 +254,21 @@ export default function ContactPage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg"
+                      className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg btn-animate"
                     >
                       Send Message <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </form>
                 )}
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Our Locations
             </div>
@@ -279,10 +280,13 @@ export default function ContactPage() {
               difference. We have interactive maps and directions to help you
               find us easily!
             </p>
-          </div>
+          </ScrollAnimation>
 
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center max-w-4xl mx-auto">
-            <div className="flex flex-col justify-center space-y-4">
+            <ScrollAnimation
+              animation="slide-left"
+              className="flex flex-col justify-center space-y-4"
+            >
               <h3 className="text-2xl font-bold text-gray-900">
                 Multiple Locations Across Bihar
               </h3>
@@ -291,8 +295,11 @@ export default function ContactPage() {
                 locations in Patna, with more coming soon across Bihar.
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
+              <div className="space-y-4 stagger-children">
+                <ScrollAnimation
+                  delay={100}
+                  className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm card-hover"
+                >
                   <div className="bg-orange-100 p-2 rounded-full">
                     <MapPin className="h-5 w-5 text-orange-600" />
                   </div>
@@ -302,9 +309,12 @@ export default function ContactPage() {
                       123 Food Street, Patna, Bihar 800001
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
 
-                <div className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
+                <ScrollAnimation
+                  delay={200}
+                  className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm card-hover"
+                >
                   <div className="bg-orange-100 p-2 rounded-full">
                     <MapPin className="h-5 w-5 text-orange-600" />
                   </div>
@@ -314,9 +324,12 @@ export default function ContactPage() {
                       45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
 
-                <div className="flex items-start gap-3 bg-orange-50 p-4 rounded-lg border border-orange-200">
+                <ScrollAnimation
+                  delay={300}
+                  className="flex items-start gap-3 bg-orange-50 p-4 rounded-lg border border-orange-200 card-hover"
+                >
                   <div className="bg-orange-200 p-2 rounded-full">
                     <Clock className="h-5 w-5 text-orange-700" />
                   </div>
@@ -326,40 +339,47 @@ export default function ContactPage() {
                       Boring Road, Kankarbagh, Rajendra Nagar & more!
                     </p>
                   </div>
-                </div>
+                </ScrollAnimation>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <ScrollAnimation
+                delay={400}
+                className="flex flex-col sm:flex-row gap-4 mt-6"
+              >
                 <Link href="/find-us">
-                  <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg">
+                  <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg btn-animate">
                     View All Locations <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/find-us">
                   <Button
                     variant="outline"
-                    className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-full px-8 py-6 text-lg transition-all duration-200 bg-transparent"
+                    className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold rounded-full px-8 py-6 text-lg transition-all duration-200 bg-transparent btn-animate"
                   >
                     Get Directions <MapPin className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-              </div>
-            </div>
+              </ScrollAnimation>
+            </ScrollAnimation>
 
-            <div className="flex items-center justify-center">
+            <ScrollAnimation
+              animation="slide-right"
+              delay={200}
+              className="flex items-center justify-center"
+            >
               <div className="relative">
                 <div className="bg-gradient-to-br from-orange-100 to-teal-100 rounded-2xl p-8 shadow-lg">
                   <img
                     alt="Interactive map showing Momo Kato locations"
-                    className="rounded-xl object-cover w-full max-w-[400px] h-[300px]"
+                    className="rounded-xl object-cover w-full max-w-[400px] h-[300px] hover-lift"
                     src="/placeholder.svg?height=300&width=400"
                     width={400}
                     height={300}
                   />
-                  <div className="absolute -top-4 -right-4 bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-full transform rotate-12 z-10">
+                  <div className="absolute -top-4 -right-4 bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-full transform rotate-12 z-10 sticker">
                     Interactive Maps!
                   </div>
-                  <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-4 shadow-lg">
+                  <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-4 shadow-lg animate-float">
                     <div className="text-orange-600 font-bold text-lg">
                       Find Us
                     </div>
@@ -367,12 +387,15 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
 
           {/* Quick Stats */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto stagger-children">
+            <ScrollAnimation
+              delay={100}
+              className="bg-white p-6 rounded-xl shadow-md text-center card-hover"
+            >
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <MapPin className="h-6 w-6 text-orange-600" />
               </div>
@@ -382,9 +405,12 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm">
                 Currently serving in Patna Central & Gandhi Maidan
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+            <ScrollAnimation
+              delay={200}
+              className="bg-white p-6 rounded-xl shadow-md text-center card-hover"
+            >
               <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Clock className="h-6 w-6 text-teal-600" />
               </div>
@@ -392,9 +418,12 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm">
                 11 AM - 10 PM at both locations
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+            <ScrollAnimation
+              delay={300}
+              className="bg-white p-6 rounded-xl shadow-md text-center card-hover"
+            >
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <ArrowRight className="h-6 w-6 text-green-600" />
               </div>
@@ -402,7 +431,7 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm">
                 3+ new locations coming across Bihar
               </p>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

@@ -5,9 +5,6 @@ import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import gsap from "gsap";
-
-import { useAnimation } from "@/components/animation-provider";
 
 interface CarouselSlide {
   id: number;
@@ -17,7 +14,7 @@ interface CarouselSlide {
 }
 
 export function FeaturedCarousel() {
-  const { isMobile } = useAnimation();
+  const [isMobile, setIsMobile] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -25,6 +22,17 @@ export function FeaturedCarousel() {
   const dotsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Sample carousel data - image only with links
   const slides: CarouselSlide[] = [
@@ -66,7 +74,7 @@ export function FeaturedCarousel() {
     dotsRef.current = dotsRef.current.slice(0, slides.length);
   }, [slides.length]);
 
-  // Handle slide change
+  // Handle slide change with CSS transitions
   const goToSlide = (index: number) => {
     if (isAnimating || index === currentSlide) return;
     setIsAnimating(true);
@@ -75,45 +83,26 @@ export function FeaturedCarousel() {
     const nextSlideEl = slidesRef.current[index];
 
     if (currentSlideEl && nextSlideEl) {
-      // Animate out current slide
-      gsap.to(currentSlideEl, {
-        opacity: 0,
-        x: index > currentSlide ? "-5%" : "5%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // Hide current slide
+      currentSlideEl.style.opacity = "0";
+      currentSlideEl.style.transform =
+        index > currentSlide ? "translateX(-5%)" : "translateX(5%)";
 
-      // Animate in next slide
-      gsap.fromTo(
-        nextSlideEl,
-        {
-          opacity: 0,
-          x: index > currentSlide ? "5%" : "-5%",
-        },
-        {
-          opacity: 1,
-          x: "0%",
-          duration: 0.5,
-          ease: "power2.inOut",
-          onComplete: () => {
-            setIsAnimating(false);
-          },
-        },
-      );
+      // Show next slide
+      nextSlideEl.style.opacity = "1";
+      nextSlideEl.style.transform = "translateX(0%)";
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
 
       // Update active dot
       if (dotsRef.current[currentSlide] && dotsRef.current[index]) {
-        gsap.to(dotsRef.current[currentSlide], {
-          scale: 1,
-          backgroundColor: "rgba(242, 101, 34, 0.3)",
-          duration: 0.3,
-        });
+        dotsRef.current[currentSlide]?.classList.remove("bg-orange-600");
+        dotsRef.current[currentSlide]?.classList.add("bg-orange-600/30");
 
-        gsap.to(dotsRef.current[index], {
-          scale: 1.2,
-          backgroundColor: "rgba(242, 101, 34, 1)",
-          duration: 0.3,
-        });
+        dotsRef.current[index]?.classList.remove("bg-orange-600/30");
+        dotsRef.current[index]?.classList.add("bg-orange-600");
       }
     }
 
@@ -194,23 +183,16 @@ export function FeaturedCarousel() {
     };
   }, [currentSlide, isAnimating]);
 
-  // Initial animation for the first slide
+  // Initial setup
   useEffect(() => {
     if (slidesRef.current[0]) {
-      gsap.fromTo(
-        slidesRef.current[0],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      );
+      slidesRef.current[0].style.opacity = "1";
+      slidesRef.current[0].style.transform = "translateX(0%)";
     }
 
     // Initialize active dot
     if (dotsRef.current[0]) {
-      gsap.to(dotsRef.current[0], {
-        scale: 1.2,
-        backgroundColor: "rgba(242, 101, 34, 1)",
-        duration: 0.3,
-      });
+      dotsRef.current[0].classList.add("bg-orange-600");
     }
   }, []);
 
@@ -227,10 +209,8 @@ export function FeaturedCarousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            ref={(el) => {
-              slidesRef.current[index] = el;
-            }}
-            className={`absolute inset-0 ${index === 0 ? "opacity-100" : "opacity-0"} ${index === currentSlide ? "pointer-events-auto" : "pointer-events-none"}`}
+            ref={(el) => (slidesRef.current[index] = el)}
+            className={`absolute inset-0 transition-all duration-500 ease-in-out ${index === 0 ? "opacity-100" : "opacity-0"} ${index === currentSlide ? "pointer-events-auto" : "pointer-events-none"}`}
             aria-hidden={index !== currentSlide}
           >
             <Link href={slide.link} className="block w-full h-full">
@@ -247,7 +227,7 @@ export function FeaturedCarousel() {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-orange-600 rounded-full p-2 md:p-3 z-20 shadow-md"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-orange-600 rounded-full p-2 md:p-3 z-20 shadow-md transition-all duration-200 hover:scale-110"
         aria-label="Previous slide"
       >
         <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" />
@@ -255,7 +235,7 @@ export function FeaturedCarousel() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-orange-600 rounded-full p-2 md:p-3 z-20 shadow-md"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-orange-600 rounded-full p-2 md:p-3 z-20 shadow-md transition-all duration-200 hover:scale-110"
         aria-label="Next slide"
       >
         <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
@@ -266,11 +246,9 @@ export function FeaturedCarousel() {
         {slides.map((_, index) => (
           <button
             key={index}
-            ref={(el) => {
-              dotsRef.current[index] = el;
-            }}
+            ref={(el) => (dotsRef.current[index] = el)}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-colors duration-300 ${
+            className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-all duration-300 ${
               index === currentSlide ? "bg-orange-600" : "bg-orange-600/30"
             }`}
             aria-label={`Go to slide ${index + 1}`}

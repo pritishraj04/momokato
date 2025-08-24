@@ -1,13 +1,14 @@
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function AboutPage() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
               Our Story
             </div>
@@ -18,14 +19,14 @@ export default function AboutPage() {
               The journey of Momo Kato from a small food stall to a growing QSR
               brand.
             </p>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-white overflow-hidden">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div>
+            <ScrollAnimation animation="slide-left">
               <h2 className="text-3xl font-bold tracking-tighter mb-6">
                 Our Beginning
               </h2>
@@ -49,28 +50,32 @@ export default function AboutPage() {
                   love and care.
                 </p>
               </div>
-            </div>
-            <div className="flex justify-center">
+            </ScrollAnimation>
+            <ScrollAnimation
+              animation="slide-right"
+              delay={200}
+              className="flex justify-center"
+            >
               <div className="relative">
-                <div className="absolute -top-4 -right-4 bg-orange-600 text-white text-lg font-bold px-4 py-2 rounded-full transform rotate-12 z-10">
+                <div className="absolute -top-4 -right-4 bg-orange-600 text-white text-lg font-bold px-4 py-2 rounded-full transform rotate-12 z-10 sticker">
                   Est. 2022
                 </div>
                 <img
                   alt="Founders of Momo Kato"
-                  className="rounded-xl object-cover"
+                  className="rounded-xl object-cover hover-lift"
                   src="/placeholder.svg?height=400&width=500"
                   width={500}
                   height={400}
                 />
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Our Mission
             </div>
@@ -81,10 +86,13 @@ export default function AboutPage() {
               We're committed to serving the freshest, most delicious momos and
               bubble tea with quick service and a smile.
             </p>
-          </div>
+          </ScrollAnimation>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+            <ScrollAnimation
+              delay={100}
+              className="bg-white p-6 rounded-xl shadow-md card-hover"
+            >
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-orange-600 font-bold text-xl">Q</span>
               </div>
@@ -93,9 +101,12 @@ export default function AboutPage() {
                 We use only the freshest ingredients and prepare our food daily
                 to ensure the highest quality.
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
+            <ScrollAnimation
+              delay={200}
+              className="bg-white p-6 rounded-xl shadow-md card-hover"
+            >
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-orange-600 font-bold text-xl">S</span>
               </div>
@@ -104,9 +115,12 @@ export default function AboutPage() {
                 Quick service without compromising on quality - that's our
                 promise to our customers.
               </p>
-            </div>
+            </ScrollAnimation>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
+            <ScrollAnimation
+              delay={300}
+              className="bg-white p-6 rounded-xl shadow-md card-hover"
+            >
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-orange-600 font-bold text-xl">F</span>
               </div>
@@ -115,14 +129,14 @@ export default function AboutPage() {
                 Our unique recipes and special sauces create a flavor experience
                 that keeps customers coming back.
               </p>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               Our Growth
             </div>
@@ -133,53 +147,65 @@ export default function AboutPage() {
               From a single stall to multiple locations in just three months -
               our journey has been incredible!
             </p>
-          </div>
+          </ScrollAnimation>
 
           <div className="relative max-w-3xl mx-auto">
             <div className="absolute left-1/2 h-full w-1 -translate-x-1/2 bg-orange-200"></div>
 
             <div className="relative grid gap-8">
-              <TimelineItem
-                month="January 2022"
-                title="First Food Stall"
-                description="Opened our first food stall at Patna Food Festival with just 3 momo varieties."
-                position="left"
-              />
+              <ScrollAnimation delay={100}>
+                <TimelineItem
+                  month="January 2022"
+                  title="First Food Stall"
+                  description="Opened our first food stall at Patna Food Festival with just 3 momo varieties."
+                  position="left"
+                />
+              </ScrollAnimation>
 
-              <TimelineItem
-                month="February 2022"
-                title="First Permanent Location"
-                description="Opened our first permanent location in Patna Central with expanded menu including bubble tea."
-                position="right"
-              />
+              <ScrollAnimation delay={200}>
+                <TimelineItem
+                  month="February 2022"
+                  title="First Permanent Location"
+                  description="Opened our first permanent location in Patna Central with expanded menu including bubble tea."
+                  position="right"
+                />
+              </ScrollAnimation>
 
-              <TimelineItem
-                month="March 2022"
-                title="Social Media Buzz"
-                description="Went viral on Instagram with our unique momo presentations and flavors."
-                position="left"
-              />
+              <ScrollAnimation delay={300}>
+                <TimelineItem
+                  month="March 2022"
+                  title="Social Media Buzz"
+                  description="Went viral on Instagram with our unique momo presentations and flavors."
+                  position="left"
+                />
+              </ScrollAnimation>
 
-              <TimelineItem
-                month="April 2022"
-                title="Second Location"
-                description="Opened our second location at Gandhi Maidan due to popular demand."
-                position="right"
-              />
+              <ScrollAnimation delay={400}>
+                <TimelineItem
+                  month="April 2022"
+                  title="Second Location"
+                  description="Opened our second location at Gandhi Maidan due to popular demand."
+                  position="right"
+                />
+              </ScrollAnimation>
 
-              <TimelineItem
-                month="May 2022"
-                title="Franchise Program"
-                description="Launched our franchise program to expand across Bihar and beyond."
-                position="left"
-              />
+              <ScrollAnimation delay={500}>
+                <TimelineItem
+                  month="May 2022"
+                  title="Franchise Program"
+                  description="Launched our franchise program to expand across Bihar and beyond."
+                  position="left"
+                />
+              </ScrollAnimation>
 
-              <TimelineItem
-                month="Today"
-                title="Growing Strong"
-                description="Two thriving locations with plans for rapid expansion through our franchise model."
-                position="right"
-              />
+              <ScrollAnimation delay={600}>
+                <TimelineItem
+                  month="Today"
+                  title="Growing Strong"
+                  description="Two thriving locations with plans for rapid expansion through our franchise model."
+                  position="right"
+                />
+              </ScrollAnimation>
             </div>
           </div>
         </div>
@@ -188,7 +214,10 @@ export default function AboutPage() {
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white overflow-hidden">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="flex flex-col justify-center space-y-4">
+            <ScrollAnimation
+              animation="slide-left"
+              className="flex flex-col justify-center space-y-4"
+            >
               <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
                 Join Our Journey
               </div>
@@ -200,34 +229,38 @@ export default function AboutPage() {
                 invite you to be part of the Momo Kato family.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg">
+                <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg btn-animate">
                   Join as Franchise Partner{" "}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white/20 font-bold rounded-full px-8 py-6 text-lg"
+                  className="border-white text-white hover:bg-white/20 font-bold rounded-full px-8 py-6 text-lg btn-animate bg-transparent"
                 >
                   Careers at Momo Kato <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-            </div>
-            <div className="flex items-center justify-center">
+            </ScrollAnimation>
+            <ScrollAnimation
+              animation="slide-right"
+              delay={200}
+              className="flex items-center justify-center"
+            >
               <div className="relative">
                 <img
                   alt="Momo Kato Team"
-                  className="rounded-xl object-cover"
+                  className="rounded-xl object-cover hover-lift"
                   src="/placeholder.svg?height=400&width=500"
                   width={500}
                   height={400}
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-lg animate-float">
                   <div className="text-orange-600 font-bold text-xl">
                     Join Us!
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -256,7 +289,7 @@ function TimelineItem({
         className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-orange-600 border-4 border-orange-100`}
       ></div>
       <div className={`w-5/12 ${position === "right" ? "ml-8" : "mr-8"}`}>
-        <div className="bg-white p-6 rounded-xl shadow-md">
+        <div className="bg-white p-6 rounded-xl shadow-md card-hover">
           <div className="text-sm font-medium text-orange-600 mb-2">
             {month}
           </div>
