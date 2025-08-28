@@ -3,8 +3,8 @@ export const APP_CONFIG = {
   // Restaurant Profile Links
   DELIVERY_LINKS: {
     SWIGGY:
-      "https://www.swiggy.com/restaurants/momo-kato-noida-sector-18-noida-123456",
-    ZOMATO: "https://www.zomato.com/ncr/momo-kato-sector-18-noida/order",
+      "https://www.swiggy.com/city/gaya/momo-kato-gaya-city-rest940360",
+    ZOMATO: "https://www.zomato.com/gaya/momo-kato-gaya-locality/order",
   },
 
   // Contact Information
@@ -40,6 +40,12 @@ export const APP_CONFIG = {
         address: "45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004",
         phone: "+91 9876543211",
         hours: "11 AM - 11 PM",
+      },
+      {
+        name: "Momo Kato - Boring Road (Coming Soon)",
+        address: "Near AIIMS, Boring Road, Patna, Bihar 800013",
+        phone: "+91 9876543212",
+        hours: "Opening Soon",
       },
     ],
   },

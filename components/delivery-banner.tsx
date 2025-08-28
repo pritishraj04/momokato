@@ -65,8 +65,8 @@ export function DeliveryBanner({
             </div>
             <img
               alt={`Order on ${platform}`}
-              className="rounded-xl object-cover w-full max-w-[400px] h-[250px]"
-              src="/images/swiggy1.jpg"
+              className="rounded-xl object-cover w-full max-w-[400px] h-[250px] border-4 border-white shadow-lg"
+              src={`/images/${platform.toLowerCase()}1.jpg`}
               width={400}
               height={250}
             />

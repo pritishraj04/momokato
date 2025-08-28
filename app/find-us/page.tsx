@@ -174,21 +174,21 @@ export default function FindUsPage() {
                 </p>
                 <div className="space-y-4">
                   {businessInfo.LOCATIONS.map((location, index) => (
-                    <div
+                    <a
                       key={index}
+                      href={`tel:${location.phone}`}
                       className="flex items-center gap-3 bg-white/10 rounded-lg p-3 card-hover"
                     >
                       <Phone className="h-5 w-5 text-white flex-shrink-0" />
-                      <div>
-                        <div className="font-bold">{location.name}</div>
-                        <a
-                          href={`tel:${location.phone}`}
-                          className="text-white/90 hover:text-white transition-colors"
+                      <div className="w-full">
+                        <div className="font-bold text-center">{location.name}</div>
+                        <div
+                          className="text-white/90"
                         >
                           {location.phone}
-                        </a>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
                 <div className="mt-6 flex items-center gap-3 text-white/90">
@@ -203,13 +203,13 @@ export default function FindUsPage() {
               className="flex justify-center"
             >
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl text-center card-hover">
-                <div className="bg-white p-4 rounded-xl shadow-md mb-4">
+                <div className="bg-white p-1 rounded-2xl shadow-md mb-4">
                   <img
                     alt="Call to order illustration"
-                    className="w-32 h-32 object-contain mx-auto"
+                    // className="w-60 h-32 object-contain mx-auto"
                     src="/images/c1.jpg"
-                    width={128}
-                    height={128}
+                    width={350}
+                    height={250}
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Quick Phone Orders</h3>
