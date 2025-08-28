@@ -8,19 +8,20 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import { AnimationProvider } from "@/components/animation-provider";
 import { MenuViewerProvider } from "@/components/menu-viewer-provider";
 
 const baloo = Baloo_2({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-baloo",
+  display: "swap",
 });
 
 const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-fredoka",
+  display: "swap",
 });
 
 export const metadata = {
@@ -78,7 +79,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased initial-load",
+          "min-h-screen bg-white font-sans antialiased",
           baloo.variable,
           fredoka.variable,
         )}
@@ -89,16 +90,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AnimationProvider>
-            <MenuViewerProvider>
-              <div className="relative z-fix">
-                <Header />
-                <main className="force-visible">{children}</main>
-                <Footer />
-                <WhatsAppButton />
-              </div>
-            </MenuViewerProvider>
-          </AnimationProvider>
+          <MenuViewerProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </MenuViewerProvider>
         </ThemeProvider>
       </body>
     </html>

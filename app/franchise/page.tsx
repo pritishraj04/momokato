@@ -17,6 +17,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import { FranchiseDownloadButton } from "@/components/franchise-download-button";
+import { FRANCHISE_CONFIG } from "@/lib/franchise-config";
 
 export default function FranchisePage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -31,7 +34,7 @@ export default function FranchisePage() {
     <main className="flex min-h-screen flex-col items-center">
       <section className="w-full py-12 md:py-24 bg-orange-600 text-white">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium">
               Business Opportunity
             </div>
@@ -42,126 +45,168 @@ export default function FranchisePage() {
               Join the Momo Kato family and be part of our growing success
               story. Low investment, high returns, and full support!
             </p>
-          </div>
+            {/* Franchise Download Button */}
+            <div className="mt-4 flex items-center justify-center">
+              <FranchiseDownloadButton />
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* Franchise Image Section - Moved directly after banner */}
+      <section className="w-full py-8 md:py-12 bg-white">
+        <div className="container px-4 md:px-6">
+          <ScrollAnimation className="flex justify-center">
+            <div className="w-full max-w-4xl">
+              <img
+                src={FRANCHISE_CONFIG.FRANCHISE_IMAGE || "/placeholder.svg"}
+                alt={FRANCHISE_CONFIG.FRANCHISE_IMAGE_ALT}
+                className="w-full h-auto rounded-xl shadow-lg hover-lift object-cover"
+                style={{ aspectRatio: "3/2" }}
+              />
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-            <div>
+            <ScrollAnimation animation="slide-left">
               <h2 className="text-3xl font-bold tracking-tighter mb-6">
                 Why Franchise With Us?
               </h2>
-              <div className="grid gap-4">
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-orange-100 p-3 rounded-full">
-                        <Check className="h-6 w-6 text-orange-600" />
+              <div className="grid gap-4 stagger-children">
+                <ScrollAnimation delay={100}>
+                  <Card className="card-hover">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-orange-100 p-3 rounded-full">
+                          <Check className="h-6 w-6 text-orange-600" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold">Low Setup Cost</h3>
+                          <p className="text-gray-500 mt-2">
+                            Start your Momo Kato franchise with a minimal
+                            investment compared to other food franchises.
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold">Low Setup Cost</h3>
-                        <p className="text-gray-500 mt-2">
-                          Start your Momo Kato franchise with a minimal
-                          investment compared to other food franchises.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimation>
 
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-orange-100 p-3 rounded-full">
-                        <Check className="h-6 w-6 text-orange-600" />
+                <ScrollAnimation delay={200}>
+                  <Card className="card-hover">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-orange-100 p-3 rounded-full">
+                          <Check className="h-6 w-6 text-orange-600" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold">Fast ROI</h3>
+                          <p className="text-gray-500 mt-2">
+                            Our business model is designed for quick returns on
+                            your investment with high-margin products.
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold">Fast ROI</h3>
-                        <p className="text-gray-500 mt-2">
-                          Our business model is designed for quick returns on
-                          your investment with high-margin products.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimation>
 
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-orange-100 p-3 rounded-full">
-                        <Check className="h-6 w-6 text-orange-600" />
+                <ScrollAnimation delay={300}>
+                  <Card className="card-hover">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-orange-100 p-3 rounded-full">
+                          <Check className="h-6 w-6 text-orange-600" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold">Hot Brand Buzz</h3>
+                          <p className="text-gray-500 mt-2">
+                            Benefit from our growing brand recognition and
+                            trendy, youthful appeal in the market.
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold">Hot Brand Buzz</h3>
-                        <p className="text-gray-500 mt-2">
-                          Benefit from our growing brand recognition and trendy,
-                          youthful appeal in the market.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimation>
 
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-orange-100 p-3 rounded-full">
-                        <Check className="h-6 w-6 text-orange-600" />
+                <ScrollAnimation delay={400}>
+                  <Card className="card-hover">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-orange-100 p-3 rounded-full">
+                          <Check className="h-6 w-6 text-orange-600" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold">
+                            Complete Training & Support
+                          </h3>
+                          <p className="text-gray-500 mt-2">
+                            We provide comprehensive training, operational
+                            support, and marketing assistance to ensure your
+                            success.
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold">
-                          Complete Training & Support
-                        </h3>
-                        <p className="text-gray-500 mt-2">
-                          We provide comprehensive training, operational
-                          support, and marketing assistance to ensure your
-                          success.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimation>
               </div>
 
-              <h2 className="text-3xl font-bold tracking-tighter mt-12 mb-6">
-                The Franchise Process
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl font-bold text-orange-600">1</div>
-                  <h3 className="text-xl font-bold mt-2">Apply</h3>
-                  <p className="text-gray-500 mt-2">
-                    Fill out our simple franchise application form
-                  </p>
+              <ScrollAnimation delay={500}>
+                <h2 className="text-3xl font-bold tracking-tighter mt-12 mb-6">
+                  The Franchise Process
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 stagger-children">
+                  <ScrollAnimation
+                    delay={600}
+                    className="bg-gray-50 p-6 rounded-xl card-hover"
+                  >
+                    <div className="text-4xl font-bold text-orange-600">1</div>
+                    <h3 className="text-xl font-bold mt-2">Apply</h3>
+                    <p className="text-gray-500 mt-2">
+                      Fill out our simple franchise application form
+                    </p>
+                  </ScrollAnimation>
+                  <ScrollAnimation
+                    delay={700}
+                    className="bg-gray-50 p-6 rounded-xl card-hover"
+                  >
+                    <div className="text-4xl font-bold text-orange-600">2</div>
+                    <h3 className="text-xl font-bold mt-2">Meet</h3>
+                    <p className="text-gray-500 mt-2">
+                      Discussion and location assessment
+                    </p>
+                  </ScrollAnimation>
+                  <ScrollAnimation
+                    delay={800}
+                    className="bg-gray-50 p-6 rounded-xl card-hover"
+                  >
+                    <div className="text-4xl font-bold text-orange-600">3</div>
+                    <h3 className="text-xl font-bold mt-2">Train</h3>
+                    <p className="text-gray-500 mt-2">
+                      Complete our comprehensive training program
+                    </p>
+                  </ScrollAnimation>
+                  <ScrollAnimation
+                    delay={900}
+                    className="bg-gray-50 p-6 rounded-xl card-hover"
+                  >
+                    <div className="text-4xl font-bold text-orange-600">4</div>
+                    <h3 className="text-xl font-bold mt-2">Launch</h3>
+                    <p className="text-gray-500 mt-2">
+                      Grand opening with marketing support
+                    </p>
+                  </ScrollAnimation>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl font-bold text-orange-600">2</div>
-                  <h3 className="text-xl font-bold mt-2">Meet</h3>
-                  <p className="text-gray-500 mt-2">
-                    Discussion and location assessment
-                  </p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl font-bold text-orange-600">3</div>
-                  <h3 className="text-xl font-bold mt-2">Train</h3>
-                  <p className="text-gray-500 mt-2">
-                    Complete our comprehensive training program
-                  </p>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl font-bold text-orange-600">4</div>
-                  <h3 className="text-xl font-bold mt-2">Launch</h3>
-                  <p className="text-gray-500 mt-2">
-                    Grand opening with marketing support
-                  </p>
-                </div>
-              </div>
-            </div>
+              </ScrollAnimation>
+            </ScrollAnimation>
 
-            <div>
+            <ScrollAnimation animation="slide-right" delay={200}>
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h2 className="text-3xl font-bold tracking-tighter mb-6">
                   Start Your Momo Business
@@ -177,7 +222,7 @@ export default function FranchisePage() {
                       contact you within 48 hours to discuss the next steps.
                     </p>
                     <Button
-                      className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg"
+                      className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg btn-animate"
                       onClick={() => setFormSubmitted(false)}
                     >
                       Submit Another Inquiry
@@ -260,21 +305,21 @@ export default function FranchisePage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg"
+                      className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-8 py-6 text-lg btn-animate"
                     >
                       Submit Inquiry <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </form>
                 )}
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <ScrollAnimation className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="inline-block rounded-full bg-orange-100 px-3 py-1 text-sm font-medium text-orange-600">
               FAQ
             </div>
@@ -285,70 +330,82 @@ export default function FranchisePage() {
               Get answers to the most common questions about our franchise
               program.
             </p>
-          </div>
+          </ScrollAnimation>
 
-          <div className="grid gap-4 mt-8">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold">
-                  What is the initial investment required?
-                </h3>
-                <p className="text-gray-500 mt-2">
-                  The initial investment for a Momo Kato franchise typically
-                  ranges from ₹5-10 Lakhs, depending on the location and size of
-                  the outlet.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid gap-4 mt-8 stagger-children">
+            <ScrollAnimation delay={100}>
+              <Card className="card-hover">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold">
+                    What is the initial investment required?
+                  </h3>
+                  <p className="text-gray-500 mt-2">
+                    The initial investment for a Momo Kato franchise typically
+                    ranges from ₹5-10 Lakhs, depending on the location and size
+                    of the outlet.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold">
-                  What is the franchise term?
-                </h3>
-                <p className="text-gray-500 mt-2">
-                  Our standard franchise agreement is for 5 years, with an
-                  option to renew for additional terms.
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation delay={200}>
+              <Card className="card-hover">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold">
+                    What is the franchise term?
+                  </h3>
+                  <p className="text-gray-500 mt-2">
+                    Our standard franchise agreement is for 5 years, with an
+                    option to renew for additional terms.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold">Do you provide training?</h3>
-                <p className="text-gray-500 mt-2">
-                  Yes, we provide comprehensive training on all aspects of the
-                  business, including food preparation, operations, customer
-                  service, and marketing.
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation delay={300}>
+              <Card className="card-hover">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold">
+                    Do you provide training?
+                  </h3>
+                  <p className="text-gray-500 mt-2">
+                    Yes, we provide comprehensive training on all aspects of the
+                    business, including food preparation, operations, customer
+                    service, and marketing.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold">
-                  What ongoing support do you provide?
-                </h3>
-                <p className="text-gray-500 mt-2">
-                  We provide continuous operational support, marketing
-                  assistance, supply chain management, and regular business
-                  reviews to help you succeed.
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation delay={400}>
+              <Card className="card-hover">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold">
+                    What ongoing support do you provide?
+                  </h3>
+                  <p className="text-gray-500 mt-2">
+                    We provide continuous operational support, marketing
+                    assistance, supply chain management, and regular business
+                    reviews to help you succeed.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold">
-                  What is the typical ROI timeline?
-                </h3>
-                <p className="text-gray-500 mt-2">
-                  Most of our franchisees achieve return on investment within
-                  12-18 months of operation, depending on location and local
-                  market conditions.
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation delay={500}>
+              <Card className="card-hover">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold">
+                    What is the typical ROI timeline?
+                  </h3>
+                  <p className="text-gray-500 mt-2">
+                    Most of our franchisees achieve return on investment within
+                    12-18 months of operation, depending on location and local
+                    market conditions.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

@@ -28,7 +28,7 @@ export function MenuPdfViewer() {
       {/* Primary Action Button */}
       <Button
         onClick={handleViewMenu}
-        className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+        className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
       >
         <Maximize className="mr-3 h-7 w-7" />
         View Full Menu
@@ -39,7 +39,7 @@ export function MenuPdfViewer() {
         <Button
           variant="outline"
           onClick={handleDownload}
-          className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          className="bg-white hover:bg-orange-50 text-orange-600 hover:text-orange-700 border-2 border-orange-600 font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
         >
           <Download className="mr-2 h-5 w-5" />
           Download Menu

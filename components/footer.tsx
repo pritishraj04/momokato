@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import {
+  getDeliveryLinks,
+  getSocialLinks,
+  getContactInfo,
+  getBusinessInfo,
+} from "@/lib/config";
 
 export function Footer() {
+  const deliveryLinks = getDeliveryLinks();
+  const socialLinks = getSocialLinks();
+  const contactInfo = getContactInfo();
+  const businessInfo = getBusinessInfo();
+
   return (
     <footer className="relative bg-black text-white py-12 md:py-16 overflow-hidden">
       {/* Background Image */}
@@ -25,20 +36,29 @@ export function Footer() {
                 className="w-full max-w-[120px] md:max-w-[160px] lg:max-w-[180px]"
               />
             </div>
-            <p className="text-gray-400">
-              Born in Patna, Loved Everywhere. Quality momos and bubble tea
-              served with a smile!
-            </p>
+            <p className="text-gray-400">{businessInfo.DESCRIPTION}</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link
+                href={socialLinks.INSTAGRAM}
+                target="_blank"
+                className="text-gray-400 hover:text-white"
+              >
                 <Instagram className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link
+                href={socialLinks.FACEBOOK}
+                target="_blank"
+                className="text-gray-400 hover:text-white"
+              >
                 <Facebook className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link
+                href={socialLinks.TWITTER}
+                target="_blank"
+                className="text-gray-400 hover:text-white"
+              >
                 <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
@@ -101,7 +121,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="https://www.swiggy.com"
+                  href={deliveryLinks.SWIGGY}
                   target="_blank"
                   className="text-gray-400 hover:text-white"
                 >
@@ -110,7 +130,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://www.zomato.com"
+                  href={deliveryLinks.ZOMATO}
                   target="_blank"
                   className="text-gray-400 hover:text-white"
                 >
@@ -122,16 +142,21 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <address className="not-italic text-gray-400">
-              <p>123 Food Street</p>
-              <p>Patna, Bihar 800001</p>
-              <p className="mt-2">Phone: +91 9876543210</p>
-              <p>Email: hello@momokato.com</p>
+              <p>{businessInfo.LOCATIONS[0].address.split(",")[0]}</p>
+              <p>
+                {businessInfo.LOCATIONS[0].address
+                  .split(",")
+                  .slice(1)
+                  .join(",")}
+              </p>
+              <p className="mt-2">Phone: {contactInfo.PHONE}</p>
+              <p>Email: {contactInfo.EMAIL}</p>
             </address>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400">
-            © 2024 Momo Kato. All rights reserved.
+            © 2024 {businessInfo.NAME}. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link
