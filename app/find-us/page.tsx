@@ -207,7 +207,7 @@ export default function FindUsPage() {
                   <img
                     alt="Call to order illustration"
                     className="w-32 h-32 object-contain mx-auto"
-                    src="/placeholder.svg?height=128&width=128"
+                    src="/images/c1.jpg"
                     width={128}
                     height={128}
                   />

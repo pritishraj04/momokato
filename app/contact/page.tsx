@@ -372,7 +372,7 @@ export default function ContactPage() {
                   <img
                     alt="Interactive map showing Momo Kato locations"
                     className="rounded-xl object-cover w-full max-w-[400px] h-[300px] hover-lift"
-                    src="/placeholder.svg?height=300&width=400"
+                    src="/images/contact1.jpg"
                     width={400}
                     height={300}
                   />

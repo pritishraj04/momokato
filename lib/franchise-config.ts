@@ -5,7 +5,7 @@ export const FRANCHISE_CONFIG = {
   DOCUMENT_NAME: "Franchise Brochure",
 
   // Franchise image
-  FRANCHISE_IMAGE: "/placeholder.svg?height=400&width=600",
+  FRANCHISE_IMAGE: "/images/f1.jpg",
   FRANCHISE_IMAGE_ALT:
     "Momo Kato Franchise Opportunity - Join Our Growing Family",
 };

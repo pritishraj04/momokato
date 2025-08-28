@@ -38,7 +38,7 @@ export default function WorkWithUsPage() {
               <img
                 alt="Happy team members at Momo Kato wearing colorful wigs and props"
                 className="w-full h-[280px] sm:h-[320px] md:h-[450px] object-cover rounded-xl hover-lift"
-                src="/placeholder.svg?height=450&width=800"
+                src="/images/work1.jpg"
                 width={800}
                 height={450}
               />
