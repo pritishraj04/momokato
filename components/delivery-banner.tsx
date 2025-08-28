@@ -66,7 +66,7 @@ export function DeliveryBanner({
             <img
               alt={`Order on ${platform}`}
               className="rounded-xl object-cover w-full max-w-[400px] h-[250px]"
-              src="/placeholder.svg?height=250&width=400"
+              src="/images/swiggy1.jpg"
               width={400}
               height={250}
             />
