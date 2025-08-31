@@ -64,12 +64,17 @@
   h6 {
     @apply font-baloo font-bold;
   }
-  p,
-  span,
+  p,  span{
+    @apply font-fredoka;
+  }
+
+
   div,
   a,
   button {
-    @apply font-fredoka;
+    /* @apply font-fredoka; */
+    /* @apply font-monomaniac; */
+    @apply font-capriola;
   }
 }
 
@@ -529,6 +534,14 @@ body {
 
 .font-fredoka {
   font-family: var(--font-fredoka);
+}
+
+.font-monomaniac {
+  font-family: var(--font-monomaniac);
+}
+
+.font-capriola {
+  font-family: var(--font-capriola);
 }
 
 .bubble-speech {

@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface CarouselSlide {
@@ -216,7 +217,10 @@ export function FeaturedCarousel() {
             aria-hidden={index !== currentSlide}
           >
             <Link href={slide.link} className="block w-full h-full">
-              <img
+              <Image
+                priority={index === 0}
+                height={600}
+                width={800}
                 src={slide.image || "/placeholder.svg"}
                 alt={slide.alt}
                 className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300"

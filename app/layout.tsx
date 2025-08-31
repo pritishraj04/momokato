@@ -1,6 +1,7 @@
 import type React from "react";
 import "@/app/globals.css";
-import { Baloo_2 } from "next/font/google";
+import { Baloo_2, Capriola } from "next/font/google";
+import { Monomaniac_One } from "next/font/google";
 import { Fredoka } from "next/font/google";
 
 import { cn } from "@/lib/utils";
@@ -21,6 +22,13 @@ const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-fredoka",
+  display: "swap",
+});
+
+const capriola = Capriola({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-capriola",
   display: "swap",
 });
 
@@ -82,6 +90,7 @@ export default function RootLayout({
           "min-h-screen bg-white font-sans antialiased",
           baloo.variable,
           fredoka.variable,
+          capriola.variable,
         )}
       >
         <ThemeProvider

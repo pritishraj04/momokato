@@ -249,7 +249,7 @@ export default function AboutPage() {
               <div className="relative">
                 <img
                   alt="Momo Kato Team"
-                  className="rounded-xl object-cover hover-lift"
+                  className="rounded-xl object-cover"
                   src="/images/about2.png"
                   width={500}
                   height={400}
