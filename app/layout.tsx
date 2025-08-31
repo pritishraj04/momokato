@@ -34,6 +34,9 @@ const capriola = Capriola({
 
 export const metadata = {
   title: "Momo Kato - Fresh Momos & Bubble Tea",
+  icons: {
+    icon: "/favicon.svg",
+  },
   description:
     "Momo Kato is a growing QSR brand serving fresh momos, authentic Himalayan cuisine, and delicious bubble tea. Visit our locations, order online, or franchise with us!",
   keywords: [
