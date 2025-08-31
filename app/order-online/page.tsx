@@ -6,6 +6,8 @@ import { DeliveryBanner } from "@/components/delivery-banner";
 import { SwiggyQrScanner, ZomatoQrScanner } from "@/components/qr-scanner";
 import { OfferStrip } from "@/components/offer-strip";
 import { ScrollAnimation } from "@/components/scroll-animation";
+import { getSwiggyLink, getZomatoLink } from "@/lib/config";
+
 
 export default function OrderOnlinePage() {
   return (
@@ -51,7 +53,7 @@ export default function OrderOnlinePage() {
                 textColor="text-white"
                 buttonColor="bg-white text-orange-600 hover:bg-orange-100"
                 buttonText="Order Now on Swiggy"
-                buttonLink="https://www.swiggy.com"
+                buttonLink={getSwiggyLink()}
                 icon={<Truck className="h-8 w-8" />}
               />
             </ScrollAnimation>
@@ -64,7 +66,7 @@ export default function OrderOnlinePage() {
                 textColor="text-white"
                 buttonColor="bg-white text-red-600 hover:bg-red-100"
                 buttonText="Order Now on Zomato"
-                buttonLink="https://www.zomato.com"
+                buttonLink={getZomatoLink()}
                 icon={<Truck className="h-8 w-8" />}
               />
             </ScrollAnimation>

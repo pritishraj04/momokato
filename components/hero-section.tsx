@@ -36,7 +36,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex items-start sm:items-center gap-4 mt-3 md:mt-4">
-              <div className="bg-orange-100 text-orange-600 font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm animate-pulse">
+              <div className="bg-orange-100 text-orange-600 font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
                 Starting @ ₹80 | 6 pcs
               </div>
               <div className="bg-black text-white font-bold px-3 py-2 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
@@ -50,7 +50,7 @@ export function HeroSection() {
             className="flex items-center justify-center lg:justify-end mt-6 lg:mt-0"
           >
             <div className="relative">
-              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-teal-400 text-white text-sm md:text-lg font-bold px-3 py-2 md:px-4 md:py-2 rounded-full transform rotate-12 z-10 sticker animate-bounce">
+              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-teal-400 text-white text-sm md:text-lg font-bold px-3 py-2 md:px-4 md:py-2 rounded-full transform rotate-12 z-10 sticker">
                 NEW!
               </div>
               <div className="relative bg-gray-100 rounded-3xl overflow-hidden hover-lift">

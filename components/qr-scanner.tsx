@@ -19,7 +19,7 @@ export function QrScanner({ platform, className = "" }: QrScannerProps) {
       color: "text-orange-500",
       bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
-      hoverColor: "hover:bg-orange-100",
+      hoverColor: "hover:bg-orange-500",
       link: getSwiggyLink(),
     },
     zomato: {
@@ -27,7 +27,7 @@ export function QrScanner({ platform, className = "" }: QrScannerProps) {
       color: "text-red-500",
       bgColor: "bg-red-50",
       borderColor: "border-red-200",
-      hoverColor: "hover:bg-red-100",
+      hoverColor: "hover:bg-red-500",
       link: getZomatoLink(),
     },
   };

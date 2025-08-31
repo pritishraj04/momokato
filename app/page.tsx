@@ -153,7 +153,7 @@ export default function Home() {
               className="flex items-center justify-center"
             >
               <div className="relative w-full max-w-sm">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-teal-400 rounded-full flex items-center justify-center rotate-12 z-10 animate-bounce">
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-teal-400 rounded-full flex items-center justify-center rotate-12 z-10">
                   <span className="font-bold text-white text-lg">NEW!</span>
                 </div>
                 <Image

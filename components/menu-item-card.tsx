@@ -21,17 +21,17 @@ export function MenuItemCard({
       {/* Image Container - No gaps, flush to top */}
       <div className="relative flex-shrink-0">
         {item.id === "veg-steamed" && (
-          <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10 animate-pulse">
+          <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             BESTSELLER
           </div>
         )}
         {item.id === "chicken-fried" && (
-          <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10 animate-bounce">
+          <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             NEW
           </div>
         )}
         {item.id === "taro-bubble" && (
-          <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10 animate-wiggle">
+          <div className="absolute top-2 right-2 bg-teal-400 text-white text-xs md:text-sm font-bold px-2 py-1 rounded-full z-10">
             POPULAR
           </div>
         )}
