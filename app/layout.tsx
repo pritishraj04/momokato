@@ -55,7 +55,7 @@ export const metadata = {
     title: "Momo Kato - Fresh Momos & Bubble Tea",
     description:
       "Momo Kato is a growing QSR brand serving fresh momos, authentic Himalayan cuisine, and delicious bubble tea.",
-    url: "https://momokato.com/",
+    url: "https://momokato.in/",
     siteName: "Momo Kato",
     images: [
       {

@@ -9,15 +9,15 @@ export const APP_CONFIG = {
 
   // Contact Information
   CONTACT: {
-    PHONE: "+91 9876543210",
-    EMAIL: "hello@momokato.com",
-    WHATSAPP: "919876543210",
+    PHONE: "+91 8877005900",
+    EMAIL: "hello@momokato.in",
+    WHATSAPP: "8877005900",
   },
 
   // Social Media Links
   SOCIAL: {
-    INSTAGRAM: "https://www.instagram.com/momokato_official",
-    FACEBOOK: "https://www.facebook.com/momokatoofficial",
+    INSTAGRAM: "https://www.instagram.com/momokato.eats",
+    FACEBOOK: "https://www.facebook.com/momokato.eats",
     TWITTER: "https://www.twitter.com/momokato",
     YOUTUBE: "https://www.youtube.com/@momokato",
   },
@@ -30,22 +30,22 @@ export const APP_CONFIG = {
       "Born in Patna, Loved Everywhere. Quality momos and bubble tea served with a smile!",
     LOCATIONS: [
       {
-        name: "Momo Kato - Patna Central",
+        name: "Momo Kato - Iconic Tower, Gola Road",
         address: "123 Food Street, Patna, Bihar 800001",
-        phone: "+91 9876543210",
+        phone: "+91 8877005900",
         hours: "11 AM - 10 PM",
       },
       {
-        name: "Momo Kato - Gandhi Maidan",
+        name: "Momo Kato - Pulwari Sharif",
         address: "45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004",
-        phone: "+91 9876543211",
-        hours: "11 AM - 11 PM",
+        phone: "+91 8877009800",
+        hours: "11 AM - 10 PM",
       },
       {
-        name: "Momo Kato - Boring Road (Coming Soon)",
+        name: "Momo Kato - APR Mall, Gaya",
         address: "Near AIIMS, Boring Road, Patna, Bihar 800013",
-        phone: "+91 9876543212",
-        hours: "Opening Soon",
+        phone: "+91 8877003800",
+        hours: "11 AM - 10 PM",
       },
     ],
   },

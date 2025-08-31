@@ -93,9 +93,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Email Us</h3>
-                    <p className="text-gray-500 mt-2">hello@momokato.com</p>
+                    <p className="text-gray-500 mt-2">hello@momokato.in</p>
                     <p className="text-gray-500">
-                      franchise@momokato.com (For franchise inquiries)
+                      franchise@momokato.in (For franchise inquiries)
                     </p>
                   </div>
                 </ScrollAnimation>
