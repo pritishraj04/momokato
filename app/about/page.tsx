@@ -63,7 +63,7 @@ export default function AboutPage() {
                 <img
                   alt="Founders of Momo Kato"
                   className="rounded-xl object-cover hover-lift"
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/about1.jpg"
                   width={500}
                   height={400}
                 />
