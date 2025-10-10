@@ -517,9 +517,9 @@ body {
   }
 
   /* Disable all hover effects on mobile */
-  *:hover {
+  /* *:hover {
     transform: none !important;
-  }
+  } */
 
   /* Keep only essential hover effects for buttons */
   button:hover,

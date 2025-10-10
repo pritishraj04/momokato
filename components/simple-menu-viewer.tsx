@@ -107,17 +107,15 @@ export function SimpleMenuViewer({
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (scale > baseScale) {
       setIsDragging(true);
       setDragStart({
         x: e.clientX - position.x,
         y: e.clientY - position.y,
       });
-    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging && scale > baseScale) {
+    if (isDragging) {
       setPosition({
         x: e.clientX - dragStart.x,
         y: e.clientY - dragStart.y,
@@ -130,7 +128,7 @@ export function SimpleMenuViewer({
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (scale > baseScale && e.touches.length === 1) {
+    if (e.touches.length === 1) {
       setIsDragging(true);
       setDragStart({
         x: e.touches[0].clientX - position.x,
@@ -140,7 +138,7 @@ export function SimpleMenuViewer({
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (isDragging && scale > baseScale && e.touches.length === 1) {
+    if (isDragging && e.touches.length === 1) {
       e.preventDefault();
       setPosition({
         x: e.touches[0].clientX - dragStart.x,
@@ -167,7 +165,7 @@ export function SimpleMenuViewer({
         width: "100vw",
         height: "100vh",
       }}
-      onClick={onClose}
+      // onClick={onClose}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
@@ -237,14 +235,14 @@ export function SimpleMenuViewer({
         className="max-w-full max-h-full p-4 flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
         style={{
-          cursor: scale > 1 ? (isDragging ? "grabbing" : "grab") : "default",
+          cursor: isDragging ? "grabbing" : "grab",
         }}
       >
         <img
           ref={imageRef}
           src={menuImage || "/placeholder.svg"}
           alt="Momo Kato Menu"
-          className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none"
+          className="max-w-none max-h-none object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none"
           style={{
             transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
             transformOrigin: "center center",
@@ -265,8 +263,8 @@ export function SimpleMenuViewer({
 
       {/* Instructions */}
       <div
-        className="fixed bottom-4 right-4 z-[10000] bg-black bg-opacity-70 text-white px-3 py-2 rounded-lg text-xs"
-        style={{ position: "fixed", bottom: "16px", right: "16px" }}
+        className="fixed top-20 right-4 z-[10000] bg-black bg-opacity-70 text-white px-3 py-2 rounded-lg text-xs"
+        style={{ position: "fixed", top: "70px", right: "16px" }}
       >
         <div className="text-center">
           <div>Press ESC to close</div>
