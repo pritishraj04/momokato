@@ -8,7 +8,7 @@ import { useMenuViewer } from "@/components/menu-viewer-provider";
 export function MenuPdfViewer() {
   const { openViewer } = useMenuViewer();
 
-  const menuImage = "/images/menu-preview.png";
+  const menuImage = "/images/menu-preview.jpg";
 
   const handleViewMenu = () => {
     openViewer(menuImage);

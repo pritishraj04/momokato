@@ -17,6 +17,7 @@ export function SimpleMenuViewer({
   menuImage,
 }: SimpleMenuViewerProps) {
   const [scale, setScale] = useState(1);
+  const [baseScale, setBaseScale] = useState(1); // new baseline scale
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
@@ -25,9 +26,13 @@ export function SimpleMenuViewer({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      // Reset zoom and position when opening
-      setScale(1);
-      setPosition({ x: 0, y: 0 });
+
+      const img = imageRef.current;
+      if (img && img.complete) {
+        fitImageToScreen();
+      } else if (img) {
+        img.onload = fitImageToScreen;
+      }
     } else {
       document.body.style.overflow = "";
     }
@@ -48,6 +53,33 @@ export function SimpleMenuViewer({
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (isOpen) fitImageToScreen();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isOpen]);
+
+  const fitImageToScreen = () => {
+    const img = imageRef.current;
+    if (!img) return;
+
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const imgWidth = img.naturalWidth;
+    const imgHeight = img.naturalHeight;
+
+    const scaleX = viewportWidth / imgWidth;
+    const scaleY = viewportHeight / imgHeight;
+    const fitScale = Math.min(scaleX, scaleY);
+
+    // Set both current scale and base scale
+    setScale(fitScale);
+    setBaseScale(fitScale);
+    setPosition({ x: 0, y: 0 });
+  };
+
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
     const link = document.createElement("a");
@@ -60,23 +92,22 @@ export function SimpleMenuViewer({
 
   const zoomIn = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setScale((prev) => Math.min(prev + 0.25, 3));
+    setScale((prev) => Math.min(prev + baseScale * 0.25, baseScale * 3)); // up to 300%
   };
 
   const zoomOut = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setScale((prev) => Math.max(prev - 0.25, 0.5));
+    setScale((prev) => Math.max(prev - baseScale * 0.25, baseScale * 0.5)); // down to 50%
   };
 
   const resetZoom = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setScale(1);
+    setScale(baseScale);
     setPosition({ x: 0, y: 0 });
   };
 
-  // Mouse drag functionality for panning when zoomed
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (scale > 1) {
+    if (scale > baseScale) {
       setIsDragging(true);
       setDragStart({
         x: e.clientX - position.x,
@@ -86,7 +117,7 @@ export function SimpleMenuViewer({
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging && scale > 1) {
+    if (isDragging && scale > baseScale) {
       setPosition({
         x: e.clientX - dragStart.x,
         y: e.clientY - dragStart.y,
@@ -98,9 +129,8 @@ export function SimpleMenuViewer({
     setIsDragging(false);
   };
 
-  // Touch events for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (scale > 1 && e.touches.length === 1) {
+    if (scale > baseScale && e.touches.length === 1) {
       setIsDragging(true);
       setDragStart({
         x: e.touches[0].clientX - position.x,
@@ -110,7 +140,7 @@ export function SimpleMenuViewer({
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (isDragging && scale > 1 && e.touches.length === 1) {
+    if (isDragging && scale > baseScale && e.touches.length === 1) {
       e.preventDefault();
       setPosition({
         x: e.touches[0].clientX - dragStart.x,
@@ -175,19 +205,19 @@ export function SimpleMenuViewer({
       >
         <button
           onClick={zoomOut}
-          disabled={scale <= 0.5}
+          disabled={scale <= baseScale * 0.5}
           className="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-2 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed"
         >
           <ZoomOut className="h-4 w-4" />
         </button>
 
         <div className="text-white px-3 py-1 text-sm font-medium min-w-[60px] text-center">
-          {Math.round(scale * 100)}%
+          {Math.round((scale / baseScale) * 100)}%
         </div>
 
         <button
           onClick={zoomIn}
-          disabled={scale >= 3}
+          disabled={scale >= baseScale * 3}
           className="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-2 transition-all duration-200 hover:scale-105 disabled:cursor-not-allowed"
         >
           <ZoomIn className="h-4 w-4" />
@@ -216,9 +246,14 @@ export function SimpleMenuViewer({
           alt="Momo Kato Menu"
           className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none"
           style={{
-            transform: `scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
+            transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
             transformOrigin: "center center",
-            cursor: scale > 1 ? (isDragging ? "grabbing" : "grab") : "default",
+            cursor:
+              scale > baseScale
+                ? isDragging
+                  ? "grabbing"
+                  : "grab"
+                : "default",
           }}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
@@ -250,7 +285,7 @@ export function SimpleMenuViewer({
             transform: "translateX(-50%)",
           }}
         >
-          Zoom: {Math.round(scale * 100)}%
+          Zoom: {Math.round((scale / baseScale) * 100)}%
         </div>
       )}
     </div>

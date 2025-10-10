@@ -64,10 +64,10 @@
   h6 {
     @apply font-baloo font-bold;
   }
-  p,  span{
+  p,
+  span {
     @apply font-fredoka;
   }
-
 
   div,
   a,

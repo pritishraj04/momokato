@@ -181,12 +181,10 @@ export default function FindUsPage() {
                     >
                       <Phone className="h-5 w-5 text-white flex-shrink-0" />
                       <div className="w-full">
-                        <div className="font-bold text-center">{location.name}</div>
-                        <div
-                          className="text-white/90"
-                        >
-                          {location.phone}
+                        <div className="font-bold text-center">
+                          {location.name}
                         </div>
+                        <div className="text-white/90">{location.phone}</div>
                       </div>
                     </a>
                   ))}

@@ -8,7 +8,6 @@ import { OfferStrip } from "@/components/offer-strip";
 import { ScrollAnimation } from "@/components/scroll-animation";
 import { getSwiggyLink, getZomatoLink } from "@/lib/config";
 
-
 export default function OrderOnlinePage() {
   return (
     <main className="flex min-h-screen flex-col items-center">

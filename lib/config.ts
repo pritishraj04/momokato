@@ -2,8 +2,7 @@
 export const APP_CONFIG = {
   // Restaurant Profile Links
   DELIVERY_LINKS: {
-    SWIGGY:
-      "https://www.swiggy.com/city/gaya/momo-kato-gaya-city-rest940360",
+    SWIGGY: "https://www.swiggy.com/city/gaya/momo-kato-gaya-city-rest940360",
     ZOMATO: "https://www.zomato.com/gaya/momo-kato-gaya-locality/order",
   },
 
