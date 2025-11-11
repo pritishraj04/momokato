@@ -6,34 +6,7 @@ import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function FindUsPage() {
   const businessInfo = getBusinessInfo();
-
-  // Extended location data with coordinates and images
-  const locations = [
-    {
-      ...businessInfo.LOCATIONS[0],
-      coordinates: { lat: 25.5941, lng: 85.1376 }, // Patna Central coordinates
-      image: "/placeholder.svg?height=200&width=400",
-      mapEmbedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8944!2d85.1376!3d25.5941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM1JzM4LjgiTiA4NcKwMDgnMTUuNCJF!5e0!3m2!1sen!2sin!4v1234567890",
-    },
-    {
-      ...businessInfo.LOCATIONS[1],
-      coordinates: { lat: 25.6093, lng: 85.1376 }, // Gandhi Maidan coordinates
-      image: "/placeholder.svg?height=200&width=400",
-      mapEmbedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.7234!2d85.1376!3d25.6093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzMzLjUiTiA4NcKwMDgnMTUuNCJF!5e0!3m2!1sen!2sin!4v1234567891",
-    },
-    {
-      name: "Momo Kato - Boring Road (Coming Soon)",
-      address: "Near AIIMS, Boring Road, Patna, Bihar 800013",
-      phone: "+91 9876543212",
-      hours: "Opening Soon",
-      coordinates: { lat: 25.5744, lng: 85.096 },
-      image: "/placeholder.svg?height=200&width=400",
-      mapEmbedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.2156!2d85.0960!3d25.5744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM0JzI3LjgiTiA4NcKwMDUnNDUuNiJF!5e0!3m2!1sen!2sin!4v1234567892",
-    },
-  ];
+  const locations = businessInfo.LOCATIONS;
 
   return (
     <main className="flex min-h-screen flex-col items-center">
@@ -66,7 +39,6 @@ export default function FindUsPage() {
                   address={location.address}
                   phone={location.phone}
                   hours={location.hours}
-                  coordinates={location.coordinates}
                   mapEmbedUrl={location.mapEmbedUrl}
                 />
               </ScrollAnimation>
@@ -173,7 +145,7 @@ export default function FindUsPage() {
                   ready when you arrive!
                 </p>
                 <div className="space-y-4">
-                  {businessInfo.LOCATIONS.map((location, index) => (
+                  {locations.map((location, index) => (
                     <a
                       key={index}
                       href={`tel:${location.phone}`}
@@ -191,7 +163,7 @@ export default function FindUsPage() {
                 </div>
                 <div className="mt-6 flex items-center gap-3 text-white/90">
                   <Clock className="h-5 w-5" />
-                  <span>Open daily: 11 AM - 10 PM</span>
+                  <span>Open daily: 11 AM - 11 PM</span>
                 </div>
               </div>
             </ScrollAnimation>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { getBusinessInfo } from "@/lib/config";
 
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/hero-section";
@@ -18,6 +19,8 @@ import {
 } from "@/components/scroll-animation";
 
 export default function Home() {
+  const businessInfo = getBusinessInfo();
+  const homepageLocations = businessInfo.LOCATIONS.filter((loc => loc.homepage));
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Featured Carousel */}
@@ -92,18 +95,14 @@ export default function Home() {
             </p>
           </ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 stagger-children">
-            <LocationCard
-              name="Momo Kato - Patna Central"
-              address="123 Food Street, Patna, Bihar 800001"
-              phone="+91 9876543210"
-              hours="11 AM - 10 PM"
-            />
-            <LocationCard
-              name="Momo Kato - Gandhi Maidan"
-              address="45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004"
-              phone="+91 9876543211"
-              hours="11 AM - 11 PM"
-            />
+            {homepageLocations.map((location, index) => (
+              <LocationCard key={index}
+                name={location.name}
+                address={location.address}
+                phone={location.phone}
+                hours={location.hours}
+              />
+            ))}
           </div>
           <ScrollAnimation delay={300} className="flex justify-center mt-8">
             <Link href="/find-us">

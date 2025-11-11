@@ -1,9 +1,8 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { getBusinessInfo } from "@/lib/config";
 import { ArrowRight, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -20,6 +19,16 @@ import {
 import { ScrollAnimation } from "@/components/scroll-animation";
 
 export default function ContactPage() {
+  const businessInfo = getBusinessInfo();
+  const locations = businessInfo.LOCATIONS;
+
+  const officeDetails = {
+    address: businessInfo.OFFICE_ADDRESS,
+    phones: businessInfo.OFFICE_PHONES,
+    primaryEmail: businessInfo.OFFICE_PRIMARY_EMAIL,
+    franchiseEmail: businessInfo.OFFICE_FRANCHISE_EMAIL,
+    timings: businessInfo.OFFICE_TIMINGS,}
+
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -60,13 +69,9 @@ export default function ContactPage() {
                     <MapPin className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">Visit Us</h3>
+                    <h3 className="text-xl font-bold">Corporate Office</h3>
                     <address className="not-italic text-gray-500 mt-2">
-                      <p>Momo Kato - Patna Central</p>
-                      <p>123 Food Street, Patna, Bihar 800001</p>
-                      <p className="mt-2">Momo Kato - Gandhi Maidan</p>
-                      <p>
-                        45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004
+                      <p>{officeDetails.address}
                       </p>
                     </address>
                   </div>
@@ -77,13 +82,12 @@ export default function ContactPage() {
                     <Phone className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">Call Us</h3>
-                    <p className="text-gray-500 mt-2">
-                      +91 9876543210 (Patna Central)
-                    </p>
-                    <p className="text-gray-500">
-                      +91 9876543211 (Gandhi Maidan)
-                    </p>
+                    <h3 className="text-xl font-bold mb-2">Call Us</h3>
+                    {officeDetails.phones.map((phone, index) => (
+                      <p key={index} className="text-gray-500">
+                        {phone}
+                      </p>
+                    ))}
                   </div>
                 </ScrollAnimation>
 
@@ -93,9 +97,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Email Us</h3>
-                    <p className="text-gray-500 mt-2">hello@momokato.in</p>
+                    <p className="text-gray-500 mt-2">{officeDetails.primaryEmail}</p>
                     <p className="text-gray-500">
-                      franchise@momokato.in (For franchise inquiries)
+                      {officeDetails.franchiseEmail}
                     </p>
                   </div>
                 </ScrollAnimation>
@@ -107,7 +111,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold">Opening Hours</h3>
                     <p className="text-gray-500 mt-2">
-                      Monday - Sunday: 11 AM - 10 PM
+                      {officeDetails.timings}
                     </p>
                   </div>
                 </ScrollAnimation>
@@ -296,50 +300,22 @@ export default function ContactPage() {
               </p>
 
               <div className="space-y-4 stagger-children">
+                {locations.map((location, index) => (
                 <ScrollAnimation
-                  delay={100}
+                  delay={index * 100}
                   className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm card-hover"
                 >
                   <div className="bg-orange-100 p-2 rounded-full">
                     <MapPin className="h-5 w-5 text-orange-600" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Patna Central</h4>
+                    <h4 className="font-bold text-gray-900">{location.name}</h4>
                     <p className="text-gray-600 text-sm">
-                      123 Food Street, Patna, Bihar 800001
+                      {location.address}
                     </p>
                   </div>
                 </ScrollAnimation>
-
-                <ScrollAnimation
-                  delay={200}
-                  className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm card-hover"
-                >
-                  <div className="bg-orange-100 p-2 rounded-full">
-                    <MapPin className="h-5 w-5 text-orange-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Gandhi Maidan</h4>
-                    <p className="text-gray-600 text-sm">
-                      45 Flavor Avenue, Gandhi Maidan, Patna, Bihar 800004
-                    </p>
-                  </div>
-                </ScrollAnimation>
-
-                <ScrollAnimation
-                  delay={300}
-                  className="flex items-start gap-3 bg-orange-50 p-4 rounded-lg border border-orange-200 card-hover"
-                >
-                  <div className="bg-orange-200 p-2 rounded-full">
-                    <Clock className="h-5 w-5 text-orange-700" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-orange-700">Coming Soon</h4>
-                    <p className="text-orange-600 text-sm">
-                      Boring Road, Kankarbagh, Rajendra Nagar & more!
-                    </p>
-                  </div>
-                </ScrollAnimation>
+                ))}
               </div>
 
               <ScrollAnimation
@@ -400,10 +376,10 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-orange-600" />
               </div>
               <h4 className="font-bold text-gray-900 mb-2">
-                2 Active Locations
+                3 Active Locations
               </h4>
               <p className="text-gray-600 text-sm">
-                Currently serving in Patna Central & Gandhi Maidan
+                Currently serving in Patna & Gaya
               </p>
             </ScrollAnimation>
 
@@ -416,7 +392,7 @@ export default function ContactPage() {
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Open Daily</h4>
               <p className="text-gray-600 text-sm">
-                11 AM - 10 PM at both locations
+                Enjoy our momos from at their mentioned time every day
               </p>
             </ScrollAnimation>
 
