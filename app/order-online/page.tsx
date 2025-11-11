@@ -220,7 +220,7 @@ export default function OrderOnlinePage() {
                 <img
                   alt="Menu Preview"
                   className="rounded-xl object-cover hover-lift"
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/ordernow.jpg"
                   width={500}
                   height={400}
                 />
