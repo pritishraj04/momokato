@@ -6,19 +6,10 @@ export const APP_CONFIG = {
     ZOMATO: "https://www.zomato.com/gaya/momo-kato-gaya-locality/order",
   },
 
-  // Contact Information
-  CONTACT: {
-    PHONE: "+91 8877005900",
-    EMAIL: "hello@momokato.in",
-    WHATSAPP: "8877005900",
-  },
-
   // Social Media Links
   SOCIAL: {
     INSTAGRAM: "https://www.instagram.com/momokato.eats",
-    FACEBOOK: "https://www.facebook.com/momokato.eats",
-    TWITTER: "https://www.twitter.com/momokato",
-    YOUTUBE: "https://www.youtube.com/@momokato",
+    FACEBOOK: "https://www.facebook.com/profile.php?id=61573731577484#",
   },
 
   // Business Information
@@ -30,6 +21,7 @@ export const APP_CONFIG = {
     OFFICE_ADDRESS: "Shyam Bhavan, Ground Floor, Behind Lalita Hotel East Boring Canal Road, Patna, Bihar, India - 800001",
     OFFICE_PHONES: ["+91 8877005900", "+91 8877009800", "+91 8877009300"], 
     OFFICE_PRIMARY_EMAIL: "hello@momokato.in",
+    OFFICE_WHATSAPP: "8877005900",
     OFFICE_FRANCHISE_EMAIL: "franchise@momokato.in (For franchise inquiries)",
     OFFICE_TIMINGS: "Monday - Sunday: 10:00AM - 6:00PM",
     LOCATIONS: [
@@ -72,11 +64,11 @@ export const APP_CONFIG = {
 export const getDeliveryLinks = () => APP_CONFIG.DELIVERY_LINKS;
 export const getSwiggyLink = () => APP_CONFIG.DELIVERY_LINKS.SWIGGY;
 export const getZomatoLink = () => APP_CONFIG.DELIVERY_LINKS.ZOMATO;
-export const getContactInfo = () => APP_CONFIG.CONTACT;
+export const getContactInfo = () => {
+  return {EMAIL: APP_CONFIG.BUSINESS.OFFICE_PRIMARY_EMAIL, PHONE: APP_CONFIG.BUSINESS.OFFICE_PHONES[0], WHATSAPP: APP_CONFIG.BUSINESS.OFFICE_WHATSAPP}};
 export const getSocialLinks = () => APP_CONFIG.SOCIAL;
 export const getBusinessInfo = () => APP_CONFIG.BUSINESS;
 
 // Type definitions for better TypeScript support
 export type DeliveryPlatform = keyof typeof APP_CONFIG.DELIVERY_LINKS;
 export type SocialPlatform = keyof typeof APP_CONFIG.SOCIAL;
-export type ContactMethod = keyof typeof APP_CONFIG.CONTACT;

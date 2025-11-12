@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import {
   getDeliveryLinks,
   getSocialLinks,
@@ -12,6 +12,8 @@ export function Footer() {
   const socialLinks = getSocialLinks();
   const contactInfo = getContactInfo();
   const businessInfo = getBusinessInfo();
+  
+  console.log("Contact Info in Footer:", contactInfo);
 
   return (
     <footer className="relative bg-black text-white py-12 md:py-16 overflow-hidden">
@@ -53,14 +55,6 @@ export function Footer() {
               >
                 <Facebook className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href={socialLinks.TWITTER}
-                target="_blank"
-                className="text-gray-400 hover:text-white"
-              >
-                <Twitter className="h-6 w-6" />
-                <span className="sr-only">Twitter</span>
               </Link>
             </div>
           </div>
@@ -142,9 +136,9 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <address className="not-italic text-gray-400">
-              <p>{businessInfo.LOCATIONS[0].address.split(",")[0]}</p>
+              <p>{businessInfo.OFFICE_ADDRESS.split(",")[0]}</p>
               <p>
-                {businessInfo.LOCATIONS[0].address
+                {businessInfo.OFFICE_ADDRESS
                   .split(",")
                   .slice(1)
                   .join(",")}
