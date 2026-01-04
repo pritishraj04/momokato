@@ -50,7 +50,6 @@ export const menuData: MenuCategory[] = [
         description: "Smoky tandoor-grilled momos with spicy vegetable filling",
         quantity: "6 pcs",
         price: "₹150",
-        customerFavorite: true,
       },
       {
         id: "veg-kurkure",
@@ -84,6 +83,7 @@ export const menuData: MenuCategory[] = [
         description: "Richly flavored momos tossed in creamy Afghani sauce",
         quantity: "6 pcs",
         price: "₹160",
+        customerFavorite: true,
       },
     ],
   },

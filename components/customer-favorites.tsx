@@ -102,7 +102,7 @@ export function CustomerFavorites() {
             }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-            className="pb-6"
+            className="!pt-8 !pb-12 !px-4"
             style={{ width: "100%" }}
           // Remove Swiper's built-in pagination
           >

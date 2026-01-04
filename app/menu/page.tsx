@@ -59,7 +59,7 @@ export default function MenuPage() {
       {/* Menu Content */}
       <div className="container px-4 md:px-6 py-12">
         {/* Floating Bubbles */}
-        <div className="relative" ref={floatingBubblesRef}>
+        {/* <div className="relative" ref={floatingBubblesRef}>
           <div className="floating-bubble absolute -top-10 left-1/4 bg-orange-100 text-orange-600 font-bold px-4 py-2 rounded-full transform rotate-12 z-10">
             Extra Juicy!
           </div>
@@ -72,7 +72,7 @@ export default function MenuPage() {
           <div className="floating-bubble absolute top-120 right-20 bg-yellow-100 text-yellow-600 font-bold px-4 py-2 rounded-full transform rotate-6 z-10">
             Street Style Swag
           </div>
-        </div>
+        </div> */}
 
         {/* Menu Categories */}
         {menuData.map((category) => (
