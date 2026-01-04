@@ -49,7 +49,7 @@ export default function MenuPage() {
               From classic steamed momos to crispy fried delights and refreshing
               bubble teas - we've got something for everyone!
             </p>
-            <div className="mt-4 flex items-center justify-center z-50">
+            <div className="mt-4 flex items-center justify-center">
               <MenuPdfViewer />
             </div>
           </div>

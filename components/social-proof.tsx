@@ -1,8 +1,11 @@
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { ScrollAnimation } from "@/components/scroll-animation";
+import { reviews } from "@/lib/review-data";
 
 export function SocialProof() {
+  const featuredReviews = reviews.filter((r) => r.featured).slice(0, 3);
+
   return (
     <section className="w-full py-8 md:py-12 lg:py-24 bg-gray-50">
       <div className="container px-3 md:px-4 lg:px-6">
@@ -24,81 +27,42 @@ export function SocialProof() {
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-12 stagger-children">
-          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
-            <div className="flex items-center gap-0.5 mb-3 md:mb-4">
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-            </div>
-            <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
-              "The momos at Momo Kato are absolutely delicious! The dough is
-              perfectly steamed and the fillings are so flavorful. Their bubble
-              tea is also amazing. Highly recommend!"
-            </p>
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-200"></div>
-              <div>
-                <div className="font-bold text-sm md:text-base">
-                  Priya Sharma
-                </div>
-                <div className="text-xs md:text-sm text-gray-500">Patna</div>
+          {featuredReviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover flex flex-col h-full"
+            >
+              <div className="flex items-center gap-0.5 mb-3 md:mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500"
+                  />
+                ))}
               </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
-            <div className="flex items-center gap-0.5 mb-3 md:mb-4">
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-            </div>
-            <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
-              "Best momos in town! The fried platter is my go-to order. The
-              sauces are incredible and the service is always quick. Love the
-              vibrant atmosphere too!"
-            </p>
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-200"></div>
-              <div>
-                <div className="font-bold text-sm md:text-base">
-                  Rahul Gupta
+              <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base flex-grow">
+                "{review.comment}"
+              </p>
+              <div className="flex items-center gap-2 md:gap-3 mt-auto">
+                <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                  <Image
+                    src={review.image}
+                    alt={review.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div className="text-xs md:text-sm text-gray-500">
-                  Gandhi Maidan
+                <div>
+                  <div className="font-bold text-sm md:text-base">
+                    {review.name}
+                  </div>
+                  <div className="text-xs md:text-sm text-gray-500">
+                    {review.time}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="bg-white p-4 md:p-6 rounded-xl shadow-md card-hover">
-            <div className="flex items-center gap-0.5 mb-3 md:mb-4">
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-orange-500 text-orange-500" />
-              <Star className="w-4 h-4 md:w-5 md:h-5 fill-gray-200 text-gray-200" />
-            </div>
-            <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
-              "The taro bubble tea is absolutely divine! Perfect sweetness and
-              the pearls are always cooked just right. Their momos are
-              consistently good quality. Great value for money!"
-            </p>
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-200"></div>
-              <div>
-                <div className="font-bold text-sm md:text-base">
-                  Ananya Patel
-                </div>
-                <div className="text-xs md:text-sm text-gray-500">
-                  Patna Central
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

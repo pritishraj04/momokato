@@ -183,7 +183,7 @@ export default function WorkWithUsPage() {
 
                 <div className="text-center pt-2">
                   <p className="text-gray-400 text-[10px] sm:text-xs">
-                    By clicking submit, you agree to our{" "}
+                    By clicking Apply Now, you agree to our{" "}
                     <Link
                       href="/privacy"
                       className="text-orange-600 hover:text-orange-500 underline"

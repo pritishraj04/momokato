@@ -68,11 +68,11 @@ export default function Home() {
 
       <CustomerFavorites />
 
-      <div className="relative w-full">
+      {/* <div className="relative w-full">
         <div className="floating-bubble absolute top-10 right-1/4 bg-teal-100 text-teal-600 font-bold px-4 py-2 rounded-full transform -rotate-6 z-10">
           Tap to Munch!
         </div>
-      </div>
+      </div> */}
 
       <FranchiseTeaser />
 

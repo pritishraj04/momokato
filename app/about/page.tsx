@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/scroll-animation";
 
@@ -229,16 +229,20 @@ export default function AboutPage() {
                 invite you to be part of the Momo Kato family.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <Button className="bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg btn-animate">
-                  Join as Franchise Partner{" "}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/20 font-bold rounded-full px-8 py-6 text-lg btn-animate bg-transparent"
-                >
-                  Careers at Momo Kato <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link className="w-full" href="/franchise">
+                  <Button className="w-full bg-white text-orange-600 hover:bg-orange-100 font-bold rounded-full px-8 py-6 text-lg btn-animate">
+                    Join as Franchise Partner{" "}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link className="w-full" href="/work-with-us">
+                  <Button
+                    variant="outline"
+                    className="w-full border-white text-white hover:bg-white/20 font-bold rounded-full px-8 py-6 text-lg btn-animate bg-transparent"
+                  >
+                    Careers at Momo Kato <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
             </ScrollAnimation>
             <ScrollAnimation
