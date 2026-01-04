@@ -7,6 +7,8 @@ export interface MenuItem {
   description?: string;
   quantity?: string;
   price?: string;
+  featured?: boolean;
+  customerFavorite?: boolean;
 }
 
 export interface MenuCategory {
@@ -37,6 +39,7 @@ export const menuData: MenuCategory[] = [
           "Fresh vegetables wrapped in soft dough, steamed to perfection",
         quantity: "6 pcs",
         price: "₹80",
+        featured: true,
       },
       {
         id: "veg-tandoori",
@@ -47,6 +50,7 @@ export const menuData: MenuCategory[] = [
         description: "Smoky tandoor-grilled momos with spicy vegetable filling",
         quantity: "6 pcs",
         price: "₹150",
+        customerFavorite: true,
       },
       {
         id: "veg-kurkure",
@@ -90,7 +94,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-fried",
         name: "PANEER FRIED MOMOS",
-        image: "/images/menu/food/panner_fried_momo.jpg",
+        image: "/images/menu/food/paneer_fried_momo.jpg",
         description:
           "Crispy fried momos stuffed with spiced cottage cheese filling",
         quantity: "6 pcs",
@@ -99,7 +103,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-steamed",
         name: "PANEER STEAMED MOMOS",
-        image: "/images/menu/food/panner_steamed_momo.jpg",
+        image: "/images/menu/food/paneer_steamed_momo.jpg",
         description: "Soft steamed momos filled with fresh paneer and herbs",
         quantity: "6 pcs",
         price: "₹100",
@@ -108,23 +112,25 @@ export const menuData: MenuCategory[] = [
         id: "paneer-tandoori",
         name: "PANEER TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/images/menu/food/panner_tandoori_momo.jpg",
+        image: "/images/menu/food/paneer_tandoori_momo.jpg",
         description: "Tandoor-grilled paneer momos infused with smoky spices",
         quantity: "6 pcs",
         price: "₹170",
+        customerFavorite: true,
       },
       {
         id: "paneer-kurkure",
         name: "PANEER KURKURE MOMOS",
-        image: "/images/menu/food/panner_kurkure_momo.jpg",
+        image: "/images/menu/food/paneer_kurkure_momo.jpg",
         description: "Crispy coated momos with delicious paneer filling",
         quantity: "6 pcs",
         price: "₹150",
+        featured: true,
       },
       {
         id: "paneer-schezwan",
         name: "PANEER SCHEZWAN MOMOS",
-        image: "/images/menu/food/panner_schezwan_momo.jpg",
+        image: "/images/menu/food/paneer_schezwan_momo.jpg",
         description: "Paneer momos tossed in spicy schezwan sauce",
         quantity: "6 pcs",
         price: "₹140",
@@ -132,7 +138,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-peri-peri-fried",
         name: "PANEER PERI PERI FRIED MOMO",
-        image: "/images/menu/food/panner_peri_peri_fried_momo.jpg",
+        image: "/images/menu/food/paneer_peri_peri_fried_momo.jpg",
         description: "Fried paneer momos coated with peri peri spice mix",
         quantity: "6 pcs",
         price: "₹140",
@@ -141,7 +147,7 @@ export const menuData: MenuCategory[] = [
         id: "paneer-afgani",
         name: "PANEER AFGANI MOMO",
         tag: "bestseller",
-        image: "/images/menu/food/panner_afgani_momo.jpg",
+        image: "/images/menu/food/paneer_afgani_momo.jpg",
         description: "Creamy Afghani-style paneer momos rich in flavor",
         quantity: "6 pcs",
         price: "₹180",
@@ -223,6 +229,7 @@ export const menuData: MenuCategory[] = [
         description: "Golden fried momos stuffed with spicy minced chicken",
         quantity: "6 pcs",
         price: "₹120",
+        featured: true,
       },
       {
         id: "chicken-steamed",
@@ -240,6 +247,7 @@ export const menuData: MenuCategory[] = [
         description: "Smoky tandoor-grilled momos with spiced chicken filling",
         quantity: "6 pcs",
         price: "₹180",
+        customerFavorite: true,
       },
       {
         id: "chicken-kurkure",
@@ -322,6 +330,7 @@ export const menuData: MenuCategory[] = [
         description: "Refreshing mojito with mint leaves, lime, and soda",
         quantity: "Glass",
         price: "₹115",
+        customerFavorite: true,
       },
       {
         id: "green-apple",
@@ -354,6 +363,7 @@ export const menuData: MenuCategory[] = [
         description: "Classic tangy street-style kala khata mocktail",
         quantity: "Glass",
         price: "₹135",
+        customerFavorite: true,
       },
     ],
   },
@@ -392,6 +402,7 @@ export const menuData: MenuCategory[] = [
         description: "Creamy Oreo shake with crushed cookies",
         quantity: "Glass",
         price: "₹135",
+        customerFavorite: true,
       },
       {
         id: "strawberry-shake",
@@ -424,6 +435,7 @@ export const menuData: MenuCategory[] = [
           "Creamy taro-flavored bubble tea with chewy tapioca pearls",
         quantity: "Glass",
         price: "₹169",
+        customerFavorite: true,
       },
       {
         id: "matcha-boba-tea",
@@ -530,9 +542,27 @@ export const menuData: MenuCategory[] = [
 
 // Get featured items for home page
 export const getFeaturedItems = (): MenuItem[] => {
-  return [
-    menuData[0].items[0], // VEG STEAMED MOMOS
-    menuData[1].items[3], // CHICKEN FRIED MOMOS
-    menuData[3].items[0], // TARO BUBBLE TEA
-  ];
+  const allItems = menuData.flatMap((category) => category.items);
+  const featured = allItems.filter((item) => item.featured);
+
+  // If no explicitly featured items, return first 6 items
+  if (featured.length === 0) {
+    return allItems.slice(0, 6);
+  }
+  return featured;
 };
+
+// Get customer favorite items
+export const getCustomerFavorites = (): MenuItem[] => {
+  const allItems = menuData.flatMap((category) => category.items);
+  const favorites = allItems.filter((item) => item.customerFavorite);
+
+  // If no explicitly marked favorites, return bestsellers or popular items
+  if (favorites.length === 0) {
+    return allItems.filter(
+      (item) => item.tag === "bestseller" || item.tag === "popular"
+    );
+  }
+  return favorites;
+};
+

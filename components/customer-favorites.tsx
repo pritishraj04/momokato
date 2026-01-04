@@ -15,33 +15,13 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SwiggyButton, ZomatoButton } from "@/components/delivery-button";
 import { ScrollAnimation } from "@/components/scroll-animation";
+import { getCustomerFavorites } from "@/lib/menu-data";
 
 export function CustomerFavorites() {
+  const [swiper, setSwiper] = useState<any>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const items = [
-    {
-      name: "TANDOORI MOMOS",
-      image: "/images/menu/Tandori Momo.jpg",
-    },
-    {
-      name: "Panner Chilli",
-      image: "/images/menu/Paneer Chilli.jpg",
-    },
-    {
-      name: "Mint Mojito",
-      image: "/images/menu/Mint Mojito.jpg",
-    },
-    { name: "Bannana Shake", image: "/images/menu/Banana Shake.jpg" },
-    {
-      name: "Kala Khatta",
-      image: "/images/menu/Kala Khatta.jpg",
-    },
-    {
-      name: "Oreo Shake",
-      image: "/images/menu/Oreo Shake.jpg",
-    },
-  ];
+  const items = getCustomerFavorites();
 
   const totalItems = items.length;
   const slideWidth = 300;
@@ -71,15 +51,7 @@ export function CustomerFavorites() {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
-  };
-
-  const scrollLeft = () => {
-    const newIndex = currentIndex === 0 ? maxIndex : currentIndex - 1;
-    goToSlide(newIndex);
-  };
-  const scrollRight = () => {
-    const newIndex = currentIndex === maxIndex ? 0 : currentIndex + 1;
-    goToSlide(newIndex);
+    swiper?.slideTo(index);
   };
 
   // Swiper handles all touch/mouse/keyboard events and transitions
@@ -104,10 +76,26 @@ export function CustomerFavorites() {
         </ScrollAnimation>
 
         <div className="relative">
+          {/* Global styles for hover effects */}
+          <style jsx global>{`
+            @media (hover: hover) {
+              .slide-hover-group:hover .steam {
+                opacity: 1 !important;
+              }
+              .slide-hover-group:hover img {
+                transform: scale(1.05) !important;
+              }
+              .slide-hover-group:hover {
+                box-shadow: 0 10px 24px 0 rgba(0, 0, 0, 0.1),
+                  0 1.5px 4px 0 rgba(0, 0, 0, 0.1);
+              }
+            }
+          `}</style>
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={gap}
             slidesPerView={itemsPerView}
+            onSwiper={setSwiper}
             navigation={{
               nextEl: ".swiper-next-btn",
               prevEl: ".swiper-prev-btn",
@@ -125,22 +113,6 @@ export function CustomerFavorites() {
               >
                 <div className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 h-full card-hover slide-hover-group w-full">
                   <div className="relative h-48 md:h-64 overflow-hidden w-full">
-                    {/* Only show steam/hover effect on devices that support hover */}
-                    <style jsx>{`
-                      @media (hover: hover) {
-                        .slide-hover-group:hover .steam {
-                          opacity: 1 !important;
-                        }
-                        .slide-hover-group:hover img {
-                          transform: scale(1.05) !important;
-                        }
-                        .slide-hover-group:hover {
-                          box-shadow:
-                            0 10px 24px 0 rgba(0, 0, 0, 0.1),
-                            0 1.5px 4px 0 rgba(0, 0, 0, 0.1);
-                        }
-                      }
-                    `}</style>
                     <div className="steam-container absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
                       <div className="steam opacity-0 transition-opacity duration-500"></div>
                       <div
@@ -200,8 +172,8 @@ export function CustomerFavorites() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${currentIndex === index
-                    ? "bg-orange-500 w-8"
-                    : "bg-gray-300 hover:bg-gray-400 w-2"
+                  ? "bg-orange-500 w-8"
+                  : "bg-gray-300 hover:bg-gray-400 w-2"
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -233,3 +205,4 @@ export function CustomerFavorites() {
     </section>
   );
 }
+
