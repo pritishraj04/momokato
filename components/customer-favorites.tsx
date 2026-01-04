@@ -112,7 +112,7 @@ export function CustomerFavorites() {
                 className="select-none"
               >
                 <div className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 h-full card-hover slide-hover-group w-full">
-                  <div className="relative h-48 md:h-64 overflow-hidden w-full">
+                  <div className="relative w-full aspect-square overflow-hidden">
                     <div className="steam-container absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
                       <div className="steam opacity-0 transition-opacity duration-500"></div>
                       <div
@@ -128,7 +128,7 @@ export function CustomerFavorites() {
                       fill
                       src={item.image || "/placeholder.jpg"}
                       alt={item.name}
-                      className="object-contain transition-transform duration-300 pointer-events-none"
+                      className="object-cover transition-transform duration-300 pointer-events-none"
                       draggable={false}
                     />
                   </div>

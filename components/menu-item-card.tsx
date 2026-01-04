@@ -35,7 +35,7 @@ export function MenuItemCard({
             POPULAR
           </div>
         )}
-        <div className="steam-container absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="steam-container !absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
           <div className="steam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div
             className="steam opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
@@ -48,10 +48,10 @@ export function MenuItemCard({
         </div>
         <img
           alt={item.name}
-          className="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full aspect-square object-cover transition-transform duration-300 hover:scale-105"
           src={item.image || "/placeholder.jpg"}
           width={300}
-          height={224}
+          height={300}
         />
       </div>
 
