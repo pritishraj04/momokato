@@ -23,7 +23,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "veg-fried",
         name: "VEG FRIED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_fried_momo.jpg",
         description: "Crispy golden momos with a spiced vegetable filling",
         quantity: "6 pcs",
         price: "₹90",
@@ -32,7 +32,7 @@ export const menuData: MenuCategory[] = [
         id: "veg-steamed",
         name: "VEG STEAMED MOMOS",
         tag: "popular",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_steamed_momo.jpg",
         description:
           "Fresh vegetables wrapped in soft dough, steamed to perfection",
         quantity: "6 pcs",
@@ -42,7 +42,7 @@ export const menuData: MenuCategory[] = [
         id: "veg-tandoori",
         name: "VEG TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_tandoori_momo.jpg",
         description: "Smoky tandoor-grilled momos with spicy vegetable filling",
         quantity: "6 pcs",
         price: "₹150",
@@ -50,7 +50,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "veg-kurkure",
         name: "VEG KURKURE MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_kurkure_momo.jpg",
         description: "Crispy coated momos with a crunchy twist",
         quantity: "6 pcs",
         price: "₹140",
@@ -58,7 +58,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "veg-schezwan",
         name: "VEG SCHEZWAN MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_schezwan_momo.jpg",
         description: "Fiery momos tossed in tangy schezwan sauce",
         quantity: "6 pcs",
         price: "₹140",
@@ -66,7 +66,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "veg-peri-peri-fried",
         name: "VEG PERI PERI FRIED MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_peri_peri_fried_momo.jpg",
         description: "Crispy momos coated with spicy peri peri seasoning",
         quantity: "6 pcs",
         price: "₹120",
@@ -75,7 +75,7 @@ export const menuData: MenuCategory[] = [
         id: "veg-afgani",
         name: "VEG AFGANI MOMO",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_afgani_momo.jpg",
         description: "Richly flavored momos tossed in creamy Afghani sauce",
         quantity: "6 pcs",
         price: "₹160",
@@ -89,7 +89,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-fried",
         name: "PANEER FRIED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_fried_momo.jpg",
         description:
           "Crispy fried momos stuffed with spiced cottage cheese filling",
         quantity: "6 pcs",
@@ -98,7 +98,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-steamed",
         name: "PANEER STEAMED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_steamed_momo.jpg",
         description: "Soft steamed momos filled with fresh paneer and herbs",
         quantity: "6 pcs",
         price: "₹100",
@@ -107,7 +107,7 @@ export const menuData: MenuCategory[] = [
         id: "paneer-tandoori",
         name: "PANEER TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_tandoori_momo.jpg",
         description: "Tandoor-grilled paneer momos infused with smoky spices",
         quantity: "6 pcs",
         price: "₹170",
@@ -115,7 +115,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-kurkure",
         name: "PANEER KURKURE MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_kurkure_momo.jpg",
         description: "Crispy coated momos with delicious paneer filling",
         quantity: "6 pcs",
         price: "₹150",
@@ -123,7 +123,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-schezwan",
         name: "PANEER SCHEZWAN MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_schezwan_momo.jpg",
         description: "Paneer momos tossed in spicy schezwan sauce",
         quantity: "6 pcs",
         price: "₹140",
@@ -131,7 +131,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "paneer-peri-peri-fried",
         name: "PANEER PERI PERI FRIED MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_peri_peri_fried_momo.jpg",
         description: "Fried paneer momos coated with peri peri spice mix",
         quantity: "6 pcs",
         price: "₹140",
@@ -140,7 +140,7 @@ export const menuData: MenuCategory[] = [
         id: "paneer-afgani",
         name: "PANEER AFGANI MOMO",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/panner_afgani_momo.jpg",
         description: "Creamy Afghani-style paneer momos rich in flavor",
         quantity: "6 pcs",
         price: "₹180",
@@ -154,7 +154,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-corn-fried",
         name: "CHEESE CORN FRIED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_corn_fried_momo.jpg",
         description: "Crispy momos filled with melted cheese and sweet corn",
         quantity: "6 pcs",
         price: "₹120",
@@ -162,7 +162,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-steamed",
         name: "CHEESE CORN STEAMED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_steamed_momo.jpg",
         description: "Soft steamed momos with rich and creamy cheese filling",
         quantity: "6 pcs",
         price: "₹110",
@@ -171,7 +171,7 @@ export const menuData: MenuCategory[] = [
         id: "cheese-tandoori",
         name: "CHEESE CORN TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_tandoori_momo.jpg",
         description: "Tandoor-grilled momos with smoky cheese flavor",
         quantity: "6 pcs",
         price: "₹180",
@@ -179,7 +179,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-kurkure",
         name: "CHEESE CORN KURKURE MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_kurkure_momo.jpg",
         description: "Crunchy momos with gooey cheese filling inside",
         quantity: "6 pcs",
         price: "₹160",
@@ -187,7 +187,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-schezwan",
         name: "CHEESE CORN SCHEZWAN MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_schezwan_momo.jpg",
         description: "Cheesy momos tossed in spicy schezwan sauce",
         quantity: "6 pcs",
         price: "₹160",
@@ -195,7 +195,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-peri-peri-fried",
         name: "CHEESE CORN PERI PERI FRIED MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_peri_peri_fried_momo.jpg",
         description: "Fried momos with a zesty peri peri cheese flavor",
         quantity: "6 pcs",
         price: "₹160",
@@ -203,7 +203,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "cheese-afgani",
         name: "CHEESE CORN AFGANI MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/cheese_afgani_momo.jpg",
         description: "Rich Afghani-style creamy cheese momos",
         quantity: "6 pcs",
         price: "₹190",
@@ -217,7 +217,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-fried",
         name: "CHICKEN FRIED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_fried_momo.jpg",
         description: "Golden fried momos stuffed with spicy minced chicken",
         quantity: "6 pcs",
         price: "₹120",
@@ -225,7 +225,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-steamed",
         name: "CHICKEN STEAMED MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_steamed_momo.jpg",
         description: "Juicy chicken filling wrapped in soft steamed dough",
         quantity: "6 pcs",
         price: "₹110",
@@ -234,7 +234,7 @@ export const menuData: MenuCategory[] = [
         id: "chicken-tandoori",
         name: "CHICKEN TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_tandoori_momo.jpg",
         description: "Smoky tandoor-grilled momos with spiced chicken filling",
         quantity: "6 pcs",
         price: "₹180",
@@ -242,7 +242,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-kurkure",
         name: "CHICKEN KURKURE MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_kurkure_momo.jpg",
         description:
           "Crispy coated momos packed with flavorful chicken filling",
         quantity: "6 pcs",
@@ -251,7 +251,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-schezwan",
         name: "CHICKEN SCHEZWAN MOMOS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_schezwan_momo.jpg",
         description: "Spicy and tangy momos tossed in signature schezwan sauce",
         quantity: "6 pcs",
         price: "₹160",
@@ -259,7 +259,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-peri-peri-fried",
         name: "CHICKEN PERI PERI FRIED MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_peri_peri_fried_momo.jpg",
         description: "Crispy fried momos coated with peri peri spice mix",
         quantity: "6 pcs",
         price: "₹150",
@@ -267,7 +267,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-afgani",
         name: "CHICKEN AFGANI MOMO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_afgani_momo.jpg",
         description: "Creamy Afghani-style chicken momos rich in flavor",
         quantity: "6 pcs",
         price: "₹190",
@@ -281,7 +281,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "veg-noodles",
         name: "VEG NOODLES",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/veg_noodles.jpg",
         description:
           "Stir-fried noodles loaded with fresh vegetables and savory sauces",
         quantity: "1 plate",
@@ -290,7 +290,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "egg-noodles",
         name: "EGG NOODLES",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/egg_noodles.jpg",
         description:
           "Classic noodles tossed with egg, veggies, and aromatic spices",
         quantity: "1 plate",
@@ -299,7 +299,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-noodles",
         name: "CHICKEN NOODLES",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "/images/menu/food/chicken_noodles.jpg",
         description:
           "Flavorful noodles stir-fried with tender chicken and veggies",
         quantity: "1 plate",
@@ -486,17 +486,31 @@ export const menuData: MenuCategory[] = [
     title: "COMBOS",
     items: [
       {
-        id: "shake-combo",
-        name: "SHAKE COMBO",
-        image: "/placeholder.svg?height=300&width=300",
+        id: "momo-shake-combo",
+        name: "MOMO & SHAKE COMBO",
+        image: "/images/menu/food/momo_shake_combo.jpg",
         description: "Add any Shake or Mocktail with Momos/Noodles",
         price: "+₹80",
       },
       {
-        id: "bubble-tea-combo",
-        name: "BUBBLE TEA COMBO",
-        image: "/placeholder.svg?height=300&width=300",
+        id: "momo-bubble-tea-combo",
+        name: "MOMO & BUBBLE TEA COMBO",
+        image: "/images/menu/food/momo_bubble_tea_combo.jpg",
         description: "Add any Bubble Tea with Momos/Noodles",
+        price: "+₹100",
+      },
+      {
+        id: "noodle-shake-combo",
+        name: "NOODLE & SHAKE COMBO",
+        image: "/images/menu/food/noodles_shake_combo.jpg",
+        description: "Add any Noodle with Shake or Mocktail",
+        price: "+₹100",
+      },
+      {
+        id: "noodle-bubble-tea-combo",
+        name: "NOODLE & BUBBLE TEA COMBO",
+        image: "/images/menu/food/noodles_bubble_tea_combo.jpg",
+        description: "Add any Noodle with Bubble Tea",
         price: "+₹100",
       },
       // {
