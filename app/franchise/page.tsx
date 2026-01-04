@@ -59,7 +59,7 @@ export default function FranchisePage() {
           <ScrollAnimation className="flex justify-center">
             <div className="w-full max-w-4xl">
               <img
-                src={FRANCHISE_CONFIG.FRANCHISE_IMAGE || "/placeholder.svg"}
+                src={FRANCHISE_CONFIG.FRANCHISE_IMAGE || "/placeholder.jpg"}
                 alt={FRANCHISE_CONFIG.FRANCHISE_IMAGE_ALT}
                 className="w-full h-auto rounded-xl shadow-lg hover-lift object-cover"
                 style={{ aspectRatio: "3/2" }}

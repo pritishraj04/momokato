@@ -107,11 +107,11 @@ export function SimpleMenuViewer({
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
-      setIsDragging(true);
-      setDragStart({
-        x: e.clientX - position.x,
-        y: e.clientY - position.y,
-      });
+    setIsDragging(true);
+    setDragStart({
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    });
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -240,7 +240,7 @@ export function SimpleMenuViewer({
       >
         <img
           ref={imageRef}
-          src={menuImage || "/placeholder.svg"}
+          src={menuImage || "/placeholder.jpg"}
           alt="Momo Kato Menu"
           className="max-w-none max-h-none object-contain rounded-lg shadow-2xl transition-transform duration-300 select-none"
           style={{

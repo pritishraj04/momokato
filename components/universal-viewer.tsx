@@ -228,9 +228,8 @@ export function UniversalViewer({
       {/* Prominent Close Button - Top Right */}
       <button
         onClick={onClose}
-        className={`fixed top-6 right-6 z-[10001] bg-red-500 hover:bg-red-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group ${
-          showControls ? "opacity-100" : "opacity-70 hover:opacity-100"
-        }`}
+        className={`fixed top-6 right-6 z-[10001] bg-red-500 hover:bg-red-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group ${showControls ? "opacity-100" : "opacity-70 hover:opacity-100"
+          }`}
         aria-label="Close viewer"
         title="Close Viewer (ESC)"
       >
@@ -240,9 +239,8 @@ export function UniversalViewer({
       {/* Download Button - Top Left */}
       <button
         onClick={downloadItem}
-        className={`fixed top-6 left-6 z-[10001] bg-orange-500 hover:bg-orange-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group ${
-          showControls ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed top-6 left-6 z-[10001] bg-orange-500 hover:bg-orange-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         aria-label="Download"
         title="Download Menu"
       >
@@ -255,9 +253,8 @@ export function UniversalViewer({
           <button
             onClick={goToPrevious}
             disabled={currentIndex === 0}
-            className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-[10001] bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 disabled:cursor-not-allowed disabled:hover:scale-100 ${
-              showControls ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+            className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-[10001] bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 disabled:cursor-not-allowed disabled:hover:scale-100 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             aria-label="Previous item"
             title="Previous Menu"
           >
@@ -267,9 +264,8 @@ export function UniversalViewer({
           <button
             onClick={goToNext}
             disabled={currentIndex === items.length - 1}
-            className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-[10001] bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 disabled:cursor-not-allowed disabled:hover:scale-100 ${
-              showControls ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+            className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-[10001] bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:opacity-50 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 disabled:cursor-not-allowed disabled:hover:scale-100 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             aria-label="Next item"
             title="Next Menu"
           >
@@ -281,9 +277,8 @@ export function UniversalViewer({
       {/* Item Counter for Multiple Items */}
       {hasMultipleItems && (
         <div
-          className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[10001] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl ${
-            showControls ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
+          className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[10001] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl ${showControls ? "opacity-100" : "opacity-0"
+            } transition-opacity duration-300`}
         >
           {currentIndex + 1} / {items.length}
         </div>
@@ -292,9 +287,8 @@ export function UniversalViewer({
       {/* Zoom Controls for PDFs - Bottom Center */}
       {currentItem.type === "pdf" && (
         <div
-          className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[10001] bg-black/70 backdrop-blur-sm rounded-full p-2 shadow-2xl transition-all duration-300 ${
-            showControls ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[10001] bg-black/70 backdrop-blur-sm rounded-full p-2 shadow-2xl transition-all duration-300 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
         >
           <div className="flex items-center gap-2">
             <button
@@ -338,7 +332,7 @@ export function UniversalViewer({
         {currentItem.type === "image" ? (
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src={currentItem.src || "/placeholder.svg"}
+              src={currentItem.src || "/placeholder.jpg"}
               alt={currentItem.alt || "Viewer image"}
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
               style={{
@@ -392,9 +386,8 @@ export function UniversalViewer({
 
       {/* Keyboard Shortcuts Hint - Bottom Left */}
       <div
-        className={`fixed bottom-6 left-6 z-[10001] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-xs shadow-xl transition-all duration-300 ${
-          showControls ? "opacity-100" : "opacity-0"
-        }`}
+        className={`fixed bottom-6 left-6 z-[10001] bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-xs shadow-xl transition-all duration-300 ${showControls ? "opacity-100" : "opacity-0"
+          }`}
       >
         <div className="flex items-center gap-2">
           <kbd className="bg-white/20 px-2 py-1 rounded text-xs font-mono">

@@ -86,7 +86,7 @@ export function QrScanner({ platform, className = "" }: QrScannerProps) {
         <img
           alt={`QR Code for ${config.name}`}
           className={`w-48 h-48 mx-auto rounded-xl shadow-md transition-opacity duration-300 ${qrLoaded ? "opacity-100" : "opacity-0"}`}
-          src={getQrCodeUrl() || "/placeholder.svg"}
+          src={getQrCodeUrl() || "/placeholder.jpg"}
           width={200}
           height={200}
           onLoad={() => setQrLoaded(true)}

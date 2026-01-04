@@ -1,4 +1,5 @@
 import type React from "react";
+import type { Metadata } from "next";
 import "@/app/globals.css";
 import { Baloo_2, Capriola } from "next/font/google";
 import { Monomaniac_One } from "next/font/google";
@@ -32,10 +33,11 @@ const capriola = Capriola({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Momo Kato - Fresh Momos & Bubble Tea",
-  icons: {
-    icon: "/favicon.svg",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://momokato.in"),
+  title: {
+    default: "Momo Kato - Fresh Momos & Bubble Tea",
+    template: "%s | Momo Kato",
   },
   description:
     "Momo Kato is a growing QSR brand serving fresh momos, authentic Himalayan cuisine, and delicious bubble tea. Visit our locations, order online, or franchise with us!",
@@ -53,31 +55,52 @@ export const metadata = {
     "Indian momos",
     "street food",
   ],
-  author: "Momo Kato Team",
+  authors: [{ name: "Momo Kato Team" }],
+  creator: "Momo Kato Team",
+  publisher: "Momo Kato",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     title: "Momo Kato - Fresh Momos & Bubble Tea",
     description:
       "Momo Kato is a growing QSR brand serving fresh momos, authentic Himalayan cuisine, and delicious bubble tea.",
-    url: "https://momokato.in/",
+    url: "/",
     siteName: "Momo Kato",
+    locale: "en_IN",
+    type: "website",
     images: [
       {
-        url: "/placeholder-logo.png",
-        width: 800,
-        height: 600,
+        url: "/images/about1.jpg",
+        width: 500,
+        height: 500,
         alt: "Momo Kato Logo",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Momo Kato - Fresh Momos & Bubble Tea",
     description:
       "Momo Kato is a growing QSR brand serving fresh momos, authentic Himalayan cuisine, and delicious bubble tea.",
-    site: "@momokato",
-    creator: "@momokato",
+    images: ["/images/about1.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
   },
 };
 

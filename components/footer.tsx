@@ -12,8 +12,6 @@ export function Footer() {
   const socialLinks = getSocialLinks();
   const contactInfo = getContactInfo();
   const businessInfo = getBusinessInfo();
-  
-  console.log("Contact Info in Footer:", contactInfo);
 
   return (
     <footer className="relative bg-black text-white py-12 md:py-16 overflow-hidden">

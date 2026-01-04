@@ -178,7 +178,7 @@ export function FeaturedCarousel() {
       }
 
       if (carousel) {
-        carousel.removeEventListener("mouseenter", () => {});
+        carousel.removeEventListener("mouseenter", () => { });
         carousel.removeEventListener("mouseleave", startAutoplay);
       }
     };
@@ -221,7 +221,7 @@ export function FeaturedCarousel() {
                 priority={index === 0}
                 height={600}
                 width={800}
-                src={slide.image || "/placeholder.svg"}
+                src={slide.image || "/placeholder.jpg"}
                 alt={slide.alt}
                 className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
               />
@@ -256,9 +256,8 @@ export function FeaturedCarousel() {
               dotsRef.current[index] = el;
             }}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-orange-600" : "bg-orange-600/30"
-            }`}
+            className={`w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-orange-600" : "bg-orange-600/30"
+              }`}
             aria-label={`Go to slide ${index + 1}`}
             aria-current={index === currentSlide}
           ></button>

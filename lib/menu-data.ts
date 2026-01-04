@@ -42,7 +42,8 @@ export const menuData: MenuCategory[] = [
         id: "veg-tandoori",
         name: "VEG TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/images/menu/food/veg_tandoori_momo.jpg",
+        // image: "/images/menu/food/veg_tandoori_momo.jpg",
+        image: "",
         description: "Smoky tandoor-grilled momos with spicy vegetable filling",
         quantity: "6 pcs",
         price: "₹150",
@@ -171,7 +172,8 @@ export const menuData: MenuCategory[] = [
         id: "cheese-tandoori",
         name: "CHEESE CORN TANDOORI MOMOS",
         tag: "bestseller",
-        image: "/images/menu/food/cheese_tandoori_momo.jpg",
+        // image: "/images/menu/food/cheese_tandoori_momo.jpg",
+        image: "",
         description: "Tandoor-grilled momos with smoky cheese flavor",
         quantity: "6 pcs",
         price: "₹180",
@@ -251,7 +253,8 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-schezwan",
         name: "CHICKEN SCHEZWAN MOMOS",
-        image: "/images/menu/food/chicken_schezwan_momo.jpg",
+        // image: "/images/menu/food/chicken_schezwan_momo.jpg",
+        image: "",
         description: "Spicy and tangy momos tossed in signature schezwan sauce",
         quantity: "6 pcs",
         price: "₹160",
@@ -267,7 +270,8 @@ export const menuData: MenuCategory[] = [
       {
         id: "chicken-afgani",
         name: "CHICKEN AFGANI MOMO",
-        image: "/images/menu/food/chicken_afgani_momo.jpg",
+        // image: "/images/menu/food/chicken_afgani_momo.jpg",
+        image: "",
         description: "Creamy Afghani-style chicken momos rich in flavor",
         quantity: "6 pcs",
         price: "₹190",
@@ -314,7 +318,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "mint-mojito",
         name: "MINT MOJITO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Refreshing mojito with mint leaves, lime, and soda",
         quantity: "Glass",
         price: "₹115",
@@ -322,7 +326,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "green-apple",
         name: "GREEN APPLE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Zesty and sweet green apple mocktail",
         quantity: "Glass",
         price: "₹135",
@@ -330,7 +334,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "blue-lagoon",
         name: "BLUE LAGOON",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Vibrant blue lemonade with a tropical twist",
         quantity: "Glass",
         price: "₹115",
@@ -338,7 +342,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "spicy-mango",
         name: "SPICY MANGO",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Tangy mango mocktail with a hint of spice",
         quantity: "Glass",
         price: "₹135",
@@ -346,7 +350,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "kala-khata",
         name: "KALA KHATA",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Classic tangy street-style kala khata mocktail",
         quantity: "Glass",
         price: "₹135",
@@ -360,7 +364,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "vanilla-shake",
         name: "VANILLA SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Classic creamy vanilla milkshake",
         quantity: "Glass",
         price: "₹135",
@@ -368,7 +372,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "chocolate-shake",
         name: "CHOCOLATE SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Rich and indulgent chocolate milkshake",
         quantity: "Glass",
         price: "₹135",
@@ -376,7 +380,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "mango-shake",
         name: "MANGO SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Sweet mango shake blended with ice cream",
         quantity: "Glass",
         price: "₹135",
@@ -384,7 +388,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "oreo-shake",
         name: "OREO SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Creamy Oreo shake with crushed cookies",
         quantity: "Glass",
         price: "₹135",
@@ -392,7 +396,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "strawberry-shake",
         name: "STRAWBERRY SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Fruity strawberry shake blended to perfection",
         quantity: "Glass",
         price: "₹135",
@@ -400,7 +404,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "dry-fruit-shake",
         name: "DRY FRUIT SHAKE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Nutty and rich shake made with premium dry fruits",
         quantity: "Glass",
         price: "₹135",
@@ -415,7 +419,7 @@ export const menuData: MenuCategory[] = [
         id: "taro-boba-tea",
         name: "TARO BOBA TEA",
         tag: "bestseller",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description:
           "Creamy taro-flavored bubble tea with chewy tapioca pearls",
         quantity: "Glass",
@@ -424,7 +428,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "matcha-boba-tea",
         name: "MATCHA BOBA TEA",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Japanese matcha green tea bubble tea blend",
         quantity: "Glass",
         price: "₹169",
@@ -432,7 +436,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "coffee-frappe-boba",
         name: "COFFEE FRAPPE BOBA",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Rich coffee-based boba with a creamy frappe texture",
         quantity: "Glass",
         price: "₹169",
@@ -440,7 +444,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "pinacolada-boba",
         name: "PINACOLADA BOBA",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description:
           "Tropical blend of pineapple and coconut milk tea with boba",
         quantity: "Glass",
@@ -449,7 +453,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "passion-n-ginger",
         name: "PASSION N GINGER",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Zesty mix of passion fruit and ginger with popping boba",
         quantity: "Glass",
         price: "₹169",
@@ -457,7 +461,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "green-apple-hibiscus",
         name: "GREEN APPLE & HIBISCOUS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description:
           "Refreshing fruit tea infused with green apple and hibiscus",
         quantity: "Glass",
@@ -466,7 +470,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "berrylicious",
         name: "BERRYLICIOUS",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Sweet mixed berry fruit tea with popping boba",
         quantity: "Glass",
         price: "₹169",
@@ -474,7 +478,7 @@ export const menuData: MenuCategory[] = [
       {
         id: "coconut-rose",
         name: "COCONUT ROSE",
-        image: "/placeholder.svg?height=300&width=300",
+        image: "",
         description: "Delicate coconut and rose fusion with popping boba",
         quantity: "Glass",
         price: "₹169",
@@ -516,7 +520,7 @@ export const menuData: MenuCategory[] = [
       // {
       //   id: "meal-combo",
       //   name: "MEAL COMBO",
-      //   image: "/placeholder.svg?height=300&width=300",
+      //   image: "",
       //   description: "Add Paneer Chilli + Drinks with Momos/Noodles",
       //   price: "+₹100",
       // },

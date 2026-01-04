@@ -39,7 +39,7 @@ export function LocationListItem({
             <img
               alt={name}
               className="w-full h-full object-cover"
-              src={image || "/placeholder.svg?height=200&width=400"}
+              src={image || "/placeholder.jpg?height=200&width=400"}
               width={400}
               height={200}
             />

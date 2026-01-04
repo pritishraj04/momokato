@@ -49,7 +49,7 @@ export function MenuItemCard({
         <img
           alt={item.name}
           className="w-full h-48 md:h-56 object-cover transition-transform duration-300 hover:scale-105"
-          src={item.image || "/placeholder.svg"}
+          src={item.image || "/placeholder.jpg"}
           width={300}
           height={224}
         />

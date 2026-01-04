@@ -116,7 +116,7 @@ export function CustomerFavorites() {
             onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
             className="pb-6"
             style={{ width: "100%" }}
-            // Remove Swiper's built-in pagination
+          // Remove Swiper's built-in pagination
           >
             {items.map((item, index) => (
               <SwiperSlide
@@ -154,7 +154,7 @@ export function CustomerFavorites() {
                     </div>
                     <Image
                       fill
-                      src={item.image || "/placeholder.svg"}
+                      src={item.image || "/placeholder.jpg"}
                       alt={item.name}
                       className="object-contain transition-transform duration-300 pointer-events-none"
                       draggable={false}
@@ -199,11 +199,10 @@ export function CustomerFavorites() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
-                  currentIndex === index
+                className={`h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${currentIndex === index
                     ? "bg-orange-500 w-8"
                     : "bg-gray-300 hover:bg-gray-400 w-2"
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
