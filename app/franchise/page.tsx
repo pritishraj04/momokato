@@ -43,7 +43,7 @@ export default function FranchisePage() {
             </h1>
             <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
               Join the Momo Kato family and be part of our growing success
-              story. Low investment, high returns, and full support!
+              story. Low investment, high returns, and complete support!
             </p>
             {/* Franchise Download Button */}
             <div className="mt-4 flex items-center justify-center">

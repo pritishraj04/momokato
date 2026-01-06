@@ -19,12 +19,12 @@ export interface MenuCategory {
 
 export const menuData: MenuCategory[] = [
   {
-    id: "veg-momos",
-    title: "VEG MOMOS",
+    id: "veg-momo",
+    title: "VEG MOMO",
     items: [
       {
         id: "veg-fried",
-        name: "VEG FRIED MOMOS",
+        name: "VEG FRIED MOMO",
         image: "/images/menu/food/veg-fried-momo.jpg",
         description: "Crispy golden momos with a spiced vegetable filling",
         quantity: "6 pcs",
@@ -32,7 +32,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "veg-steamed",
-        name: "VEG STEAMED MOMOS",
+        name: "VEG STEAMED MOMO",
         tag: "popular",
         image: "/images/menu/food/veg-steamed-momo.jpg",
         description:
@@ -43,7 +43,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "veg-tandoori",
-        name: "VEG TANDOORI MOMOS",
+        name: "VEG TANDOORI MOMO",
         tag: "bestseller",
         // image: "/images/menu/food/veg-tandoori-momo.jpg",
         image: "",
@@ -53,7 +53,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "veg-kurkure",
-        name: "VEG KURKURE MOMOS",
+        name: "VEG KURKURE MOMO",
         image: "/images/menu/food/veg-kurkure-momo.jpg",
         description: "Crispy coated momos with a crunchy twist",
         quantity: "6 pcs",
@@ -61,7 +61,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "veg-schezwan",
-        name: "VEG SCHEZWAN MOMOS",
+        name: "VEG SCHEZWAN MOMO",
         image: "/images/menu/food/veg-schezwan-momo.jpg",
         description: "Fiery momos tossed in tangy schezwan sauce",
         quantity: "6 pcs",
@@ -88,12 +88,12 @@ export const menuData: MenuCategory[] = [
     ],
   },
   {
-    id: "paneer-momos",
-    title: "PANEER MOMOS",
+    id: "paneer-momo",
+    title: "PANEER MOMO",
     items: [
       {
         id: "paneer-fried",
-        name: "PANEER FRIED MOMOS",
+        name: "PANEER FRIED MOMO",
         image: "/images/menu/food/paneer-fried-momo.jpg",
         description:
           "Crispy fried momos stuffed with spiced cottage cheese filling",
@@ -102,7 +102,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "paneer-steamed",
-        name: "PANEER STEAMED MOMOS",
+        name: "PANEER STEAMED MOMO",
         image: "/images/menu/food/paneer-steamed-momo.jpg",
         description: "Soft steamed momos filled with fresh paneer and herbs",
         quantity: "6 pcs",
@@ -110,7 +110,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "paneer-tandoori",
-        name: "PANEER TANDOORI MOMOS",
+        name: "PANEER TANDOORI MOMO",
         tag: "bestseller",
         image: "/images/menu/food/paneer-tandoori-momo.jpg",
         description: "Tandoor-grilled paneer momos infused with smoky spices",
@@ -120,7 +120,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "paneer-kurkure",
-        name: "PANEER KURKURE MOMOS",
+        name: "PANEER KURKURE MOMO",
         image: "/images/menu/food/paneer-kurkure-momo.jpg",
         description: "Crispy coated momos with delicious paneer filling",
         quantity: "6 pcs",
@@ -129,7 +129,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "paneer-schezwan",
-        name: "PANEER SCHEZWAN MOMOS",
+        name: "PANEER SCHEZWAN MOMO",
         image: "/images/menu/food/paneer-schezwan-momo.jpg",
         description: "Paneer momos tossed in spicy schezwan sauce",
         quantity: "6 pcs",
@@ -156,11 +156,11 @@ export const menuData: MenuCategory[] = [
   },
   {
     id: "cheese-corn-momos",
-    title: "CHEESE CORN MOMOS",
+    title: "CHEESE CORN MOMO",
     items: [
       {
         id: "cheese-corn-fried",
-        name: "CHEESE CORN FRIED MOMOS",
+        name: "CHEESE CORN FRIED MOMO",
         image: "/images/menu/food/cheese-corn-fried-momo.jpg",
         description: "Crispy momos filled with melted cheese and sweet corn",
         quantity: "6 pcs",
@@ -168,7 +168,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "cheese-steamed",
-        name: "CHEESE CORN STEAMED MOMOS",
+        name: "CHEESE CORN STEAMED MOMO",
         image: "/images/menu/food/cheese-steamed-momo.jpg",
         description: "Soft steamed momos with rich and creamy cheese filling",
         quantity: "6 pcs",
@@ -176,7 +176,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "cheese-tandoori",
-        name: "CHEESE CORN TANDOORI MOMOS",
+        name: "CHEESE CORN TANDOORI MOMO",
         tag: "bestseller",
         // image: "/images/menu/food/cheese-tandoori-momo.jpg",
         image: "",
@@ -186,7 +186,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "cheese-kurkure",
-        name: "CHEESE CORN KURKURE MOMOS",
+        name: "CHEESE CORN KURKURE MOMO",
         image: "/images/menu/food/cheese-kurkure-momo.jpg",
         description: "Crunchy momos with gooey cheese filling inside",
         quantity: "6 pcs",
@@ -194,7 +194,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "cheese-schezwan",
-        name: "CHEESE CORN SCHEZWAN MOMOS",
+        name: "CHEESE CORN SCHEZWAN MOMO",
         image: "/images/menu/food/cheese-schezwan-momo.jpg",
         description: "Cheesy momos tossed in spicy schezwan sauce",
         quantity: "6 pcs",
@@ -219,12 +219,12 @@ export const menuData: MenuCategory[] = [
     ],
   },
   {
-    id: "non-veg-momos",
-    title: "NON-VEG MOMOS",
+    id: "non-veg-momo",
+    title: "NON-VEG MOMO",
     items: [
       {
         id: "chicken-fried",
-        name: "CHICKEN FRIED MOMOS",
+        name: "CHICKEN FRIED MOMO",
         image: "/images/menu/food/chicken-fried-momo.jpg",
         description: "Golden fried momos stuffed with spicy minced chicken",
         quantity: "6 pcs",
@@ -233,7 +233,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "chicken-steamed",
-        name: "CHICKEN STEAMED MOMOS",
+        name: "CHICKEN STEAMED MOMO",
         image: "/images/menu/food/chicken-steamed-momo.jpg",
         description: "Juicy chicken filling wrapped in soft steamed dough",
         quantity: "6 pcs",
@@ -241,7 +241,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "chicken-tandoori",
-        name: "CHICKEN TANDOORI MOMOS",
+        name: "CHICKEN TANDOORI MOMO",
         tag: "bestseller",
         image: "/images/menu/food/chicken-tandoori-momo.jpg",
         description: "Smoky tandoor-grilled momos with spiced chicken filling",
@@ -260,7 +260,7 @@ export const menuData: MenuCategory[] = [
       },
       {
         id: "chicken-schezwan",
-        name: "CHICKEN SCHEZWAN MOMOS",
+        name: "CHICKEN SCHEZWAN MOMO",
         // image: "/images/menu/food/chicken-schezwan-momo.jpg",
         image: "",
         description: "Spicy and tangy momos tossed in signature schezwan sauce",

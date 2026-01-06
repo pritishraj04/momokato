@@ -182,7 +182,7 @@ export default function FindUsPage() {
                     height={250}
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Quick Phone Orders</h3>
+                <h3 className="text-xl font-bold mb-2">NEW10: for First Pickup Orders</h3>
                 <p className="text-white/90 text-sm">
                   Call ahead and skip the wait. Perfect for pickup orders!
                 </p>
